@@ -99,3 +99,13 @@
 {"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/monthly-series?months=6 HTTP/1.1 404 97 - 1.828 ms","timestamp":"2026-07-25T20:58:36.483Z"}
 {"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/transactions?wallet_type=reward HTTP/1.1 404 105 - 0.569 ms","timestamp":"2026-07-25T20:58:36.488Z"}
 {"level":"http","message":"::ffff:192.168.54.43 - GET /api/reports/investment HTTP/1.1 404 85 - 0.605 ms","timestamp":"2026-07-25T20:58:38.718Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T21:09:56.291Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-07-25T21:14:43.735Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-07-25T21:14:46.707Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-07-25T21:14:46.721Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-07-25T21:14:48.472Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-07-25T21:14:51.360Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-07-25T21:14:51.365Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+919111100999","timestamp":"2026-07-25T21:15:50.166Z"}
+{"level":"info","message":"auth.register.success","mobile":"+919111100999","timestamp":"2026-07-25T21:15:50.938Z","userId":"6a652786a29fecacbd9335e1"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1046 - 913.937 ms","timestamp":"2026-07-25T21:15:50.998Z"}

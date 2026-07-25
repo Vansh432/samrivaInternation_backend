@@ -1,0 +1,11 @@
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:14:52.287Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:16:48.572Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:17:22.928Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:20:58.655Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:21:25.307Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:33:48.943Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:36:01.505Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:39:37.776Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:40:32.091Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:41:25.938Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:42:25.041Z"}

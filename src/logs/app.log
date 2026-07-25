@@ -1,0 +1,101 @@
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:14:52.287Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:16:48.572Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:17:22.928Z"}
+{"level":"http","message":"::1 - POST /api/auth/register HTTP/1.1 422 220 - 27.147 ms","timestamp":"2026-07-25T20:20:45.406Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/nope HTTP/1.1 404 71 - 1.328 ms","timestamp":"2026-07-25T20:20:45.564Z"}
+{"level":"warn","message":"Not authenticated","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-07-25T20:20:45.702Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 58 - 5.777 ms","timestamp":"2026-07-25T20:20:45.705Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:20:58.655Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:21:25.307Z"}
+{"level":"warn","message":"Not authenticated","method":"PATCH","path":"/api/user/profile","statusCode":401,"timestamp":"2026-07-25T20:30:16.035Z"}
+{"level":"http","message":"::1 - PATCH /api/user/profile HTTP/1.1 401 58 - 19.479 ms","timestamp":"2026-07-25T20:30:16.053Z"}
+{"level":"warn","message":"Not authenticated","method":"POST","path":"/api/user/kyc","statusCode":401,"timestamp":"2026-07-25T20:30:16.153Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/user/kyc HTTP/1.1 401 58 - 1.363 ms","timestamp":"2026-07-25T20:30:16.155Z"}
+{"level":"warn","message":"Invalid or expired token","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-07-25T20:30:16.245Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 65 - 2.185 ms","timestamp":"2026-07-25T20:30:16.248Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:33:48.943Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:39:37.776Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:40:32.091Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:41:25.938Z"}
+{"error":"querySrv ECONNREFUSED _mongodb._tcp.cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-07-25T20:42:25.041Z"}
+{"host":"127.0.0.1","level":"info","message":"MongoDB connected","timestamp":"2026-07-25T20:43:33.131Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-07-25T20:43:33.151Z"}
+{"host":"127.0.0.1","level":"info","message":"MongoDB connected","timestamp":"2026-07-25T20:44:39.163Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-07-25T20:44:39.212Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/nope HTTP/1.1 404 71 - 27.388 ms","timestamp":"2026-07-25T20:44:43.023Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+919876500362","timestamp":"2026-07-25T20:45:21.842Z"}
+{"level":"info","message":"auth.register.success","mobile":"+919876500362","timestamp":"2026-07-25T20:45:22.645Z","userId":"6a6520627e1b4ea6312c66f8"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1060 - 897.842 ms","timestamp":"2026-07-25T20:45:22.655Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 592 - 20.223 ms","timestamp":"2026-07-25T20:45:23.313Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919876500362","timestamp":"2026-07-25T20:45:23.422Z"}
+{"level":"info","message":"auth.login.success","mobile":"+919876500362","timestamp":"2026-07-25T20:45:23.582Z","userId":"6a6520627e1b4ea6312c66f8"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/login HTTP/1.1 200 1094 - 167.656 ms","timestamp":"2026-07-25T20:45:23.585Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919876500362","timestamp":"2026-07-25T20:45:23.682Z"}
+{"level":"warn","message":"auth.login.badPassword","mobile":"+919876500362","timestamp":"2026-07-25T20:45:23.797Z"}
+{"level":"warn","message":"Invalid mobile number or password","method":"POST","path":"/api/auth/login","statusCode":401,"timestamp":"2026-07-25T20:45:23.800Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/login HTTP/1.1 401 74 - 121.581 ms","timestamp":"2026-07-25T20:45:23.803Z"}
+{"level":"info","message":"auth.refresh.success","timestamp":"2026-07-25T20:45:23.912Z","userId":"6a6520627e1b4ea6312c66f8"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/refresh HTTP/1.1 200 1093 - 7.875 ms","timestamp":"2026-07-25T20:45:23.914Z"}
+{"level":"info","message":"users.updateProfile.attempt","timestamp":"2026-07-25T20:45:24.026Z","userId":"6a6520627e1b4ea6312c66f8"}
+{"level":"info","message":"users.updateProfile.success","timestamp":"2026-07-25T20:45:24.063Z","userId":"6a6520627e1b4ea6312c66f8"}
+{"level":"http","message":"::ffff:127.0.0.1 - PATCH /api/user/profile HTTP/1.1 200 761 - 60.968 ms","timestamp":"2026-07-25T20:45:24.066Z"}
+{"level":"info","message":"users.submitKyc.attempt","timestamp":"2026-07-25T20:45:24.196Z","userId":"6a6520627e1b4ea6312c66f8"}
+{"level":"info","message":"users.submitKyc.success","timestamp":"2026-07-25T20:45:24.211Z","userId":"6a6520627e1b4ea6312c66f8"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/user/kyc HTTP/1.1 200 1091 - 31.252 ms","timestamp":"2026-07-25T20:45:24.214Z"}
+{"level":"info","message":"auth.logout.success","timestamp":"2026-07-25T20:45:24.347Z","userId":"6a6520627e1b4ea6312c66f8"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/logout HTTP/1.1 200 61 - 15.170 ms","timestamp":"2026-07-25T20:45:24.349Z"}
+{"level":"warn","message":"Session expired, please login again","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-07-25T20:45:24.446Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 76 - 6.201 ms","timestamp":"2026-07-25T20:45:24.448Z"}
+{"level":"warn","message":"auth.refresh.stale","timestamp":"2026-07-25T20:45:24.570Z","userId":"6a6520627e1b4ea6312c66f8"}
+{"level":"warn","message":"Invalid or expired refresh token","method":"POST","path":"/api/auth/refresh","statusCode":401,"timestamp":"2026-07-25T20:45:24.571Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/refresh HTTP/1.1 401 73 - 9.234 ms","timestamp":"2026-07-25T20:45:24.573Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+919876500362","timestamp":"2026-07-25T20:45:24.849Z"}
+{"level":"warn","message":"auth.register.duplicate","mobile":"+919876500362","timestamp":"2026-07-25T20:45:24.855Z"}
+{"level":"warn","message":"Mobile number is already registered","method":"POST","path":"/api/auth/register","statusCode":409,"timestamp":"2026-07-25T20:45:24.856Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 409 76 - 8.368 ms","timestamp":"2026-07-25T20:45:24.858Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+919876501273","timestamp":"2026-07-25T20:45:39.800Z"}
+{"level":"info","message":"auth.register.success","mobile":"+919876501273","timestamp":"2026-07-25T20:45:40.124Z","userId":"6a6520747e1b4ea6312c670b"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1094 - 329.130 ms","timestamp":"2026-07-25T20:45:40.128Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+919999999999","timestamp":"2026-07-25T20:45:40.410Z"}
+{"level":"warn","message":"auth.register.invalidSponsor","mobile":"+919999999999","sponsorId":"BOGUS123","timestamp":"2026-07-25T20:45:40.435Z"}
+{"level":"warn","message":"Invalid sponsor ID","method":"POST","path":"/api/auth/register","statusCode":400,"timestamp":"2026-07-25T20:45:40.441Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 400 59 - 34.093 ms","timestamp":"2026-07-25T20:45:40.443Z"}
+{"host":"127.0.0.1","level":"info","message":"MongoDB connected","timestamp":"2026-07-25T20:48:37.000Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-07-25T20:48:37.028Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/nope HTTP/1.1 404 71 - 39.832 ms","timestamp":"2026-07-25T20:48:43.182Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+917906837086","timestamp":"2026-07-25T20:55:04.618Z"}
+{"level":"info","message":"auth.register.success","mobile":"+917906837086","timestamp":"2026-07-25T20:55:05.164Z","userId":"6a6522a97e1b4ea6312c6711"}
+{"level":"http","message":"::ffff:192.168.54.43 - POST /api/auth/register HTTP/1.1 201 1046 - 620.748 ms","timestamp":"2026-07-25T20:55:05.215Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+917906837086","timestamp":"2026-07-25T20:55:28.572Z"}
+{"level":"info","message":"auth.login.success","mobile":"+917906837086","timestamp":"2026-07-25T20:55:28.830Z","userId":"6a6522a97e1b4ea6312c6711"}
+{"level":"http","message":"::ffff:192.168.54.43 - POST /api/auth/login HTTP/1.1 200 1080 - 266.385 ms","timestamp":"2026-07-25T20:55:28.838Z"}
+{"level":"info","message":"users.updateProfile.attempt","timestamp":"2026-07-25T20:55:56.064Z","userId":"6a6522a97e1b4ea6312c6711"}
+{"level":"info","message":"users.updateProfile.success","timestamp":"2026-07-25T20:55:56.098Z","userId":"6a6522a97e1b4ea6312c6711"}
+{"level":"http","message":"::ffff:192.168.54.43 - PATCH /api/user/profile HTTP/1.1 200 803 - 151.873 ms","timestamp":"2026-07-25T20:55:56.103Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/auth/me HTTP/1.1 200 800 - 11.178 ms","timestamp":"2026-07-25T20:55:56.149Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/investments/summary HTTP/1.1 404 86 - 5.937 ms","timestamp":"2026-07-25T20:55:56.967Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/team/stats HTTP/1.1 404 77 - 41.001 ms","timestamp":"2026-07-25T20:55:57.183Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/balances HTTP/1.1 404 82 - 0.611 ms","timestamp":"2026-07-25T20:55:57.297Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/investments HTTP/1.1 404 78 - 0.915 ms","timestamp":"2026-07-25T20:56:15.536Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/user/kyc HTTP/1.1 404 75 - 1.726 ms","timestamp":"2026-07-25T20:56:29.115Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/bonuses/fast-start HTTP/1.1 404 85 - 0.907 ms","timestamp":"2026-07-25T20:56:46.707Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/bonuses/retention HTTP/1.1 404 84 - 1.957 ms","timestamp":"2026-07-25T20:56:46.717Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/bonuses/leadership-override HTTP/1.1 404 94 - 1.070 ms","timestamp":"2026-07-25T20:56:46.723Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/investments HTTP/1.1 404 78 - 16.590 ms","timestamp":"2026-07-25T20:57:41.463Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/team/direct HTTP/1.1 404 78 - 1.046 ms","timestamp":"2026-07-25T20:57:55.163Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/team/stats HTTP/1.1 404 77 - 2.467 ms","timestamp":"2026-07-25T20:57:55.259Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/team/tree HTTP/1.1 404 76 - 0.752 ms","timestamp":"2026-07-25T20:57:57.837Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/team/tree HTTP/1.1 404 76 - 0.600 ms","timestamp":"2026-07-25T20:58:21.413Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/transactions HTTP/1.1 404 86 - 0.351 ms","timestamp":"2026-07-25T20:58:33.082Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/balances HTTP/1.1 404 82 - 0.704 ms","timestamp":"2026-07-25T20:58:33.086Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/monthly-series?months=6 HTTP/1.1 404 97 - 0.700 ms","timestamp":"2026-07-25T20:58:33.092Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/balances HTTP/1.1 404 82 - 0.603 ms","timestamp":"2026-07-25T20:58:34.976Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/monthly-series?months=6 HTTP/1.1 404 97 - 3.576 ms","timestamp":"2026-07-25T20:58:34.997Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/transactions?wallet_type=commission HTTP/1.1 404 109 - 1.039 ms","timestamp":"2026-07-25T20:58:35.011Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/balances HTTP/1.1 404 82 - 0.424 ms","timestamp":"2026-07-25T20:58:35.895Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/monthly-series?months=6 HTTP/1.1 404 97 - 1.247 ms","timestamp":"2026-07-25T20:58:35.913Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/transactions?wallet_type=roi HTTP/1.1 404 102 - 3.398 ms","timestamp":"2026-07-25T20:58:35.922Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/balances HTTP/1.1 404 82 - 0.421 ms","timestamp":"2026-07-25T20:58:36.472Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/monthly-series?months=6 HTTP/1.1 404 97 - 1.828 ms","timestamp":"2026-07-25T20:58:36.483Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/wallet/transactions?wallet_type=reward HTTP/1.1 404 105 - 0.569 ms","timestamp":"2026-07-25T20:58:36.488Z"}
+{"level":"http","message":"::ffff:192.168.54.43 - GET /api/reports/investment HTTP/1.1 404 85 - 0.605 ms","timestamp":"2026-07-25T20:58:38.718Z"}

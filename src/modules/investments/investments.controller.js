@@ -2,6 +2,16 @@ import { asyncHandler } from '../../shared/utils/asyncHandler.js';
 import { sendSuccess } from '../../shared/responses/response.js';
 import * as investmentsService from './investments.service.js';
 
+export const quote = asyncHandler(async (req, res) => {
+  const { planType, units, tenureMonths } = req.query;
+  const data = await investmentsService.getInvestmentQuote({
+    planType,
+    units: Number(units),
+    tenureMonths: Number(tenureMonths),
+  });
+  return sendSuccess(res, { message: 'Investment quote', data });
+});
+
 export const create = asyncHandler(async (req, res) => {
   const investment = await investmentsService.createUserInvestment(req.user, req.body);
   return sendSuccess(res, { statusCode: 201, message: 'Investment created', data: { investment } });

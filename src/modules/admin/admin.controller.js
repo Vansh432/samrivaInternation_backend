@@ -47,3 +47,24 @@ export const holdKyc = asyncHandler(async (req, res) => {
   const user = await adminService.holdKyc(req.user, req.params.id, req.body.reason);
   return sendSuccess(res, { message: 'KYC put on hold', data: { user } });
 });
+
+export const pendingInvestments = asyncHandler(async (req, res) => {
+  const items = await adminService.getPendingInvestments();
+  return sendSuccess(res, { message: 'Pending investments', data: { items } });
+});
+
+export const listInvestments = asyncHandler(async (req, res) => {
+  const { status, planType, search, page, limit } = req.query;
+  const result = await adminService.getInvestments({ status, planType, search, page, limit });
+  return sendSuccess(res, { message: 'Investments list', data: result });
+});
+
+export const approveInvestment = asyncHandler(async (req, res) => {
+  const investment = await adminService.approveInvestment(req.user, req.params.id);
+  return sendSuccess(res, { message: 'Investment approved', data: { investment } });
+});
+
+export const rejectInvestment = asyncHandler(async (req, res) => {
+  const investment = await adminService.rejectInvestment(req.user, req.params.id, req.body.reason);
+  return sendSuccess(res, { message: 'Investment rejected', data: { investment } });
+});

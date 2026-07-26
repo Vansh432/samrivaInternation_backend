@@ -1,6 +1,7 @@
 import { logger } from '../../config/logger.js';
 import { AppError } from '../../shared/errors/AppError.js';
-import { KYC_STATUS } from '../../shared/constants/index.js';
+import { logEvent } from '../../shared/utils/systemLog.js';
+import { KYC_STATUS, INVESTMENT_STATUS } from '../../shared/constants/index.js';
 import {
   listUsers,
   countUsers,
@@ -8,6 +9,13 @@ import {
   updateUserById,
   getDashboardCounts,
 } from '../users/users.repository.js';
+import {
+  listInvestmentsByStatus,
+  findInvestmentById,
+  listInvestmentsAdmin,
+  countInvestmentsAdmin,
+} from '../investments/investments.repository.js';
+import { addMonths, toInvestmentJSON } from '../investments/investments.service.js';
 
 // listUsers/getKycQueue use .lean() for read performance, which bypasses the User model's
 // toJSON transform (the one that turns _id -> id and strips __v/password everywhere else).
@@ -110,6 +118,104 @@ export const rejectKyc = async (adminUser, userId, reason) => {
 
   logger.info('admin.rejectKyc', { adminId: adminUser._id.toString(), userId });
   return user;
+};
+
+export const getPendingInvestments = async () => {
+  const items = await listInvestmentsByStatus(INVESTMENT_STATUS.PENDING_VERIFICATION);
+  return items.map(toInvestmentJSON);
+};
+
+export const getInvestments = async ({ status, planType, search, page = 1, limit = 20 }) => {
+  const filter = {};
+  if (status) filter.status = status;
+  if (planType) filter.planType = planType;
+
+  if (search) {
+    const matchingUsers = await listUsers({
+      filter: {
+        $or: [
+          { mobile: { $regex: search, $options: 'i' } },
+          { fullName: { $regex: search, $options: 'i' } },
+        ],
+      },
+      limit: 200,
+    });
+    filter.$or = [
+      { certificateNumber: { $regex: search, $options: 'i' } },
+      { transactionId: { $regex: search, $options: 'i' } },
+      { user: { $in: matchingUsers.map((u) => u._id) } },
+    ];
+  }
+
+  const pageNum = Number(page) || 1;
+  const limitNum = Number(limit) || 20;
+  const skip = (pageNum - 1) * limitNum;
+
+  const [items, total] = await Promise.all([
+    listInvestmentsAdmin({ filter, skip, limit: limitNum }),
+    countInvestmentsAdmin(filter),
+  ]);
+
+  return {
+    items: items.map(toInvestmentJSON),
+    total,
+    page: pageNum,
+    limit: limitNum,
+    totalPages: Math.ceil(total / limitNum) || 1,
+  };
+};
+
+export const approveInvestment = async (adminUser, investmentId) => {
+  const investment = await findInvestmentById(investmentId);
+  if (!investment) throw new AppError('Investment not found', 404);
+  if (investment.status !== INVESTMENT_STATUS.PENDING_VERIFICATION) {
+    throw new AppError('Investment is not pending verification', 400);
+  }
+
+  const startDate = new Date();
+  investment.status = INVESTMENT_STATUS.ACTIVE;
+  investment.startDate = startDate;
+  investment.maturityDate = addMonths(startDate, investment.tenureMonths);
+  investment.reviewedBy = adminUser._id;
+  investment.reviewedAt = new Date();
+  investment.rejectionReason = undefined;
+  await investment.save();
+
+  await logEvent({
+    type: 'investment',
+    action: 'investment.approved',
+    message: `Investment ${investment.certificateNumber} approved — tenure started`,
+    user: investment.user,
+    actor: adminUser._id,
+    meta: { investmentId: investment._id.toString(), maturityDate: investment.maturityDate },
+  });
+
+  return toInvestmentJSON(investment);
+};
+
+export const rejectInvestment = async (adminUser, investmentId, reason) => {
+  const investment = await findInvestmentById(investmentId);
+  if (!investment) throw new AppError('Investment not found', 404);
+  if (investment.status !== INVESTMENT_STATUS.PENDING_VERIFICATION) {
+    throw new AppError('Investment is not pending verification', 400);
+  }
+
+  investment.status = INVESTMENT_STATUS.REJECTED;
+  investment.reviewedBy = adminUser._id;
+  investment.reviewedAt = new Date();
+  investment.rejectionReason = reason;
+  await investment.save();
+
+  await logEvent({
+    type: 'investment',
+    action: 'investment.rejected',
+    message: `Investment ${investment.certificateNumber} rejected`,
+    user: investment.user,
+    actor: adminUser._id,
+    meta: { investmentId: investment._id.toString(), reason },
+  });
+
+  return toInvestmentJSON(investment);
 };
 
 export const holdKyc = async (adminUser, userId, reason) => {

@@ -8,6 +8,9 @@ import {
   kycActionValidation,
   rejectKycValidation,
   holdKycValidation,
+  investmentActionValidation,
+  rejectInvestmentValidation,
+  listInvestmentsAdminValidation,
 } from './admin.validation.js';
 import { validate } from '../../middleware/validate.js';
 import { protect, authorize } from '../../middleware/auth.js';
@@ -29,5 +32,10 @@ router.get('/kyc-queue', adminController.kycQueue);
 router.post('/kyc/:id/approve', kycActionValidation, validate, adminController.approveKyc);
 router.post('/kyc/:id/reject', rejectKycValidation, validate, adminController.rejectKyc);
 router.post('/kyc/:id/hold', holdKycValidation, validate, adminController.holdKyc);
+
+router.get('/investments', listInvestmentsAdminValidation, validate, adminController.listInvestments);
+router.get('/investments/pending', adminController.pendingInvestments);
+router.post('/investments/:id/approve', investmentActionValidation, validate, adminController.approveInvestment);
+router.post('/investments/:id/reject', rejectInvestmentValidation, validate, adminController.rejectInvestment);
 
 export default router;

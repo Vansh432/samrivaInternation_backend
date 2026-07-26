@@ -3,4 +3,5 @@ export const PAYMENT_MODES = {
   NETBANKING: 'netbanking',
   RTGS: 'rtgs',
   NEFT: 'neft',
+  CASH: 'cash',
 };

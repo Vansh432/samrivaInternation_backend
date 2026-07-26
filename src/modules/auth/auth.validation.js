@@ -12,8 +12,8 @@ export const registerValidation = [
     .optional()
     .isIn([ROLES.INVESTOR, ROLES.WEALTH_PARTNER]).withMessage('Role must be investor or wealth_partner'),
   body('sponsorId')
-    .optional({ checkFalsy: true })
-    .isString().trim(),
+    .trim()
+    .notEmpty().withMessage('Sponsor ID is required'),
 ];
 
 export const loginValidation = [

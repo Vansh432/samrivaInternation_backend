@@ -1,0 +1,33 @@
+import { Router } from 'express';
+import * as adminController from './admin.controller.js';
+import {
+  listUsersValidation,
+  userIdParamValidation,
+  updateRoleValidation,
+  updateStatusValidation,
+  kycActionValidation,
+  rejectKycValidation,
+  holdKycValidation,
+} from './admin.validation.js';
+import { validate } from '../../middleware/validate.js';
+import { protect, authorize } from '../../middleware/auth.js';
+import { ROLES } from '../../shared/constants/index.js';
+
+const router = Router();
+
+router.use(protect, authorize(ROLES.ADMIN, ROLES.SUPER_ADMIN));
+
+router.get('/dashboard', adminController.dashboard);
+
+router.get('/users', listUsersValidation, validate, adminController.listUsers);
+router.get('/users/:id', userIdParamValidation, validate, adminController.getUser);
+router.patch('/users/:id/status', updateStatusValidation, validate, adminController.updateStatus);
+// Role changes are the most sensitive lever a "controls everything" admin has — restrict to super_admin only.
+router.patch('/users/:id/role', authorize(ROLES.SUPER_ADMIN), updateRoleValidation, validate, adminController.updateRole);
+
+router.get('/kyc-queue', adminController.kycQueue);
+router.post('/kyc/:id/approve', kycActionValidation, validate, adminController.approveKyc);
+router.post('/kyc/:id/reject', rejectKycValidation, validate, adminController.rejectKyc);
+router.post('/kyc/:id/hold', holdKycValidation, validate, adminController.holdKyc);
+
+export default router;

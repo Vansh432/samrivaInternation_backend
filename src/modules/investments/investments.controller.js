@@ -1,0 +1,23 @@
+import { asyncHandler } from '../../shared/utils/asyncHandler.js';
+import { sendSuccess } from '../../shared/responses/response.js';
+import * as investmentsService from './investments.service.js';
+
+export const create = asyncHandler(async (req, res) => {
+  const investment = await investmentsService.createUserInvestment(req.user, req.body);
+  return sendSuccess(res, { statusCode: 201, message: 'Investment created', data: { investment } });
+});
+
+export const list = asyncHandler(async (req, res) => {
+  const investments = await investmentsService.getUserInvestments(req.user._id);
+  return sendSuccess(res, { message: 'Investments', data: { investments } });
+});
+
+export const getById = asyncHandler(async (req, res) => {
+  const investment = await investmentsService.getUserInvestmentById(req.user._id, req.params.id);
+  return sendSuccess(res, { message: 'Investment detail', data: { investment } });
+});
+
+export const summary = asyncHandler(async (req, res) => {
+  const data = await investmentsService.getUserInvestmentSummary(req.user._id);
+  return sendSuccess(res, { message: 'Investment summary', data });
+});

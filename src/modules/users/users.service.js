@@ -1,6 +1,7 @@
 import { logger } from '../../config/logger.js';
 import { KYC_STATUS } from '../../shared/constants/index.js';
-import { updateUserById } from './users.repository.js';
+import { AppError } from '../../shared/errors/AppError.js';
+import { findUserById, updateUserById } from './users.repository.js';
 
 export const updateProfile = async (userId, { fullName, email, dob, address }) => {
   logger.info('users.updateProfile.attempt', { userId: userId.toString() });
@@ -25,6 +26,17 @@ export const updateProfile = async (userId, { fullName, email, dob, address }) =
 
 export const submitKyc = async (userId, { pan, aadhaar, bank, nominee, addressProofUrl, selfieUrl }) => {
   logger.info('users.submitKyc.attempt', { userId: userId.toString() });
+
+  // Once a submission is in front of an admin (or already approved), the investor cannot
+  // edit or resubmit — only a rejection/hold from admin re-opens this for them.
+  const existing = await findUserById(userId);
+  if (!existing) throw new AppError('User not found', 404);
+  if (existing.kyc.status === KYC_STATUS.SUBMITTED) {
+    throw new AppError('KYC is already submitted and awaiting review', 400);
+  }
+  if (existing.kyc.status === KYC_STATUS.APPROVED) {
+    throw new AppError('KYC is already approved and cannot be resubmitted', 400);
+  }
 
   const update = {
     kyc: {

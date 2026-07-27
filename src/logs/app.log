@@ -2849,3 +2849,7 @@
 {"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users?search=919555500001&limit=8 HTTP/1.1 200 889 - 200.524 ms","timestamp":"2026-07-27T19:50:35.683Z"}
 {"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 205.442 ms","timestamp":"2026-07-27T19:50:37.040Z"}
 {"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 218.301 ms","timestamp":"2026-07-27T19:50:37.057Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-07-27T20:06:39.335Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-07-27T20:06:40.557Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-07-27T20:06:40.908Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-07-27T20:06:40.931Z"}

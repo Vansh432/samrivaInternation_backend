@@ -21,7 +21,7 @@ const issueTokens = (user) => ({
 // A sponsor ID only becomes usable to build a team once its owner has an approved KYC
 // and has actually completed an investment (active/matured) — not merely registered.
 export const isSponsorEligible = async (user) =>
-  user.kyc.status === KYC_STATUS.APPROVED && !!(await existsCompletedInvestmentForUser(user._id));
+  user.kyc.status === KYC_STATUS.APPROVED && !!(await existsCompletedInvestmentForUser(user._id)) && user?.status=== USER_STATUS.ACTIVE;
 
 const buildUniqueReferralCode = async () => {
   for (let attempt = 0; attempt < 5; attempt++) {

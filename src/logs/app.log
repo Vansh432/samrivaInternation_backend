@@ -2695,3 +2695,157 @@
 {"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-07-27T19:10:16.987Z"}
 {"level":"info","message":"Cron jobs scheduled","timestamp":"2026-07-27T19:10:17.103Z"}
 {"level":"info","message":"Server is running on port 7000","timestamp":"2026-07-27T19:10:17.112Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-07-27T19:10:31.523Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-07-27T19:10:32.380Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-07-27T19:10:32.503Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-07-27T19:10:32.510Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 885 - 98.372 ms","timestamp":"2026-07-27T19:10:49.975Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/team/summary HTTP/1.1 304 - - 219.024 ms","timestamp":"2026-07-27T19:10:57.438Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 72.470 ms","timestamp":"2026-07-27T19:10:59.077Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/team/summary HTTP/1.1 304 - - 218.336 ms","timestamp":"2026-07-27T19:10:59.215Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/team/tree HTTP/1.1 200 1118 - 406.003 ms","timestamp":"2026-07-27T19:11:06.119Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/team/summary HTTP/1.1 304 - - 245.558 ms","timestamp":"2026-07-27T19:11:42.872Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 125.452 ms","timestamp":"2026-07-27T19:12:11.772Z"}
+{"level":"warn","message":"Invalid or expired token","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-07-27T19:12:22.603Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 65 - 36.464 ms","timestamp":"2026-07-27T19:12:22.622Z"}
+{"level":"warn","message":"Invalid or expired token","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-07-27T19:12:22.648Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 65 - 6.095 ms","timestamp":"2026-07-27T19:12:22.653Z"}
+{"level":"info","message":"auth.refresh.success","timestamp":"2026-07-27T19:12:22.986Z","userId":"6a65af175e1ad8c0604141b8"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/refresh HTTP/1.1 200 1112 - 121.594 ms","timestamp":"2026-07-27T19:12:22.989Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 679 - 135.225 ms","timestamp":"2026-07-27T19:12:23.188Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 141.124 ms","timestamp":"2026-07-27T19:12:23.331Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users?search=vanshdep&limit=8 HTTP/1.1 200 102 - 189.740 ms","timestamp":"2026-07-27T19:12:29.267Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users?search=vanshdeep&limit=8 HTTP/1.1 200 1429 - 181.865 ms","timestamp":"2026-07-27T19:12:30.434Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a6529639999f295d818840c/summary HTTP/1.1 200 591 - 213.942 ms","timestamp":"2026-07-27T19:12:32.250Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a6529639999f295d818840c/tree HTTP/1.1 200 196 - 202.448 ms","timestamp":"2026-07-27T19:12:32.253Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919555500001","timestamp":"2026-07-27T19:12:45.156Z"}
+{"level":"info","message":"auth.login.success","mobile":"+919555500001","timestamp":"2026-07-27T19:12:45.733Z","userId":"6a67aa8cff49bf26ed9cf83c"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/login HTTP/1.1 200 1314 - 584.673 ms","timestamp":"2026-07-27T19:12:45.734Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919555500002","timestamp":"2026-07-27T19:12:46.135Z"}
+{"level":"info","message":"auth.login.success","mobile":"+919555500002","timestamp":"2026-07-27T19:12:46.366Z","userId":"6a67aa8cff49bf26ed9cf843"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/login HTTP/1.1 200 1626 - 234.175 ms","timestamp":"2026-07-27T19:12:46.368Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 1196 - 300.438 ms","timestamp":"2026-07-27T19:12:47.279Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+919555599001","timestamp":"2026-07-27T19:12:47.411Z"}
+{"level":"warn","message":"auth.register.sponsorNotActive","mobile":"+919555599001","sponsorId":"SMRVWHXKFLP","timestamp":"2026-07-27T19:12:47.528Z"}
+{"level":"warn","message":"This sponsor ID is not active yet — the sponsor needs an approved KYC and a completed investment before their ID can be used","method":"POST","path":"/api/auth/register","statusCode":400,"timestamp":"2026-07-27T19:12:47.529Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 400 167 - 125.797 ms","timestamp":"2026-07-27T19:12:47.533Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+919555599002","timestamp":"2026-07-27T19:12:47.634Z"}
+{"level":"info","message":"auth.register.success","mobile":"+919555599002","timestamp":"2026-07-27T19:12:48.055Z","userId":"6a67adaff3ca84a977a8c478"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1148 - 422.899 ms","timestamp":"2026-07-27T19:12:48.057Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919555500001","timestamp":"2026-07-27T19:13:03.940Z"}
+{"level":"info","message":"auth.login.success","mobile":"+919555500001","timestamp":"2026-07-27T19:13:04.379Z","userId":"6a67aa8cff49bf26ed9cf83c"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/login HTTP/1.1 200 1314 - 443.738 ms","timestamp":"2026-07-27T19:13:04.383Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 885 - 155.370 ms","timestamp":"2026-07-27T19:13:04.846Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 10 scanned","scanned":10,"timestamp":"2026-07-27T19:30:00.907Z","updated":0}
+{"failed":0,"level":"info","message":"cron.investmentReturns.completed","scanned":10,"timestamp":"2026-07-27T19:30:01.063Z","updated":0}
+{"level":"warn","message":"Invalid or expired token","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-07-27T19:38:25.897Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 65 - 83.339 ms","timestamp":"2026-07-27T19:38:25.930Z"}
+{"level":"warn","message":"Invalid or expired token","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-07-27T19:38:25.945Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 65 - 3.281 ms","timestamp":"2026-07-27T19:38:25.947Z"}
+{"level":"info","message":"auth.refresh.success","timestamp":"2026-07-27T19:38:26.093Z","userId":"6a65af175e1ad8c0604141b8"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/refresh HTTP/1.1 200 1112 - 120.887 ms","timestamp":"2026-07-27T19:38:26.097Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 131.463 ms","timestamp":"2026-07-27T19:38:26.239Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 125.686 ms","timestamp":"2026-07-27T19:38:26.370Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 372.660 ms","timestamp":"2026-07-27T19:39:25.617Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 116.102 ms","timestamp":"2026-07-27T19:39:25.744Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 252.895 ms","timestamp":"2026-07-27T19:40:21.284Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 264.973 ms","timestamp":"2026-07-27T19:40:21.558Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 533.817 ms","timestamp":"2026-07-27T19:40:37.101Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 212.198 ms","timestamp":"2026-07-27T19:40:37.333Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users?search=mee&limit=8 HTTP/1.1 200 889 - 2502.516 ms","timestamp":"2026-07-27T19:40:44.157Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users?search=meera&limit=8 HTTP/1.1 200 889 - 1716.687 ms","timestamp":"2026-07-27T19:40:44.553Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 200 593 - 611.339 ms","timestamp":"2026-07-27T19:40:45.884Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 200 1274 - 1603.955 ms","timestamp":"2026-07-27T19:40:46.882Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 404.302 ms","timestamp":"2026-07-27T19:42:25.541Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 461.109 ms","timestamp":"2026-07-27T19:42:26.017Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 200 860 - 284.649 ms","timestamp":"2026-07-27T19:42:26.029Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 562.749 ms","timestamp":"2026-07-27T19:42:26.595Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 528.847 ms","timestamp":"2026-07-27T19:42:26.598Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 941.056 ms","timestamp":"2026-07-27T19:42:27.562Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 2000.043 ms","timestamp":"2026-07-27T19:42:28.074Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 825.368 ms","timestamp":"2026-07-27T19:42:28.903Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 151.386 ms","timestamp":"2026-07-27T19:43:25.350Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 130.393 ms","timestamp":"2026-07-27T19:43:25.486Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 131.141 ms","timestamp":"2026-07-27T19:43:25.719Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 144.926 ms","timestamp":"2026-07-27T19:43:25.871Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 219.685 ms","timestamp":"2026-07-27T19:43:25.974Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 258.161 ms","timestamp":"2026-07-27T19:43:26.015Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 200.428 ms","timestamp":"2026-07-27T19:43:26.276Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 203.858 ms","timestamp":"2026-07-27T19:43:26.282Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 166.475 ms","timestamp":"2026-07-27T19:44:25.319Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 103.811 ms","timestamp":"2026-07-27T19:44:25.430Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 266.330 ms","timestamp":"2026-07-27T19:44:25.852Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 142.520 ms","timestamp":"2026-07-27T19:44:26.001Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 186.348 ms","timestamp":"2026-07-27T19:44:26.098Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 205.804 ms","timestamp":"2026-07-27T19:44:26.122Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 237.594 ms","timestamp":"2026-07-27T19:44:26.341Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 223.077 ms","timestamp":"2026-07-27T19:44:26.348Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 512.179 ms","timestamp":"2026-07-27T19:45:25.349Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 482.577 ms","timestamp":"2026-07-27T19:45:25.835Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 429.596 ms","timestamp":"2026-07-27T19:45:25.839Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 480.849 ms","timestamp":"2026-07-27T19:45:26.323Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 777.841 ms","timestamp":"2026-07-27T19:45:26.634Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 795.419 ms","timestamp":"2026-07-27T19:45:26.650Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 584.650 ms","timestamp":"2026-07-27T19:45:27.221Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 695.257 ms","timestamp":"2026-07-27T19:45:27.347Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 157.609 ms","timestamp":"2026-07-27T19:46:06.540Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 147.232 ms","timestamp":"2026-07-27T19:46:06.694Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 117.173 ms","timestamp":"2026-07-27T19:46:06.791Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 109.944 ms","timestamp":"2026-07-27T19:46:06.905Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 199.406 ms","timestamp":"2026-07-27T19:46:07.015Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 203.954 ms","timestamp":"2026-07-27T19:46:07.023Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 458.489 ms","timestamp":"2026-07-27T19:46:07.494Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 458.810 ms","timestamp":"2026-07-27T19:46:07.500Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 136.095 ms","timestamp":"2026-07-27T19:46:28.131Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 371.359 ms","timestamp":"2026-07-27T19:46:28.736Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 596.223 ms","timestamp":"2026-07-27T19:46:28.747Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 272.262 ms","timestamp":"2026-07-27T19:46:29.027Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 339.420 ms","timestamp":"2026-07-27T19:46:29.169Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 338.907 ms","timestamp":"2026-07-27T19:46:29.179Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 253.047 ms","timestamp":"2026-07-27T19:46:29.737Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 259.401 ms","timestamp":"2026-07-27T19:46:29.747Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 111.152 ms","timestamp":"2026-07-27T19:46:46.364Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 135.619 ms","timestamp":"2026-07-27T19:46:46.502Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 421.205 ms","timestamp":"2026-07-27T19:46:46.875Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 122.990 ms","timestamp":"2026-07-27T19:46:47.000Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 173.924 ms","timestamp":"2026-07-27T19:46:47.069Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 192.844 ms","timestamp":"2026-07-27T19:46:47.085Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 527.400 ms","timestamp":"2026-07-27T19:46:47.598Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 511.859 ms","timestamp":"2026-07-27T19:46:47.601Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 128.749 ms","timestamp":"2026-07-27T19:47:24.962Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 153.521 ms","timestamp":"2026-07-27T19:47:25.119Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 1122.132 ms","timestamp":"2026-07-27T19:47:26.373Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 118.847 ms","timestamp":"2026-07-27T19:47:26.497Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 241.241 ms","timestamp":"2026-07-27T19:47:26.657Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 701.083 ms","timestamp":"2026-07-27T19:47:27.122Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 501.057 ms","timestamp":"2026-07-27T19:47:27.172Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 198.989 ms","timestamp":"2026-07-27T19:47:27.323Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 162.401 ms","timestamp":"2026-07-27T19:48:25.169Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 112.306 ms","timestamp":"2026-07-27T19:48:25.285Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 1061.036 ms","timestamp":"2026-07-27T19:48:26.307Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 115.821 ms","timestamp":"2026-07-27T19:48:26.432Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 486.564 ms","timestamp":"2026-07-27T19:48:26.823Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 164.840 ms","timestamp":"2026-07-27T19:48:26.990Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 802.317 ms","timestamp":"2026-07-27T19:48:27.142Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 174.057 ms","timestamp":"2026-07-27T19:48:27.318Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 209.497 ms","timestamp":"2026-07-27T19:49:25.180Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 337.632 ms","timestamp":"2026-07-27T19:49:25.522Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 247.946 ms","timestamp":"2026-07-27T19:49:25.549Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 469.230 ms","timestamp":"2026-07-27T19:49:26.024Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 531.927 ms","timestamp":"2026-07-27T19:49:26.149Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 482.235 ms","timestamp":"2026-07-27T19:49:26.633Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 1199.671 ms","timestamp":"2026-07-27T19:49:26.819Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 450.821 ms","timestamp":"2026-07-27T19:49:27.273Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 190.445 ms","timestamp":"2026-07-27T19:50:11.139Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 141.126 ms","timestamp":"2026-07-27T19:50:11.293Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 132.936 ms","timestamp":"2026-07-27T19:50:11.388Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a67aa8cff49bf26ed9cf83c HTTP/1.1 304 - - 153.903 ms","timestamp":"2026-07-27T19:50:11.547Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 209.241 ms","timestamp":"2026-07-27T19:50:11.655Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 237.399 ms","timestamp":"2026-07-27T19:50:11.680Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 181.478 ms","timestamp":"2026-07-27T19:50:11.840Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 197.531 ms","timestamp":"2026-07-27T19:50:11.882Z"}
+{"level":"error","message":"Regular expression is invalid: quantifier does not follow a repeatable item","method":"GET","path":"/api/admin/users?search=%2B919555500001&limit=8","stack":"MongoServerError: Regular expression is invalid: quantifier does not follow a repeatable item\n    at Connection.sendCommand (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\mongodb\\lib\\cmap\\connection.js:306:27)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async Connection.command (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\mongodb\\lib\\cmap\\connection.js:334:26)\n    at async Server.command (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\mongodb\\lib\\sdam\\server.js:194:29)\n    at async tryOperation (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:213:32)\n    at async executeOperation (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\mongodb\\lib\\operations\\execute_operation.js:78:16)\n    at async FindCursor._initialize (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\mongodb\\lib\\cursor\\find_cursor.js:62:26)\n    at async FindCursor.cursorInit (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\mongodb\\lib\\cursor\\abstract_cursor.js:632:27)\n    at async FindCursor.fetchBatch (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\mongodb\\lib\\cursor\\abstract_cursor.js:666:13)\n    at async FindCursor.next (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\mongodb\\lib\\cursor\\abstract_cursor.js:342:17)","timestamp":"2026-07-27T19:50:29.157Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users?search=%2B919555500001&limit=8 HTTP/1.1 500 61 - 270.423 ms","timestamp":"2026-07-27T19:50:29.165Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users?search=919555500001&limit=8 HTTP/1.1 200 889 - 200.524 ms","timestamp":"2026-07-27T19:50:35.683Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/summary HTTP/1.1 304 - - 205.442 ms","timestamp":"2026-07-27T19:50:37.040Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/team/6a67aa8cff49bf26ed9cf83c/tree HTTP/1.1 304 - - 218.301 ms","timestamp":"2026-07-27T19:50:37.057Z"}

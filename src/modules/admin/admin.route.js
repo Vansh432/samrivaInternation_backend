@@ -11,6 +11,8 @@ import {
   investmentActionValidation,
   rejectInvestmentValidation,
   listInvestmentsAdminValidation,
+  teamUserIdValidation,
+  teamLevelValidation,
 } from './admin.validation.js';
 import { validate } from '../../middleware/validate.js';
 import { protect, authorize } from '../../middleware/auth.js';
@@ -37,5 +39,9 @@ router.get('/investments', listInvestmentsAdminValidation, validate, adminContro
 router.get('/investments/pending', adminController.pendingInvestments);
 router.post('/investments/:id/approve', investmentActionValidation, validate, adminController.approveInvestment);
 router.post('/investments/:id/reject', rejectInvestmentValidation, validate, adminController.rejectInvestment);
+
+router.get('/team/:userId/summary', teamUserIdValidation, validate, adminController.teamSummary);
+router.get('/team/:userId/level/:level', teamLevelValidation, validate, adminController.teamLevelMembers);
+router.get('/team/:userId/tree', teamUserIdValidation, validate, adminController.teamTree);
 
 export default router;

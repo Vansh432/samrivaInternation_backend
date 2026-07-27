@@ -68,3 +68,19 @@ export const rejectInvestment = asyncHandler(async (req, res) => {
   const investment = await adminService.rejectInvestment(req.user, req.params.id, req.body.reason);
   return sendSuccess(res, { message: 'Investment rejected', data: { investment } });
 });
+
+export const teamSummary = asyncHandler(async (req, res) => {
+  const data = await adminService.getUserTeamSummary(req.params.userId);
+  return sendSuccess(res, { message: 'Team summary', data });
+});
+
+export const teamLevelMembers = asyncHandler(async (req, res) => {
+  const { page, limit } = req.query;
+  const data = await adminService.getUserTeamLevelMembers(req.params.userId, Number(req.params.level), { page, limit });
+  return sendSuccess(res, { message: 'Team level members', data });
+});
+
+export const teamTree = asyncHandler(async (req, res) => {
+  const data = await adminService.getUserTeamTree(req.params.userId);
+  return sendSuccess(res, { message: 'Team tree', data });
+});

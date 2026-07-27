@@ -7,3 +7,4 @@ export * from './paymentMode.constant.js';
 export * from './walletType.constant.js';
 export * from './investmentStatus.constant.js';
 export * from './walletTransaction.constant.js';
+export * from './team.constant.js';

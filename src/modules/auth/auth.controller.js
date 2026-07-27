@@ -36,5 +36,7 @@ export const logout = asyncHandler(async (req, res) => {
 });
 
 export const me = asyncHandler(async (req, res) => {
-  return sendSuccess(res, { message: 'Current user', data: { user: req.user } });
+  const sponsorEligible = await authService.isSponsorEligible(req.user);
+  const user = { ...req.user.toJSON(), sponsorEligible };
+  return sendSuccess(res, { message: 'Current user', data: { user } });
 });

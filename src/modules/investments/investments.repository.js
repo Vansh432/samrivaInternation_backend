@@ -24,6 +24,17 @@ export const listInvestmentsAdmin = ({ filter = {}, skip = 0, limit = 20 }) =>
 
 export const countInvestmentsAdmin = (filter = {}) => Investment.countDocuments(filter);
 
+// A sponsor's referral code is only usable to bring in new team members once they've
+// actually completed an investment (active or matured — not just submitted/pending, and
+// not rejected/cancelled) — see auth.service.js#isSponsorEligible.
+export const existsCompletedInvestmentForUser = (userId) =>
+  Investment.exists({ user: userId, status: { $in: [INVESTMENT_STATUS.ACTIVE, INVESTMENT_STATUS.MATURED] } });
+
+// Bulk lookup for the Team/Genealogy views — one query for an entire downline's active
+// units instead of one query per member.
+export const listActiveInvestmentsForUsers = (userIds) =>
+  Investment.find({ user: { $in: userIds }, status: INVESTMENT_STATUS.ACTIVE }, 'user units').lean();
+
 // .lean() is safe here — the returns cron never mutates these directly, it issues its own
 // atomic conditional updates (claimIncomeMonths/claimMaturity below) per investment.
 export const listActiveInvestmentsForProcessing = () =>

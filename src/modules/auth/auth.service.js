@@ -3,7 +3,7 @@ import { logger } from '../../config/logger.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from '../../shared/utils/token.js';
 import { generateReferralCode } from '../../shared/utils/referralCode.js';
-import { USER_STATUS } from '../../shared/constants/index.js';
+import { USER_STATUS, KYC_STATUS } from '../../shared/constants/index.js';
 import {
   findUserByMobile,
   findUserById,
@@ -11,11 +11,17 @@ import {
   createUser,
   incrementTokenVersion,
 } from '../users/users.repository.js';
+import { existsCompletedInvestmentForUser } from '../investments/investments.repository.js';
 
 const issueTokens = (user) => ({
   accessToken: generateAccessToken(user),
   refreshToken: generateRefreshToken(user),
 });
+
+// A sponsor ID only becomes usable to build a team once its owner has an approved KYC
+// and has actually completed an investment (active/matured) — not merely registered.
+export const isSponsorEligible = async (user) =>
+  user.kyc.status === KYC_STATUS.APPROVED && !!(await existsCompletedInvestmentForUser(user._id));
 
 const buildUniqueReferralCode = async () => {
   for (let attempt = 0; attempt < 5; attempt++) {
@@ -41,6 +47,13 @@ export const registerUser = async ({ mobile, password, role, sponsorId }) => {
     if (!sponsor) {
       logger.warn('auth.register.invalidSponsor', { mobile, sponsorId });
       throw new AppError('Invalid sponsor ID', 400);
+    }
+    if (!(await isSponsorEligible(sponsor))) {
+      logger.warn('auth.register.sponsorNotActive', { mobile, sponsorId });
+      throw new AppError(
+        'This sponsor ID is not active yet — the sponsor needs an approved KYC and a completed investment before their ID can be used',
+        400
+      );
     }
   }
 

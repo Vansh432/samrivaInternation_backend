@@ -16,6 +16,7 @@ import {
   countInvestmentsAdmin,
 } from '../investments/investments.repository.js';
 import { addMonths, toInvestmentJSON } from '../investments/investments.service.js';
+import { getTeamSummary, getTeamLevelMembers, getTeamTree } from '../team/team.service.js';
 
 // listUsers/getKycQueue use .lean() for read performance, which bypasses the User model's
 // toJSON transform (the one that turns _id -> id and strips __v/password everywhere else).
@@ -232,3 +233,10 @@ export const holdKyc = async (adminUser, userId, reason) => {
   logger.info('admin.holdKyc', { adminId: adminUser._id.toString(), userId });
   return user;
 };
+
+// Team/Genealogy for an arbitrary user — identical computation to the mobile self-service
+// endpoints in team.service.js, just rooted at :userId instead of req.user._id.
+export const getUserTeamSummary = (userId) => getTeamSummary(userId);
+export const getUserTeamLevelMembers = (userId, level, { page, limit } = {}) =>
+  getTeamLevelMembers(userId, level, { page, limit });
+export const getUserTeamTree = (userId) => getTeamTree(userId);

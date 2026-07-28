@@ -2,6 +2,7 @@ import { body } from 'express-validator';
 
 export const updateProfileValidation = [
   body('fullName').optional().trim().isLength({ min: 2 }).withMessage('Full name must be at least 2 characters'),
+  body('fatherOrHusbandName').optional().trim().isLength({ min: 2 }).withMessage("Father's/Husband's name must be at least 2 characters"),
   body('email').optional().trim().isEmail().withMessage('Enter a valid email'),
   body('dob').optional().isISO8601().toDate().withMessage('Enter a valid date of birth'),
   body('address.line1').optional().trim(),
@@ -18,6 +19,7 @@ export const submitKycValidation = [
   body('bank.holderName').trim().isLength({ min: 2 }).withMessage('Account holder name is required'),
   body('nominee.name').trim().isLength({ min: 2 }).withMessage('Nominee name is required'),
   body('nominee.relation').trim().isLength({ min: 2 }).withMessage('Nominee relation is required'),
+  body('nominee.sharePercent').optional().isInt({ min: 1, max: 100 }).withMessage('Nominee share must be between 1 and 100'),
   body('addressProofUrl').notEmpty().withMessage('Address proof is required'),
   body('selfieUrl').notEmpty().withMessage('Selfie is required'),
   body('termsAccepted')

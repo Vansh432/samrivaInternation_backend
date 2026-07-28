@@ -17,6 +17,8 @@ import {
 } from '../investments/investments.repository.js';
 import { addMonths, toInvestmentJSON } from '../investments/investments.service.js';
 import { getTeamSummary, getTeamLevelMembers, getTeamTree } from '../team/team.service.js';
+import { generateInvestmentCertificate } from '../certificates/certificate.service.js';
+import { getNextSequence, getNextSequenceRange, padSequence } from '../../shared/utils/sequence.js';
 
 // listUsers/getKycQueue use .lean() for read performance, which bypasses the User model's
 // toJSON transform (the one that turns _id -> id and strips __v/password everywhere else).
@@ -98,6 +100,15 @@ export const approveKyc = async (adminUser, userId) => {
   user.kyc.reviewedAt = new Date();
   user.kyc.reviewedBy = adminUser._id;
   user.kyc.rejectionReason = undefined;
+
+  // Investor ID / Folio No are assigned exactly once, the moment someone becomes a real
+  // investor — reused across every certificate they ever receive (see certificate.service.js).
+  if (!user.investorId) {
+    user.investorId = `INV${padSequence(await getNextSequence('investorId'))}`;
+  }
+  if (!user.folioNumber) {
+    user.folioNumber = `F${padSequence(await getNextSequence('folioNumber'))}`;
+  }
   await user.save();
 
   logger.info('admin.approveKyc', { adminId: adminUser._id.toString(), userId });
@@ -166,7 +177,7 @@ export const getInvestments = async ({ status, planType, search, page = 1, limit
   };
 };
 
-export const approveInvestment = async (adminUser, investmentId) => {
+export const approveInvestment = async (adminUser, investmentId, baseUrl) => {
   const investment = await findInvestmentById(investmentId);
   if (!investment) throw new AppError('Investment not found', 404);
   if (investment.status !== INVESTMENT_STATUS.PENDING_VERIFICATION) {
@@ -177,9 +188,30 @@ export const approveInvestment = async (adminUser, investmentId) => {
   investment.status = INVESTMENT_STATUS.ACTIVE;
   investment.startDate = startDate;
   investment.maturityDate = addMonths(startDate, investment.tenureMonths);
+  investment.dateOfAllotment = startDate;
+  investment.redemptionDate = investment.maturityDate;
   investment.reviewedBy = adminUser._id;
   investment.reviewedAt = new Date();
   investment.rejectionReason = undefined;
+
+  // Sequential debenture numbers, one per unit, reserved atomically so no two investments
+  // (even approved concurrently) can ever end up with an overlapping range.
+  const { start, end } = await getNextSequenceRange('debentureNo', investment.units);
+  investment.debentureNoStart = `D${padSequence(start)}`;
+  investment.debentureNoEnd = `D${padSequence(end)}`;
+
+  // Certificate generation is best-effort — a failure here (e.g. a transient disk issue)
+  // must never block the investor's tenure from actually starting, since that's the part
+  // that matters financially. The Download button just shows "not available yet" if this
+  // didn't run; it isn't retried automatically.
+  const investor = await findUserById(investment.user);
+  try {
+    const relativePath = await generateInvestmentCertificate(investment, investor);
+    investment.certificatePdfUrl = baseUrl ? `${baseUrl}${relativePath}` : relativePath;
+  } catch (err) {
+    logger.error('admin.approveInvestment.certificateGenerationFailed', { investmentId, error: err.message });
+  }
+
   await investment.save();
 
   await logEvent({

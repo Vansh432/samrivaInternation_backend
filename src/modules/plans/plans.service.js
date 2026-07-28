@@ -86,5 +86,5 @@ export const resolveRate = async ({ planType, units, tenureMonths }) => {
   }
   const ratePercent =
     planType === PLAN_TYPES.COMPOUNDING ? slab.compoundingRatePercent : slab.monthlyIncomeRatePercent;
-  return { ratePercent, slabId: slab._id.toString() };
+  return { ratePercent, slabId: slab._id.toString(), minUnits: slab.minUnits, maxUnits: slab.maxUnits };
 };

@@ -1,5 +1,7 @@
 import { asyncHandler } from '../../shared/utils/asyncHandler.js';
 import { sendSuccess } from '../../shared/responses/response.js';
+import { AppError } from '../../shared/errors/AppError.js';
+import { resolveCertificateFile } from '../certificates/certificate.service.js';
 import * as investmentsService from './investments.service.js';
 
 export const quote = asyncHandler(async (req, res) => {
@@ -30,4 +32,13 @@ export const getById = asyncHandler(async (req, res) => {
 export const summary = asyncHandler(async (req, res) => {
   const data = await investmentsService.getUserInvestmentSummary(req.user._id);
   return sendSuccess(res, { message: 'Investment summary', data });
+});
+
+export const downloadCertificate = asyncHandler(async (req, res) => {
+  const investment = await investmentsService.getUserInvestmentById(req.user._id, req.params.id);
+  const filePath = investment.certificatePdfUrl ? resolveCertificateFile(investment) : null;
+  if (!filePath) {
+    throw new AppError("Certificate isn't ready yet — please check back shortly.", 404);
+  }
+  return res.download(filePath, `${investment.certificateNumber}.pdf`);
 });

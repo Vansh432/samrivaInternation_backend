@@ -13,5 +13,6 @@ router.get('/quote', investmentQuoteValidation, validate, investmentsController.
 router.get('/', investmentsController.list);
 router.post('/', createInvestmentValidation, validate, investmentsController.create);
 router.get('/:id', investmentIdValidation, validate, investmentsController.getById);
+router.get('/:id/certificate', investmentIdValidation, validate, investmentsController.downloadCertificate);
 
 export default router;

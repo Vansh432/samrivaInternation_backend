@@ -14,10 +14,15 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true, select: false }, // bcrypt hash
     role: { type: String, enum: Object.values(ROLES), default: ROLES.INVESTOR },
     fullName: { type: String, trim: true },
+    fatherOrHusbandName: { type: String, trim: true }, // Shown on the debenture certificate
     email: { type: String, trim: true, lowercase: true },
     dob: Date,
     address: { line1: String, city: String, state: String, pincode: String }, // Profile step (register.tsx step 0)
     profileImage: String,
+    // Assigned once, at KYC approval (see admin.service.js#approveKyc) — reused across every
+    // certificate this investor ever receives, unlike certificateNumber which is per-investment.
+    investorId: { type: String, unique: true, sparse: true },
+    folioNumber: { type: String, unique: true, sparse: true },
     status: { type: String, enum: Object.values(USER_STATUS), default: USER_STATUS.ACTIVE },
     lastLoginAt: Date,
     tokenVersion: { type: Number, default: 0 }, // bump to invalidate all refresh tokens (logout-all / password change)
@@ -28,7 +33,7 @@ const userSchema = new mongoose.Schema(
       pan: String,
       aadhaar: String, // TODO(future): field-level encryption before storing
       bank: { accountNumber: String, ifsc: String, holderName: String },
-      nominee: { name: String, relation: String, dob: Date },
+      nominee: { name: String, relation: String, dob: Date, sharePercent: { type: Number, default: 100, min: 1, max: 100 } },
       addressProofUrl: String,
       selfieUrl: String,
       termsAcceptedAt: Date,

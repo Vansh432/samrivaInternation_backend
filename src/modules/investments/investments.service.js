@@ -75,7 +75,7 @@ export const createUserInvestment = async (user, { planType, units, tenureMonths
     throw new AppError('Your KYC must be approved before you can invest', 403);
   }
 
-  const { ratePercent } = await resolveRate({ planType, units, tenureMonths });
+  const { ratePercent, minUnits, maxUnits } = await resolveRate({ planType, units, tenureMonths });
   const settings = await getSettings();
   const unitValueInr = settings.unitValueInr;
   const principal = units * unitValueInr;
@@ -91,6 +91,8 @@ export const createUserInvestment = async (user, { planType, units, tenureMonths
     unitValueInr,
     principal,
     ratePercent,
+    unitRangeMin: minUnits,
+    unitRangeMax: maxUnits,
     paymentMode,
     amountPaid,
     transactionId,

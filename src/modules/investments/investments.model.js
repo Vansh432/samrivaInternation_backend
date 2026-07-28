@@ -12,6 +12,11 @@ const investmentSchema = new mongoose.Schema(
     unitValueInr: { type: Number, required: true },
     principal: { type: Number, required: true },
     ratePercent: { type: Number, required: true },
+    // The matched rate slab's unit range at purchase time (e.g. 17-50 units) — shown on the
+    // certificate; a later slab edit must never retroactively change what an existing
+    // certificate says, so this is captured once, not looked up live.
+    unitRangeMin: { type: Number },
+    unitRangeMax: { type: Number },
     paymentMode: { type: String, enum: Object.values(PAYMENT_MODES), required: true },
     // Proof of payment submitted at investment time — photo is optional only for cash
     // (enforced in investments.validation.js, not here, since it depends on paymentMode).
@@ -26,6 +31,17 @@ const investmentSchema = new mongoose.Schema(
     // verifies the payment (see admin.service.js#approveInvestment).
     startDate: { type: Date, default: null },
     maturityDate: { type: Date, default: null },
+    // Certificate-only fields, all set once at approval alongside startDate/maturityDate
+    // (see admin.service.js#approveInvestment) — kept as their own fields rather than reusing
+    // startDate/maturityDate directly so an early/partial redemption can later diverge from
+    // the originally scheduled maturity without losing what was printed on the certificate.
+    dateOfAllotment: { type: Date, default: null },
+    redemptionDate: { type: Date, default: null },
+    // Sequential range reserved from the shared debenture-number counter, sized by `units`
+    // (see shared/utils/sequence.js) — e.g. units=20 reserves D000001-D000020.
+    debentureNoStart: { type: String },
+    debentureNoEnd: { type: String },
+    certificatePdfUrl: { type: String },
     reviewedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     reviewedAt: { type: Date },
     // Reused for both a rejection reason and any future hold-style message, same pattern

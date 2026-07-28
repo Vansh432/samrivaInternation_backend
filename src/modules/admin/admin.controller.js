@@ -60,7 +60,8 @@ export const listInvestments = asyncHandler(async (req, res) => {
 });
 
 export const approveInvestment = asyncHandler(async (req, res) => {
-  const investment = await adminService.approveInvestment(req.user, req.params.id);
+  const baseUrl = `${req.protocol}://${req.get('host')}`;
+  const investment = await adminService.approveInvestment(req.user, req.params.id, baseUrl);
   return sendSuccess(res, { message: 'Investment approved', data: { investment } });
 });
 

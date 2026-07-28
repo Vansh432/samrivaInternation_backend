@@ -3,11 +3,12 @@ import { KYC_STATUS } from '../../shared/constants/index.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { findUserById, updateUserById } from './users.repository.js';
 
-export const updateProfile = async (userId, { fullName, email, dob, address }) => {
+export const updateProfile = async (userId, { fullName, fatherOrHusbandName, email, dob, address }) => {
   logger.info('users.updateProfile.attempt', { userId: userId.toString() });
 
   const update = {};
   if (fullName !== undefined) update.fullName = fullName;
+  if (fatherOrHusbandName !== undefined) update.fatherOrHusbandName = fatherOrHusbandName;
   if (email !== undefined) update.email = email;
   if (dob !== undefined) update.dob = dob;
   if (address !== undefined) {

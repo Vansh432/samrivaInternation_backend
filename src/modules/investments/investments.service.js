@@ -178,6 +178,28 @@ export const getUserInvestmentSummary = async (userId) => {
     .filter((inv) => inv.status === INVESTMENT_STATUS.ACTIVE && inv.planType === PLAN_TYPES.MONTHLY_INCOME)
     .reduce((sum, inv) => sum + inv.principal * (inv.ratePercent / 100), 0);
 
+  // Same accruing-only enriched set, split by plan type — lets the UI show Compounding and
+  // Monthly Income as two separate mini-dashboards instead of one blended total.
+  const accruingEnriched = enriched.filter((e) => ACCRUING_STATUSES.includes(e.raw.status));
+  const compoundingEnriched = accruingEnriched.filter((e) => e.raw.planType === PLAN_TYPES.COMPOUNDING);
+  const monthlyIncomeEnriched = accruingEnriched.filter((e) => e.raw.planType === PLAN_TYPES.MONTHLY_INCOME);
+
+  const byPlanType = {
+    compounding: {
+      totalInvested: compoundingEnriched.reduce((sum, e) => sum + e.raw.principal, 0),
+      totalMaturityValue: compoundingEnriched.reduce((sum, e) => sum + e.maturityAmount, 0),
+    },
+    monthlyIncome: {
+      totalInvested: monthlyIncomeEnriched.reduce((sum, e) => sum + e.raw.principal, 0),
+      // Only ACTIVE (not matured) investments still pay out monthly — same scope as the
+      // top-level `monthlyIncome` field above.
+      totalMonthlyIncome: monthlyIncomeEnriched
+        .filter((e) => e.raw.status === INVESTMENT_STATUS.ACTIVE)
+        .reduce((sum, e) => sum + e.raw.principal * (e.raw.ratePercent / 100), 0),
+      totalMaturityValue: monthlyIncomeEnriched.reduce((sum, e) => sum + e.maturityAmount, 0),
+    },
+  };
+
   const upcomingMaturity = (await listActiveInvestmentsByUser(userId)).slice(0, 3).map((inv) => ({
     id: inv._id.toString(),
     certificateNumber: inv.certificateNumber,
@@ -193,6 +215,7 @@ export const getUserInvestmentSummary = async (userId) => {
     maturedUnits,
     portfolioValue,
     monthlyIncome,
+    byPlanType,
     availableWithdrawals: 0,
     upcomingMaturity,
   };

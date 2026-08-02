@@ -18,6 +18,11 @@ import {
 import { addMonths, toInvestmentJSON } from '../investments/investments.service.js';
 import { getTeamSummary, getTeamLevelMembers, getTeamTree } from '../team/team.service.js';
 import { generateInvestmentCertificate } from '../certificates/certificate.service.js';
+import { evaluateFastStartBonus } from '../bonuses/bonuses.service.js';
+import { evaluateLeadershipOverride } from '../overrides/overrides.service.js';
+import { evaluateRankIncome } from '../ranks/ranks.service.js';
+import { listWalletTransactionsAdmin, countWalletTransactions } from '../wallets/walletTransactions.repository.js';
+import { listLogsAdmin, countLogs } from '../../shared/utils/systemLog.js';
 import { getNextSequence, getNextSequenceRange, padSequence } from '../../shared/utils/sequence.js';
 
 // listUsers/getKycQueue use .lean() for read performance, which bypasses the User model's
@@ -70,6 +75,10 @@ export const updateUserRole = async (adminUser, userId, role) => {
   const user = await updateUserById(userId, { role });
   if (!user) throw new AppError('User not found', 404);
   logger.info('admin.updateUserRole', { adminId: adminUser._id.toString(), userId, role });
+  await logEvent({
+    type: 'admin', action: 'admin.updateUserRole',
+    message: `Role changed to ${role}`, user: userId, actor: adminUser._id, meta: { role },
+  });
   return user;
 };
 
@@ -78,6 +87,10 @@ export const updateUserStatus = async (adminUser, userId, status) => {
   const user = await updateUserById(userId, { status });
   if (!user) throw new AppError('User not found', 404);
   logger.info('admin.updateUserStatus', { adminId: adminUser._id.toString(), userId, status });
+  await logEvent({
+    type: 'admin', action: 'admin.updateUserStatus',
+    message: `Status changed to ${status}`, user: userId, actor: adminUser._id, meta: { status },
+  });
   return user;
 };
 
@@ -112,6 +125,10 @@ export const approveKyc = async (adminUser, userId) => {
   await user.save();
 
   logger.info('admin.approveKyc', { adminId: adminUser._id.toString(), userId });
+  await logEvent({
+    type: 'admin', action: 'admin.approveKyc',
+    message: 'KYC approved', user: userId, actor: adminUser._id,
+  });
   return user;
 };
 
@@ -129,6 +146,10 @@ export const rejectKyc = async (adminUser, userId, reason) => {
   await user.save();
 
   logger.info('admin.rejectKyc', { adminId: adminUser._id.toString(), userId });
+  await logEvent({
+    type: 'admin', action: 'admin.rejectKyc', level: 'warn',
+    message: 'KYC rejected', user: userId, actor: adminUser._id, meta: { reason },
+  });
   return user;
 };
 
@@ -214,6 +235,30 @@ export const approveInvestment = async (adminUser, investmentId, baseUrl) => {
 
   await investment.save();
 
+  // Best-effort, same as certificate generation above — a Fast Start Bonus evaluation bug
+  // must never block the investment's tenure from actually starting.
+  try {
+    await evaluateFastStartBonus(investment);
+  } catch (err) {
+    logger.error('admin.approveInvestment.fastStartBonusFailed', { investmentId, error: err.message });
+  }
+
+  // Same best-effort pattern — a Leadership Override evaluation bug must never block the
+  // investment's tenure from actually starting.
+  try {
+    await evaluateLeadershipOverride(investment);
+  } catch (err) {
+    logger.error('admin.approveInvestment.leadershipOverrideFailed', { investmentId, error: err.message });
+  }
+
+  // Same best-effort pattern — a Rank Income evaluation bug must never block the
+  // investment's tenure from actually starting.
+  try {
+    await evaluateRankIncome(investment);
+  } catch (err) {
+    logger.error('admin.approveInvestment.rankIncomeFailed', { investmentId, error: err.message });
+  }
+
   await logEvent({
     type: 'investment',
     action: 'investment.approved',
@@ -263,6 +308,10 @@ export const holdKyc = async (adminUser, userId, reason) => {
   await user.save();
 
   logger.info('admin.holdKyc', { adminId: adminUser._id.toString(), userId });
+  await logEvent({
+    type: 'admin', action: 'admin.holdKyc', level: 'warn',
+    message: 'KYC put on hold', user: userId, actor: adminUser._id, meta: { reason },
+  });
   return user;
 };
 
@@ -272,3 +321,92 @@ export const getUserTeamSummary = (userId) => getTeamSummary(userId);
 export const getUserTeamLevelMembers = (userId, level, { page, limit } = {}) =>
   getTeamLevelMembers(userId, level, { page, limit });
 export const getUserTeamTree = (userId) => getTeamTree(userId);
+
+export const getWalletTransactionsAdmin = async ({ walletType, type, search, dateFrom, dateTo, page = 1, limit = 20 }) => {
+  const filter = {};
+  if (walletType) filter.walletType = walletType;
+  if (type) filter.type = type;
+  if (dateFrom || dateTo) {
+    filter.createdAt = {};
+    if (dateFrom) filter.createdAt.$gte = new Date(dateFrom);
+    if (dateTo) filter.createdAt.$lte = new Date(dateTo);
+  }
+
+  if (search) {
+    const matchingUsers = await listUsers({
+      filter: {
+        $or: [
+          { mobile: { $regex: search, $options: 'i' } },
+          { fullName: { $regex: search, $options: 'i' } },
+        ],
+      },
+      limit: 200,
+    });
+    filter.user = { $in: matchingUsers.map((u) => u._id) };
+  }
+
+  const pageNum = Number(page) || 1;
+  const limitNum = Number(limit) || 20;
+  const skip = (pageNum - 1) * limitNum;
+
+  const [items, total] = await Promise.all([
+    listWalletTransactionsAdmin({ filter, skip, limit: limitNum }),
+    countWalletTransactions(filter),
+  ]);
+
+  return {
+    items,
+    total,
+    page: pageNum,
+    limit: limitNum,
+    totalPages: Math.ceil(total / limitNum) || 1,
+  };
+};
+
+export const getActivityLogsAdmin = async ({ type, level, action, dateFrom, dateTo, search, page = 1, limit = 20 }) => {
+  const filter = {};
+  if (type) filter.type = type;
+  if (level) filter.level = level;
+  if (action) filter.action = action;
+  if (dateFrom || dateTo) {
+    filter.createdAt = {};
+    if (dateFrom) filter.createdAt.$gte = new Date(dateFrom);
+    if (dateTo) filter.createdAt.$lte = new Date(dateTo);
+  }
+
+  if (search) {
+    const matchingUsers = await listUsers({
+      filter: {
+        $or: [
+          { mobile: { $regex: search, $options: 'i' } },
+          { fullName: { $regex: search, $options: 'i' } },
+        ],
+      },
+      limit: 200,
+    });
+    const matchingUserIds = matchingUsers.map((u) => u._id);
+    filter.$or = [
+      { message: { $regex: search, $options: 'i' } },
+      { action: { $regex: search, $options: 'i' } },
+      { user: { $in: matchingUserIds } },
+      { actor: { $in: matchingUserIds } },
+    ];
+  }
+
+  const pageNum = Number(page) || 1;
+  const limitNum = Number(limit) || 20;
+  const skip = (pageNum - 1) * limitNum;
+
+  const [items, total] = await Promise.all([
+    listLogsAdmin({ filter, skip, limit: limitNum }),
+    countLogs(filter),
+  ]);
+
+  return {
+    items,
+    total,
+    page: pageNum,
+    limit: limitNum,
+    totalPages: Math.ceil(total / limitNum) || 1,
+  };
+};

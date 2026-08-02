@@ -1,4 +1,5 @@
 import { logger } from '../../config/logger.js';
+import { logEvent } from '../../shared/utils/systemLog.js';
 import { KYC_STATUS } from '../../shared/constants/index.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { findUserById, updateUserById } from './users.repository.js';
@@ -22,6 +23,10 @@ export const updateProfile = async (userId, { fullName, fatherOrHusbandName, ema
 
   const user = await updateUserById(userId, update);
   logger.info('users.updateProfile.success', { userId: userId.toString() });
+  await logEvent({
+    type: 'user', action: 'user.profileUpdated',
+    message: 'Profile updated', user: userId, meta: { fields: Object.keys(update) },
+  });
   return user;
 };
 
@@ -55,5 +60,9 @@ export const submitKyc = async (userId, { pan, aadhaar, bank, nominee, addressPr
 
   const user = await updateUserById(userId, update);
   logger.info('users.submitKyc.success', { userId: userId.toString() });
+  await logEvent({
+    type: 'user', action: 'user.kycSubmitted',
+    message: 'KYC submitted for review', user: userId,
+  });
   return user;
 };

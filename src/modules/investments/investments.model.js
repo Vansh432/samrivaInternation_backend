@@ -50,6 +50,12 @@ const investmentSchema = new mongoose.Schema(
     // How many monthly-income payouts have already been credited to the wallet — prevents
     // the returns cron from double-paying on re-runs (see scheduler/investmentReturns.cron.js).
     incomeCreditedMonths: { type: Number, default: 0 },
+    // Renewal lineage — set on the NEW investment, pointing at the matured one it was
+    // reinvested from (see investments.service.js#createRenewalInvestment).
+    renewedFrom: { type: mongoose.Schema.Types.ObjectId, ref: 'Investment', default: null },
+    // Set on the OLD matured investment once it's been renewed, so it can't be renewed
+    // twice and drops out of the "renewable" list.
+    renewedInto: { type: mongoose.Schema.Types.ObjectId, ref: 'Investment', default: null },
   },
   { timestamps: true }
 );

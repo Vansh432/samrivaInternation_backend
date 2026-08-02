@@ -34,6 +34,16 @@ export const summary = asyncHandler(async (req, res) => {
   return sendSuccess(res, { message: 'Investment summary', data });
 });
 
+export const renewable = asyncHandler(async (req, res) => {
+  const investments = await investmentsService.getRenewableInvestments(req.user._id);
+  return sendSuccess(res, { message: 'Renewable investments', data: { investments } });
+});
+
+export const renew = asyncHandler(async (req, res) => {
+  const investment = await investmentsService.createRenewalInvestment(req.user, req.body);
+  return sendSuccess(res, { statusCode: 201, message: 'Investment renewed', data: { investment } });
+});
+
 export const downloadCertificate = asyncHandler(async (req, res) => {
   const investment = await investmentsService.getUserInvestmentById(req.user._id, req.params.id);
   const filePath = investment.certificatePdfUrl ? resolveCertificateFile(investment) : null;

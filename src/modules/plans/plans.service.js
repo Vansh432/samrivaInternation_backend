@@ -1,4 +1,5 @@
 import { logger } from '../../config/logger.js';
+import { logEvent } from '../../shared/utils/systemLog.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { PLAN_TYPES } from '../../shared/constants/index.js';
 import {
@@ -33,7 +34,7 @@ const assertNoOverlap = async (candidate, excludeId) => {
 
 export const getRateSlabs = () => listRateSlabs();
 
-export const createSlab = async (payload) => {
+export const createSlab = async (payload, actorId) => {
   logger.info('plans.create.attempt', payload);
   const candidate = {
     minUnits: payload.minUnits,
@@ -51,10 +52,15 @@ export const createSlab = async (payload) => {
     isActive: payload.isActive ?? true,
   });
   logger.info('plans.create.success', { id: slab._id.toString() });
+  await logEvent({
+    type: 'admin', action: 'plans.slab.created',
+    message: `Rate slab created (${payload.minUnits}-${payload.maxUnits ?? 'above'} units)`,
+    actor: actorId, meta: { slabId: slab._id.toString(), payload },
+  });
   return slab;
 };
 
-export const updateSlab = async (id, payload) => {
+export const updateSlab = async (id, payload, actorId) => {
   logger.info('plans.update.attempt', { id, ...payload });
   const existing = await findRateSlabById(id);
   if (!existing) throw new AppError('Rate slab not found', 404);
@@ -69,14 +75,22 @@ export const updateSlab = async (id, payload) => {
 
   const slab = await updateRateSlabById(id, payload);
   logger.info('plans.update.success', { id });
+  await logEvent({
+    type: 'admin', action: 'plans.slab.updated',
+    message: `Rate slab updated (${id})`, actor: actorId, meta: { slabId: id, changes: payload },
+  });
   return slab;
 };
 
-export const deleteSlab = async (id) => {
+export const deleteSlab = async (id, actorId) => {
   const existing = await findRateSlabById(id);
   if (!existing) throw new AppError('Rate slab not found', 404);
   await deleteRateSlabById(id);
   logger.info('plans.delete.success', { id });
+  await logEvent({
+    type: 'admin', action: 'plans.slab.deleted', level: 'warn',
+    message: `Rate slab deleted (${id})`, actor: actorId, meta: { slabId: id },
+  });
 };
 
 export const resolveRate = async ({ planType, units, tenureMonths }) => {

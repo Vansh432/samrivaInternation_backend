@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import { logger } from '../../config/logger.js';
+import { logEvent } from '../../shared/utils/systemLog.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from '../../shared/utils/token.js';
 import { generateReferralCode } from '../../shared/utils/referralCode.js';
@@ -72,6 +73,13 @@ export const registerUser = async ({ mobile, password, role, sponsorId }) => {
 
   const tokens = issueTokens(user);
   logger.info('auth.register.success', { userId: user._id.toString(), mobile });
+  await logEvent({
+    type: 'auth',
+    action: 'auth.registered',
+    message: `New account registered (${mobile})`,
+    user: user._id,
+    meta: { mobile, role, sponsorId: sponsor?._id?.toString() },
+  });
   return { user, ...tokens };
 };
 
@@ -87,11 +95,19 @@ export const loginUser = async ({ mobile, password }) => {
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
     logger.warn('auth.login.badPassword', { mobile });
+    await logEvent({
+      type: 'auth', action: 'auth.loginFailed', level: 'warn',
+      message: `Login failed (wrong password) for ${mobile}`, user: user._id, meta: { mobile, reason: 'bad_password' },
+    });
     throw new AppError('Invalid mobile number or password', 401);
   }
 
   if (user.status !== USER_STATUS.ACTIVE) {
     logger.warn('auth.login.inactiveAccount', { mobile, status: user.status });
+    await logEvent({
+      type: 'auth', action: 'auth.loginFailed', level: 'warn',
+      message: `Login blocked — account is ${user.status} (${mobile})`, user: user._id, meta: { mobile, reason: 'inactive_account', status: user.status },
+    });
     throw new AppError('Account is not active, please contact support', 403);
   }
 
@@ -100,6 +116,10 @@ export const loginUser = async ({ mobile, password }) => {
 
   const tokens = issueTokens(user);
   logger.info('auth.login.success', { userId: user._id.toString(), mobile });
+  await logEvent({
+    type: 'auth', action: 'auth.login',
+    message: `Logged in (${mobile})`, user: user._id, meta: { mobile },
+  });
   return { user, ...tokens };
 };
 
@@ -126,4 +146,8 @@ export const refreshTokens = async (refreshToken) => {
 export const logoutUser = async (userId) => {
   await incrementTokenVersion(userId);
   logger.info('auth.logout.success', { userId: userId.toString() });
+  await logEvent({
+    type: 'auth', action: 'auth.logout',
+    message: 'Logged out', user: userId,
+  });
 };

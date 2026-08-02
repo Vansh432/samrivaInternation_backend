@@ -24,6 +24,16 @@ export const investmentIdValidation = [
   param('id').isMongoId().withMessage('Invalid investment id'),
 ];
 
+export const renewInvestmentValidation = [
+  body('fromInvestmentId').isMongoId().withMessage('Invalid investment id'),
+  body('planType')
+    .isIn(Object.values(PLAN_TYPES)).withMessage('planType must be compounding or monthly_income'),
+  body('units')
+    .isInt({ min: 1 }).withMessage('units must be a positive integer'),
+  body('tenureMonths')
+    .isInt({ min: 1, max: 120 }).withMessage('tenureMonths must be a valid number of months'),
+];
+
 export const investmentQuoteValidation = [
   query('planType')
     .isIn(Object.values(PLAN_TYPES)).withMessage('planType must be compounding or monthly_income'),

@@ -13,6 +13,8 @@ import {
   listInvestmentsAdminValidation,
   teamUserIdValidation,
   teamLevelValidation,
+  listWalletTransactionsAdminValidation,
+  listActivityLogsValidation,
 } from './admin.validation.js';
 import { validate } from '../../middleware/validate.js';
 import { protect, authorize } from '../../middleware/auth.js';
@@ -43,5 +45,9 @@ router.post('/investments/:id/reject', rejectInvestmentValidation, validate, adm
 router.get('/team/:userId/summary', teamUserIdValidation, validate, adminController.teamSummary);
 router.get('/team/:userId/level/:level', teamLevelValidation, validate, adminController.teamLevelMembers);
 router.get('/team/:userId/tree', teamUserIdValidation, validate, adminController.teamTree);
+
+router.get('/wallets/transactions', listWalletTransactionsAdminValidation, validate, adminController.walletTransactions);
+
+router.get('/logs', listActivityLogsValidation, validate, adminController.activityLogs);
 
 export default router;

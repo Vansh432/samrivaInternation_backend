@@ -85,3 +85,15 @@ export const teamTree = asyncHandler(async (req, res) => {
   const data = await adminService.getUserTeamTree(req.params.userId);
   return sendSuccess(res, { message: 'Team tree', data });
 });
+
+export const walletTransactions = asyncHandler(async (req, res) => {
+  const { walletType, type, search, dateFrom, dateTo, page, limit } = req.query;
+  const data = await adminService.getWalletTransactionsAdmin({ walletType, type, search, dateFrom, dateTo, page, limit });
+  return sendSuccess(res, { message: 'Wallet transactions', data });
+});
+
+export const activityLogs = asyncHandler(async (req, res) => {
+  const { type, level, action, search, dateFrom, dateTo, page, limit } = req.query;
+  const data = await adminService.getActivityLogsAdmin({ type, level, action, search, dateFrom, dateTo, page, limit });
+  return sendSuccess(res, { message: 'Activity logs', data });
+});

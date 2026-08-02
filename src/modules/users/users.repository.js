@@ -23,6 +23,11 @@ export const listUsers = ({ filter = {}, skip = 0, limit = 20, sort = '-createdA
 
 export const countUsers = (filter = {}) => User.countDocuments(filter);
 
+// One level of direct referrals (sponsor = this user) — used by the Fast Start Bonus to
+// total a sponsor's direct team's investment units.
+export const findDirectReferralIds = (sponsorId) =>
+  User.find({ sponsor: sponsorId }, '_id').lean().then((rows) => rows.map((r) => r._id));
+
 export const getDashboardCounts = async () => {
   const [
     totalUsers,

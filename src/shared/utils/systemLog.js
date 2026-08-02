@@ -13,3 +13,15 @@ export const logEvent = async ({ type, action, level = 'info', message, meta, us
     logger.error('systemLog.persistFailed', { action, error: err.message });
   }
 };
+
+// Admin "Activity Logs" listing — filter/paginate/populate shape mirrors
+// walletTransactions.repository.js#listWalletTransactionsAdmin.
+export const listLogsAdmin = ({ filter = {}, skip = 0, limit = 20 }) =>
+  Log.find(filter)
+    .populate('user', 'mobile fullName')
+    .populate('actor', 'mobile fullName')
+    .sort({ createdAt: -1 })
+    .skip(skip)
+    .limit(limit);
+
+export const countLogs = (filter = {}) => Log.countDocuments(filter);

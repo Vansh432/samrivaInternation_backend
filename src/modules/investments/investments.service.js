@@ -1,18 +1,27 @@
+import mongoose from 'mongoose';
 import { AppError } from '../../shared/errors/AppError.js';
 import { generateCertificateNumber } from '../../shared/utils/certificateNumber.js';
 import { calculateInvestmentReturns } from '../../shared/utils/investmentReturns.js';
 import { addMonths, monthsElapsedBetween } from '../../shared/utils/dateMath.js';
 import { logEvent } from '../../shared/utils/systemLog.js';
-import { PLAN_TYPES, KYC_STATUS, ROLES, INVESTMENT_STATUS } from '../../shared/constants/index.js';
+import { logger } from '../../config/logger.js';
+import { PLAN_TYPES, KYC_STATUS, ROLES, INVESTMENT_STATUS, PAYMENT_MODES, WALLET_TYPES, WALLET_TXN_TYPES } from '../../shared/constants/index.js';
 import { resolveRate } from '../plans/plans.service.js';
 import { getSettings } from '../settings/settings.service.js';
+import { getNextSequenceRange, padSequence } from '../../shared/utils/sequence.js';
+import { decrementWalletBalanceIfSufficient } from '../wallets/wallets.repository.js';
+import { createWalletTransaction } from '../wallets/walletTransactions.repository.js';
 import {
   createInvestment,
   findInvestmentByCertificateNumber,
   findInvestmentById,
   listInvestmentsByUser,
   listActiveInvestmentsByUser,
+  listRenewableInvestmentsByUser,
+  markInvestmentRenewed,
 } from './investments.repository.js';
+import { generateInvestmentCertificate } from '../certificates/certificate.service.js';
+import { evaluateRetentionBonus } from '../bonuses/bonuses.service.js';
 
 const buildUniqueCertificateNumber = async () => {
   for (let attempt = 0; attempt < 5; attempt++) {
@@ -108,6 +117,123 @@ export const createUserInvestment = async (user, { planType, units, tenureMonths
   });
 
   return toInvestmentJSON(investment);
+};
+
+// A user's matured, not-yet-renewed investments — what the "Renew Investment" picker shows.
+export const getRenewableInvestments = async (userId) => {
+  const investments = await listRenewableInvestmentsByUser(userId);
+  return investments.map(toInvestmentJSON);
+};
+
+// Reinvests a matured investment's payout into a brand-new one, funded by debiting the
+// Main wallet instead of a bank-proof transaction. Skips PENDING_VERIFICATION entirely and
+// activates immediately — the funds being moved are already verified on-platform money,
+// unlike an external bank transfer that genuinely needs admin review.
+export const createRenewalInvestment = async (user, { fromInvestmentId, planType, units, tenureMonths }) => {
+  if (!INVESTMENT_ELIGIBLE_ROLES.includes(user.role)) {
+    throw new AppError('Your account type is not eligible to invest', 403);
+  }
+  if (user.kyc.status !== KYC_STATUS.APPROVED) {
+    throw new AppError('Your KYC must be approved before you can invest', 403);
+  }
+
+  const fromInvestment = await findInvestmentById(fromInvestmentId);
+  if (!fromInvestment || fromInvestment.user.toString() !== user._id.toString()) {
+    throw new AppError('Investment not found', 404);
+  }
+  if (fromInvestment.status !== INVESTMENT_STATUS.MATURED) {
+    throw new AppError('Only a matured investment can be renewed', 400);
+  }
+  if (fromInvestment.renewedInto) {
+    throw new AppError('This investment has already been renewed', 400);
+  }
+
+  const { ratePercent, minUnits, maxUnits } = await resolveRate({ planType, units, tenureMonths });
+  const settings = await getSettings();
+  const unitValueInr = settings.unitValueInr;
+  const principal = units * unitValueInr;
+
+  const session = await mongoose.startSession();
+  try {
+    await session.withTransaction(async () => {
+      const debited = await decrementWalletBalanceIfSufficient(user._id, WALLET_TYPES.MAIN, principal, session);
+      if (!debited) throw new AppError('Insufficient Main wallet balance for this renewal', 400);
+
+      await createWalletTransaction(
+        {
+          user: user._id,
+          walletType: WALLET_TYPES.MAIN,
+          type: WALLET_TXN_TYPES.DEBIT,
+          amount: principal,
+          balanceAfter: debited.balances.main,
+          source: 'investment_renewal',
+          referenceModel: 'Investment',
+          referenceId: fromInvestment._id,
+          description: `Renewed into a new ${units}-unit investment`,
+        },
+        session
+      );
+    });
+  } finally {
+    await session.endSession();
+  }
+
+  const certificateNumber = await buildUniqueCertificateNumber();
+  const startDate = new Date();
+
+  const newInvestment = await createInvestment({
+    user: user._id,
+    planType,
+    units,
+    tenureMonths,
+    unitValueInr,
+    principal,
+    ratePercent,
+    unitRangeMin: minUnits,
+    unitRangeMax: maxUnits,
+    paymentMode: PAYMENT_MODES.WALLET_RENEWAL,
+    amountPaid: principal,
+    transactionId: `RENEWAL-${fromInvestment.certificateNumber}`,
+    certificateNumber,
+    status: INVESTMENT_STATUS.ACTIVE,
+    startDate,
+    maturityDate: addMonths(startDate, tenureMonths),
+    dateOfAllotment: startDate,
+    redemptionDate: addMonths(startDate, tenureMonths),
+    renewedFrom: fromInvestment._id,
+  });
+
+  const { start, end } = await getNextSequenceRange('debentureNo', units);
+  newInvestment.debentureNoStart = `D${padSequence(start)}`;
+  newInvestment.debentureNoEnd = `D${padSequence(end)}`;
+
+  try {
+    const relativePath = await generateInvestmentCertificate(newInvestment, user);
+    newInvestment.certificatePdfUrl = relativePath;
+  } catch (err) {
+    logger.error('investments.createRenewalInvestment.certificateGenerationFailed', { investmentId: newInvestment._id.toString(), error: err.message });
+  }
+
+  await newInvestment.save();
+  await markInvestmentRenewed(fromInvestment._id, newInvestment._id);
+
+  // Best-effort, same as certificate generation above — a Retention Bonus evaluation bug
+  // must never block the renewal itself, which is the part that matters financially first.
+  try {
+    await evaluateRetentionBonus(newInvestment);
+  } catch (err) {
+    logger.error('investments.createRenewalInvestment.retentionBonusFailed', { investmentId: newInvestment._id.toString(), error: err.message });
+  }
+
+  await logEvent({
+    type: 'investment',
+    action: 'investment.renewed',
+    message: `Investment ${fromInvestment.certificateNumber} renewed into ${newInvestment.certificateNumber}`,
+    user: user._id,
+    meta: { fromInvestmentId: fromInvestment._id.toString(), newInvestmentId: newInvestment._id.toString(), principal },
+  });
+
+  return toInvestmentJSON(newInvestment);
 };
 
 // Preview-only projection for the "review before you invest" screen — mirrors the same

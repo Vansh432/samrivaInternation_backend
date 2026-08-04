@@ -5,6 +5,7 @@ import { calculateInvestmentReturns } from '../../shared/utils/investmentReturns
 import { addMonths, monthsElapsedBetween } from '../../shared/utils/dateMath.js';
 import { logEvent } from '../../shared/utils/systemLog.js';
 import { logger } from '../../config/logger.js';
+import { env } from '../../config/env.js';
 import { PLAN_TYPES, KYC_STATUS, ROLES, INVESTMENT_STATUS, PAYMENT_MODES, WALLET_TYPES, WALLET_TXN_TYPES } from '../../shared/constants/index.js';
 import { resolveRate } from '../plans/plans.service.js';
 import { getSettings } from '../settings/settings.service.js';
@@ -76,7 +77,9 @@ export const createUserInvestment = async (user, { planType, units, tenureMonths
 
   // Note: account-active status is already enforced globally by the `protect` middleware
   // before a request ever reaches here — no need to re-check it in this service.
-  if (user.kyc.status !== KYC_STATUS.APPROVED) {
+  // TESTING MODE ONLY — see env.js#testingMode. Remove this `!env.testingMode &&` to restore
+  // the real KYC gate.
+  if (!env.testingMode && user.kyc.status !== KYC_STATUS.APPROVED) {
     logEvent({
       type: 'investment', action: 'investment.kycNotApproved', level: 'warn',
       message: 'Investment attempt blocked — KYC not approved', user: user._id, meta: { kycStatus: user.kyc.status },
@@ -133,7 +136,9 @@ export const createRenewalInvestment = async (user, { fromInvestmentId, planType
   if (!INVESTMENT_ELIGIBLE_ROLES.includes(user.role)) {
     throw new AppError('Your account type is not eligible to invest', 403);
   }
-  if (user.kyc.status !== KYC_STATUS.APPROVED) {
+  // TESTING MODE ONLY — see env.js#testingMode. Remove this `!env.testingMode &&` to restore
+  // the real KYC gate.
+  if (!env.testingMode && user.kyc.status !== KYC_STATUS.APPROVED) {
     throw new AppError('Your KYC must be approved before you can invest', 403);
   }
 

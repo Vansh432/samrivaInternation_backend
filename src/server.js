@@ -20,7 +20,15 @@ const start = async () => {
   await ensureDefaultRankAchievementSlabs();
   await ensureDefaultRetentionSlabs();
   await ensureDefaultOverrideSlabs();
-  startCronJobs();
+
+  // TESTING MODE ONLY — see env.js#testingMode. The real 1/2/3 AM cron schedule is disabled
+  // so it can't double-process alongside the inline auto-processing middleware (see app.js).
+  // Remove this `if` (always call startCronJobs()) to restore normal cron behavior.
+  if (!env.testingMode) {
+    startCronJobs();
+  } else {
+    logger.warn('TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes');
+  }
 
   app.listen(env.port, () => {
     logger.info(`Server is running on port ${env.port}`);

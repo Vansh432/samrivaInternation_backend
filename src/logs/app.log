@@ -4570,3 +4570,81 @@
 {"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-02T06:27:42.006Z"}
 {"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-02T06:27:43.166Z"}
 {"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-02T06:27:43.173Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 4489.813 ms","timestamp":"2026-08-02T06:48:20.540Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments HTTP/1.1 304 - - 4765.911 ms","timestamp":"2026-08-02T06:48:20.660Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 5042.427 ms","timestamp":"2026-08-02T06:48:21.116Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/team/summary HTTP/1.1 304 - - 4241.436 ms","timestamp":"2026-08-02T06:48:21.316Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/team/level/1?page=1&limit=20 HTTP/1.1 304 - - 256.585 ms","timestamp":"2026-08-02T06:48:25.700Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/team/summary HTTP/1.1 304 - - 930.885 ms","timestamp":"2026-08-02T07:12:02.526Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 229.050 ms","timestamp":"2026-08-02T07:12:03.877Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 1443 - 712.230 ms","timestamp":"2026-08-02T07:12:04.378Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/me HTTP/1.1 304 - - 960.026 ms","timestamp":"2026-08-02T07:12:04.615Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/team/summary HTTP/1.1 304 - - 226.876 ms","timestamp":"2026-08-02T07:12:08.852Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 144.848 ms","timestamp":"2026-08-02T07:12:10.163Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 209.047 ms","timestamp":"2026-08-02T07:12:10.220Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/me HTTP/1.1 304 - - 333.016 ms","timestamp":"2026-08-02T07:12:10.347Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 217.839 ms","timestamp":"2026-08-02T07:12:16.033Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 244.133 ms","timestamp":"2026-08-02T07:12:16.066Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 149.046 ms","timestamp":"2026-08-02T07:12:16.187Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/me HTTP/1.1 304 - - 429.931 ms","timestamp":"2026-08-02T07:12:16.256Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 90.994 ms","timestamp":"2026-08-02T07:12:26.832Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments HTTP/1.1 304 - - 126.851 ms","timestamp":"2026-08-02T07:12:26.859Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 189.325 ms","timestamp":"2026-08-02T07:12:26.926Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 245.722 ms","timestamp":"2026-08-02T07:13:59.718Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 427.393 ms","timestamp":"2026-08-02T07:13:59.822Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments HTTP/1.1 304 - - 432.437 ms","timestamp":"2026-08-02T07:13:59.889Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 880.676 ms","timestamp":"2026-08-02T07:14:00.361Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 181.313 ms","timestamp":"2026-08-02T07:18:46.882Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 308.096 ms","timestamp":"2026-08-02T07:18:46.931Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/me HTTP/1.1 304 - - 416.484 ms","timestamp":"2026-08-02T07:18:47.111Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 163.946 ms","timestamp":"2026-08-02T07:18:54.109Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments HTTP/1.1 304 - - 208.720 ms","timestamp":"2026-08-02T07:18:54.145Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 260.861 ms","timestamp":"2026-08-02T07:18:54.219Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 268.978 ms","timestamp":"2026-08-02T07:18:56.284Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 250.691 ms","timestamp":"2026-08-02T07:18:56.288Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/me HTTP/1.1 304 - - 498.520 ms","timestamp":"2026-08-02T07:18:56.529Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 225.657 ms","timestamp":"2026-08-02T07:19:01.661Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 232.276 ms","timestamp":"2026-08-02T07:19:01.677Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 233.021 ms","timestamp":"2026-08-02T07:19:01.699Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefits/me HTTP/1.1 200 163 - 496.534 ms","timestamp":"2026-08-02T07:19:01.927Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 2216.777 ms","timestamp":"2026-08-02T07:22:40.863Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 304 - - 2802.896 ms","timestamp":"2026-08-02T07:22:41.363Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/me HTTP/1.1 304 - - 2812.497 ms","timestamp":"2026-08-02T07:22:41.460Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 752 - 2710.205 ms","timestamp":"2026-08-02T11:56:41.891Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 433.845 ms","timestamp":"2026-08-02T11:56:42.356Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 673.013 ms","timestamp":"2026-08-02T11:56:42.689Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 1107.167 ms","timestamp":"2026-08-02T11:56:43.801Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 2102.769 ms","timestamp":"2026-08-02T11:56:44.104Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 2105.675 ms","timestamp":"2026-08-02T11:56:44.118Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 391.246 ms","timestamp":"2026-08-02T11:56:44.518Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 406.116 ms","timestamp":"2026-08-02T11:56:44.529Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-04T15:07:19.934Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-04T15:07:22.558Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-04T15:41:44.979Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-04T15:41:46.910Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-04T15:41:50.278Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-04T15:41:50.283Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET / HTTP/1.1 200 45 - 2.474 ms","timestamp":"2026-08-04T15:41:59.765Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-04T15:44:09.452Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-04T15:44:10.814Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 36 scanned","scanned":36,"timestamp":"2026-08-04T15:44:12.721Z","updated":0}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-04T15:44:15.596Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-04T15:44:16.572Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-04T15:44:17.995Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-04T15:44:18.000Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-04T15:45:27.455Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-04T15:45:28.513Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 36 scanned","scanned":36,"timestamp":"2026-08-04T15:45:29.412Z","updated":0}
+{"investmentId":"6a7209194ffded7863e82b2e","level":"info","message":"investment.submitted Investment submitted for admin verification (SMR-DEB-2DDFR4TQ)","planType":"compounding","principal":50000,"tenureMonths":12,"timestamp":"2026-08-04T15:45:29.972Z","units":2}
+{"level":"http","message":"::1 - POST /api/investments HTTP/1.1 201 766 - 828.169 ms","timestamp":"2026-08-04T15:45:30.095Z"}
+{"amount":5000,"level":"info","message":"wallet.credited Credited 5000 to reward wallet (rank_achievement)","source":"rank_achievement","timestamp":"2026-08-04T15:45:31.943Z","walletType":"reward"}
+{"amount":5000,"level":"info","message":"bonus.rankAchievement.credited Rank Achievement Bonus of 5000 credited (associate)","rank":"associate","timestamp":"2026-08-04T15:45:32.035Z"}
+{"achievementBonusTotal":5000,"achievementBonusesPaid":1,"changed":1,"level":"info","message":"ranks.recalculated Rank recalculation completed — 1 of 54 users changed rank","scanned":54,"timestamp":"2026-08-04T15:45:32.115Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 5 users qualified, ₹0 paid","qualified":0,"scanned":5,"timestamp":"2026-08-04T15:45:32.407Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"http","message":"::1 - GET /api/ranks/me HTTP/1.1 200 341 - 1516.563 ms","timestamp":"2026-08-04T15:45:32.919Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 36 scanned","scanned":36,"timestamp":"2026-08-04T15:45:34.733Z","updated":0}
+{"level":"http","message":"::1 - GET /api/investments/summary HTTP/1.1 200 346 - 653.478 ms","timestamp":"2026-08-04T15:45:35.162Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-04T15:49:21.217Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-04T15:49:22.696Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-04T15:49:24.341Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-04T15:49:24.347Z"}

@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import { logger } from '../../config/logger.js';
+import { env } from '../../config/env.js';
 import { logEvent } from '../../shared/utils/systemLog.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from '../../shared/utils/token.js';
@@ -21,8 +22,12 @@ const issueTokens = (user) => ({
 
 // A sponsor ID only becomes usable to build a team once its owner has an approved KYC
 // and has actually completed an investment (active/matured) — not merely registered.
+// TESTING MODE ONLY — see env.js#testingMode. Remove the `env.testingMode ||` to restore the
+// real KYC gate on sponsor eligibility.
 export const isSponsorEligible = async (user) =>
-  user.kyc.status === KYC_STATUS.APPROVED && !!(await existsCompletedInvestmentForUser(user._id)) && user?.status=== USER_STATUS.ACTIVE;
+  (env.testingMode || user.kyc.status === KYC_STATUS.APPROVED) &&
+  !!(await existsCompletedInvestmentForUser(user._id)) &&
+  user?.status === USER_STATUS.ACTIVE;
 
 const buildUniqueReferralCode = async () => {
   for (let attempt = 0; attempt < 5; attempt++) {

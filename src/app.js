@@ -17,6 +17,12 @@ import { requestLogger } from './middleware/requestLogger.js';
 import { notFound } from './middleware/notFound.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { UPLOAD_ROOT } from './middleware/upload.js';
+// TESTING MODE ONLY — see middleware/testingAutoProcess.js and config/env.js#testingMode.
+// Remove this import + the two testingAutoProcess(...) middlewares below to fully revert.
+import { testingAutoProcess } from './middleware/testingAutoProcess.js';
+import { processInvestmentReturns } from './scheduler/investmentReturns.cron.js';
+import { processRankRecalculation } from './scheduler/rankRecalculation.cron.js';
+import { processRankBenefits } from './scheduler/rankBenefits.cron.js';
 
 const app = express();
 
@@ -36,12 +42,12 @@ app.use('/api/user', userRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/plans', plansRoutes);
 app.use('/api/settings', settingsRoutes);
-app.use('/api/investments', investmentsRoutes);
+app.use('/api/investments', testingAutoProcess([processInvestmentReturns]), investmentsRoutes);
 app.use('/api/uploads', uploadsRoutes);
 app.use('/api/team', teamRoutes);
 app.use('/api/bonuses', bonusesRoutes);
 app.use('/api/wallet', walletRoutes);
-app.use('/api/ranks', ranksRoutes);
+app.use('/api/ranks', testingAutoProcess([processRankRecalculation, processRankBenefits]), ranksRoutes);
 app.use('/api/overrides', overridesRoutes);
 
 app.use(notFound);

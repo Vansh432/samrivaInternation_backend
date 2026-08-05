@@ -4648,3 +4648,104 @@
 {"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-04T15:49:22.696Z"}
 {"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-04T15:49:24.341Z"}
 {"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-04T15:49:24.347Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-04T16:59:49.013Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-04T16:59:53.136Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-04T16:59:53.917Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-04T16:59:55.324Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-04T16:59:55.330Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-04T17:08:11.703Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-04T17:08:13.486Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-04T17:08:17.659Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-04T17:08:17.669Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 173.393 ms","timestamp":"2026-08-04T17:13:32.014Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/plans HTTP/1.1 304 - - 734.393 ms","timestamp":"2026-08-04T17:13:32.383Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 935 - 1524.338 ms","timestamp":"2026-08-04T17:13:33.413Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-04T17:13:35.082Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=compounding&units=1&tenureMonths=6 HTTP/1.1 304 - - 3114.212 ms","timestamp":"2026-08-04T17:13:35.839Z"}
+{"level":"warn","message":"No file uploaded","method":"POST","path":"/api/uploads","statusCode":400,"timestamp":"2026-08-04T17:13:43.772Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/uploads HTTP/1.1 400 57 - 124.789 ms","timestamp":"2026-08-04T17:13:43.775Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T01:32:28.932Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T01:32:28.932Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T01:32:33.546Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T01:32:33.546Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T01:32:39.095Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T01:32:40.783Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T01:32:45.368Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T01:32:45.380Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T01:32:47.385Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T01:32:47.390Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T01:44:36.328Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T01:44:40.721Z"}
+{"level":"error","message":"Multipart: Boundary not found","method":"POST","path":"/api/uploads","stack":"Error: Multipart: Boundary not found\n    at new Multipart (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\busboy\\lib\\types\\multipart.js:233:13)\n    at getInstance (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\busboy\\lib\\index.js:33:12)\n    at module.exports (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\busboy\\lib\\index.js:56:10)\n    at multerMiddleware (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\multer\\lib\\make-middleware.js:133:16)\n    at Layer.handleRequest (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at D:\\freelancing\\samrivaInternation\\samrivaApp\\samrivaInternationApp\\backend\\node_modules\\router\\index.js:295:15","timestamp":"2026-08-05T01:44:49.166Z"}
+{"level":"http","message":"::1 - POST /api/uploads HTTP/1.1 500 61 - 7138.731 ms","timestamp":"2026-08-05T01:44:49.384Z"}
+{"level":"http","message":"::1 - POST /api/uploads HTTP/1.1 201 116 - 1010.279 ms","timestamp":"2026-08-05T01:44:50.427Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 3765.418 ms","timestamp":"2026-08-05T01:52:32.716Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 4069.137 ms","timestamp":"2026-08-05T01:52:33.117Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/plans HTTP/1.1 304 - - 5878.877 ms","timestamp":"2026-08-05T01:52:34.654Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T01:52:39.670Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=compounding&units=1&tenureMonths=6 HTTP/1.1 304 - - 4837.058 ms","timestamp":"2026-08-05T01:52:40.646Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T02:06:49.134Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T02:06:53.046Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T02:06:58.884Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T02:06:58.906Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 1042.289 ms","timestamp":"2026-08-05T02:09:17.253Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/plans HTTP/1.1 304 - - 3582.209 ms","timestamp":"2026-08-05T02:09:18.135Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 2231.466 ms","timestamp":"2026-08-05T02:09:18.402Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:09:23.768Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=compounding&units=1&tenureMonths=6 HTTP/1.1 304 - - 8086.927 ms","timestamp":"2026-08-05T02:09:26.939Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:09:37.540Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=monthly_income&units=1&tenureMonths=6 HTTP/1.1 200 210 - 9027.431 ms","timestamp":"2026-08-05T02:09:38.286Z"}
+{"level":"warn","message":"No file uploaded","method":"POST","path":"/api/uploads","statusCode":400,"timestamp":"2026-08-05T02:09:52.143Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/uploads HTTP/1.1 400 57 - 113.774 ms","timestamp":"2026-08-05T02:09:52.146Z"}
+{"level":"warn","message":"No file uploaded","method":"POST","path":"/api/uploads","statusCode":400,"timestamp":"2026-08-05T02:10:54.403Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/uploads HTTP/1.1 400 57 - 1098.048 ms","timestamp":"2026-08-05T02:10:54.414Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 1622.266 ms","timestamp":"2026-08-05T02:14:20.808Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/plans HTTP/1.1 304 - - 2727.498 ms","timestamp":"2026-08-05T02:14:21.259Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 2527.894 ms","timestamp":"2026-08-05T02:14:21.735Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:16:55.258Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 170.221 ms","timestamp":"2026-08-05T02:16:55.724Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/plans HTTP/1.1 304 - - 1086.722 ms","timestamp":"2026-08-05T02:16:55.772Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=compounding&units=1&tenureMonths=6 HTTP/1.1 304 - - 3281.290 ms","timestamp":"2026-08-05T02:16:56.168Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:17:22.455Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=compounding&units=1&tenureMonths=6 HTTP/1.1 304 - - 3432.273 ms","timestamp":"2026-08-05T02:17:24.537Z"}
+{"level":"warn","message":"No file uploaded","method":"POST","path":"/api/uploads","statusCode":400,"timestamp":"2026-08-05T02:17:36.221Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/uploads HTTP/1.1 400 57 - 317.196 ms","timestamp":"2026-08-05T02:17:36.272Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T02:21:58.845Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T02:21:59.829Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T02:22:01.159Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T02:22:01.172Z"}
+{"level":"warn","message":"No file uploaded","method":"POST","path":"/api/uploads","statusCode":400,"timestamp":"2026-08-05T02:22:37.328Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/uploads HTTP/1.1 400 57 - 401.362 ms","timestamp":"2026-08-05T02:22:37.386Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 479.964 ms","timestamp":"2026-08-05T02:25:51.882Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/plans HTTP/1.1 304 - - 870.407 ms","timestamp":"2026-08-05T02:25:52.004Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 499.823 ms","timestamp":"2026-08-05T02:25:52.152Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:25:54.875Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=compounding&units=1&tenureMonths=6 HTTP/1.1 304 - - 2710.637 ms","timestamp":"2026-08-05T02:25:56.315Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 1144.512 ms","timestamp":"2026-08-05T02:28:18.714Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/plans HTTP/1.1 304 - - 1783.258 ms","timestamp":"2026-08-05T02:28:19.071Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:28:20.465Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=compounding&units=1&tenureMonths=6 HTTP/1.1 304 - - 559.346 ms","timestamp":"2026-08-05T02:28:20.802Z"}
+{"level":"warn","message":"No file uploaded","method":"POST","path":"/api/uploads","statusCode":400,"timestamp":"2026-08-05T02:28:28.121Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/uploads HTTP/1.1 400 57 - 177.370 ms","timestamp":"2026-08-05T02:28:28.132Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 256.155 ms","timestamp":"2026-08-05T02:32:53.216Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/plans HTTP/1.1 304 - - 5235.303 ms","timestamp":"2026-08-05T02:32:57.933Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:33:02.044Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=compounding&units=1&tenureMonths=6 HTTP/1.1 304 - - 5600.328 ms","timestamp":"2026-08-05T02:33:04.195Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T02:33:16.274Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T02:33:22.817Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T02:33:24.279Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T02:33:27.052Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T02:33:27.060Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/uploads HTTP/1.1 201 116 - 302.769 ms","timestamp":"2026-08-05T02:35:20.222Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T02:35:31.335Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T02:35:36.570Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T02:35:45.948Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T02:35:45.958Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:35:56.611Z","updated":0}
+{"investmentId":"6a72a18e4ea7c7db1086b6e6","level":"info","message":"investment.submitted Investment submitted for admin verification (SMR-DEB-7VR455LP)","planType":"compounding","principal":25000,"tenureMonths":6,"timestamp":"2026-08-05T02:35:58.323Z","units":1}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/investments HTTP/1.1 201 842 - 4856.952 ms","timestamp":"2026-08-05T02:35:58.497Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 494.176 ms","timestamp":"2026-08-05T02:35:59.706Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:36:03.113Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 200 346 - 4412.422 ms","timestamp":"2026-08-05T02:36:03.625Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:36:15.227Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments HTTP/1.1 200 838 - 17967.578 ms","timestamp":"2026-08-05T02:36:17.171Z"}

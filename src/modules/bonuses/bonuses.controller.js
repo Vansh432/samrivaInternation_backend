@@ -63,3 +63,13 @@ export const listRetentionAwards = asyncHandler(async (req, res) => {
   const result = await bonusesService.getRetentionAwardsAdmin({ page, limit });
   return sendSuccess(res, { message: 'Retention Bonus awards', data: result });
 });
+
+export const getDirectAcquisitionConfig = asyncHandler(async (req, res) => {
+  const config = await bonusesService.getDirectAcquisitionConfig();
+  return sendSuccess(res, { message: 'Direct Acquisition Bonus config', data: { config } });
+});
+
+export const updateDirectAcquisitionConfig = asyncHandler(async (req, res) => {
+  const config = await bonusesService.updateDirectAcquisitionConfig(req.body, req.user._id);
+  return sendSuccess(res, { message: 'Direct Acquisition Bonus config updated', data: { config } });
+});

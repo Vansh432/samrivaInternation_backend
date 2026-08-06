@@ -23,3 +23,9 @@ export const updateRetentionSlabValidation = [
   body('bonusAmount').optional().isFloat({ min: 0 }).withMessage('Bonus amount must be 0 or greater'),
   body('isActive').optional().isBoolean(),
 ];
+
+export const updateDirectAcquisitionConfigValidation = [
+  body('compoundingPercent').optional().isFloat({ min: 0, max: 100 }).withMessage('compoundingPercent must be between 0 and 100'),
+  body('monthlyIncomePercent').optional().isFloat({ min: 0, max: 100 }).withMessage('monthlyIncomePercent must be between 0 and 100'),
+  body('isActive').optional().isBoolean(),
+];

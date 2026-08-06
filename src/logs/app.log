@@ -4749,3 +4749,876 @@
 {"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 200 346 - 4412.422 ms","timestamp":"2026-08-05T02:36:03.625Z"}
 {"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 47 scanned","scanned":47,"timestamp":"2026-08-05T02:36:15.227Z","updated":0}
 {"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments HTTP/1.1 200 838 - 17967.578 ms","timestamp":"2026-08-05T02:36:17.171Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T04:27:58.685Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T04:28:02.193Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T04:28:03.023Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T04:28:05.245Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T04:28:05.252Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 284.384 ms","timestamp":"2026-08-05T04:45:12.332Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/plans HTTP/1.1 304 - - 849.700 ms","timestamp":"2026-08-05T04:45:12.567Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 48 scanned","scanned":48,"timestamp":"2026-08-05T04:45:13.240Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 934 - 1197.964 ms","timestamp":"2026-08-05T04:45:13.336Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/quote?planType=compounding&units=1&tenureMonths=6 HTTP/1.1 304 - - 750.099 ms","timestamp":"2026-08-05T04:45:13.767Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/uploads HTTP/1.1 201 116 - 120.945 ms","timestamp":"2026-08-05T04:45:23.092Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T04:45:32.010Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T04:45:37.102Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T04:45:45.347Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T04:45:45.379Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 48 scanned","scanned":48,"timestamp":"2026-08-05T04:45:57.733Z","updated":0}
+{"investmentId":"6a72c0074d027cda7035f85d","level":"info","message":"investment.submitted Investment submitted for admin verification (SMR-DEB-FE5EQFSK)","planType":"compounding","principal":25000,"tenureMonths":6,"timestamp":"2026-08-05T04:45:59.878Z","units":1}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/investments HTTP/1.1 201 839 - 10705.363 ms","timestamp":"2026-08-05T04:45:59.947Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 116.834 ms","timestamp":"2026-08-05T04:46:00.457Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 48 scanned","scanned":48,"timestamp":"2026-08-05T04:46:01.958Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments HTTP/1.1 200 1931 - 2118.782 ms","timestamp":"2026-08-05T04:46:02.454Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 48 scanned","scanned":48,"timestamp":"2026-08-05T04:46:07.605Z","updated":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/investments/summary HTTP/1.1 200 541 - 7802.110 ms","timestamp":"2026-08-05T04:46:08.185Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T16:43:14.212Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T16:43:16.577Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T16:43:55.681Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T16:43:56.495Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T16:44:38.274Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T16:44:41.602Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T16:45:20.575Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T16:45:21.957Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T16:46:01.178Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T16:46:02.259Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T17:23:16.606Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T17:23:23.508Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T17:23:25.528Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T17:23:28.239Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T17:23:28.247Z"}
+{"level":"warn","message":"Session expired, please login again","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-08-05T17:23:50.944Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 76 - 327.436 ms","timestamp":"2026-08-05T17:23:50.955Z"}
+{"level":"warn","message":"Session expired, please login again","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-08-05T17:23:51.047Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 76 - 90.664 ms","timestamp":"2026-08-05T17:23:51.050Z"}
+{"level":"warn","message":"auth.refresh.stale","timestamp":"2026-08-05T17:23:51.105Z","userId":"6a65af175e1ad8c0604141b8"}
+{"level":"warn","message":"Invalid or expired refresh token","method":"POST","path":"/api/auth/refresh","statusCode":401,"timestamp":"2026-08-05T17:23:51.107Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/refresh HTTP/1.1 401 73 - 78.328 ms","timestamp":"2026-08-05T17:23:51.108Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T17:23:57.800Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T17:23:59.197Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T17:24:01.550Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T17:24:01.555Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919999900001","timestamp":"2026-08-05T17:25:13.598Z"}
+{"level":"info","message":"auth.login.success","mobile":"+919999900001","timestamp":"2026-08-05T17:25:14.093Z","userId":"6a65af175e1ad8c0604141b8"}
+{"level":"info","message":"auth.login Logged in (+919999900001)","mobile":"+919999900001","timestamp":"2026-08-05T17:25:14.095Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/login HTTP/1.1 200 1186 - 718.524 ms","timestamp":"2026-08-05T17:25:14.282Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 200 241 - 1043.275 ms","timestamp":"2026-08-05T17:25:15.534Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 304 - - 217.350 ms","timestamp":"2026-08-05T17:25:15.757Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T17:25:31.766Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T17:25:31.795Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T17:25:31.981Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T17:25:32.054Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 200 1958 - 1161.186 ms","timestamp":"2026-08-05T17:25:32.457Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T17:25:32.464Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 200 2282 - 1160.926 ms","timestamp":"2026-08-05T17:25:32.482Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T17:25:32.799Z","totalPaid":0,"yearMonth":"2026-07"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T17:25:32.923Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T17:25:33.002Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T17:25:33.225Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T17:25:33.334Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 200 1236 - 2072.554 ms","timestamp":"2026-08-05T17:25:33.400Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 1051.567 ms","timestamp":"2026-08-05T17:25:33.582Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T17:25:34.129Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T17:25:34.475Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 2048.512 ms","timestamp":"2026-08-05T17:25:34.549Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 1387.836 ms","timestamp":"2026-08-05T17:25:34.869Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T17:25:40.793Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T17:25:42.117Z"}
+{"level":"http","message":"::1 - GET /api/bonuses/direct-acquisition HTTP/1.1 200 253 - 283.536 ms","timestamp":"2026-08-05T17:25:44.806Z"}
+{"level":"warn","message":"You are not authorized to perform this action","method":"PATCH","path":"/api/bonuses/direct-acquisition","statusCode":403,"timestamp":"2026-08-05T17:25:44.992Z"}
+{"level":"http","message":"::1 - PATCH /api/bonuses/direct-acquisition HTTP/1.1 403 86 - 133.270 ms","timestamp":"2026-08-05T17:25:44.995Z"}
+{"level":"http","message":"::1 - PATCH /api/bonuses/direct-acquisition HTTP/1.1 422 145 - 93.796 ms","timestamp":"2026-08-05T17:25:45.101Z"}
+{"amount":3000,"level":"info","message":"wallet.credited Credited 3000 to commission wallet (direct_acquisition_bonus)","referenceId":"6a7372196737c974a07f919a","source":"direct_acquisition_bonus","timestamp":"2026-08-05T17:25:49.056Z","walletType":"commission"}
+{"amount":3000,"investmentId":"6a7372196737c974a07f919a","level":"info","message":"bonus.directAcquisition.credited Direct Acquisition Bonus of 3000 credited (3% of compounding investment)","percent":3,"planType":"compounding","timestamp":"2026-08-05T17:25:49.225Z"}
+{"investmentId":"6a7372196737c974a07f919a","level":"info","maturityDate":"2027-08-05T17:25:45.720Z","message":"investment.approved Investment CERT715021716a7372186737c974a07f9196 approved — tenure started","timestamp":"2026-08-05T17:25:49.508Z"}
+{"level":"http","message":"::1 - POST /api/admin/investments/6a7372196737c974a07f919a/approve HTTP/1.1 200 1081 - 4389.557 ms","timestamp":"2026-08-05T17:25:49.591Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/direct-acquisition HTTP/1.1 200 253 - 296.189 ms","timestamp":"2026-08-05T17:25:50.521Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/slabs HTTP/1.1 304 - - 302.418 ms","timestamp":"2026-08-05T17:25:50.533Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/awards?page=1&limit=10 HTTP/1.1 304 - - 657.410 ms","timestamp":"2026-08-05T17:25:50.902Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/slabs HTTP/1.1 304 - - 706.026 ms","timestamp":"2026-08-05T17:25:50.940Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/direct-acquisition HTTP/1.1 200 253 - 405.349 ms","timestamp":"2026-08-05T17:25:50.957Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/overrides/slabs HTTP/1.1 304 - - 755.446 ms","timestamp":"2026-08-05T17:25:50.972Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/slabs HTTP/1.1 304 - - 422.291 ms","timestamp":"2026-08-05T17:25:50.977Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/awards?page=1&limit=10 HTTP/1.1 200 2787 - 792.644 ms","timestamp":"2026-08-05T17:25:51.029Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/slabs HTTP/1.1 304 - - 149.954 ms","timestamp":"2026-08-05T17:25:51.112Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/awards?page=1&limit=10 HTTP/1.1 304 - - 224.345 ms","timestamp":"2026-08-05T17:25:51.171Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/awards?page=1&limit=10 HTTP/1.1 304 - - 596.712 ms","timestamp":"2026-08-05T17:25:51.636Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/overrides/slabs HTTP/1.1 304 - - 678.603 ms","timestamp":"2026-08-05T17:25:51.663Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T17:26:23.380Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T17:26:24.907Z"}
+{"level":"http","message":"::1 - GET /api/bonuses/direct-acquisition HTTP/1.1 200 253 - 717.774 ms","timestamp":"2026-08-05T17:26:27.369Z"}
+{"level":"warn","message":"You are not authorized to perform this action","method":"PATCH","path":"/api/bonuses/direct-acquisition","statusCode":403,"timestamp":"2026-08-05T17:26:28.025Z"}
+{"level":"http","message":"::1 - PATCH /api/bonuses/direct-acquisition HTTP/1.1 403 86 - 616.346 ms","timestamp":"2026-08-05T17:26:28.029Z"}
+{"level":"http","message":"::1 - PATCH /api/bonuses/direct-acquisition HTTP/1.1 422 145 - 118.207 ms","timestamp":"2026-08-05T17:26:28.153Z"}
+{"amount":3000,"level":"info","message":"wallet.credited Credited 3000 to commission wallet (direct_acquisition_bonus)","referenceId":"6a7372446535e72df075771c","source":"direct_acquisition_bonus","timestamp":"2026-08-05T17:26:30.594Z","walletType":"commission"}
+{"amount":3000,"investmentId":"6a7372446535e72df075771c","level":"info","message":"bonus.directAcquisition.credited Direct Acquisition Bonus of 3000 credited (3% of compounding investment)","percent":3,"planType":"compounding","timestamp":"2026-08-05T17:26:30.776Z"}
+{"investmentId":"6a7372446535e72df075771c","level":"info","maturityDate":"2027-08-05T17:26:28.606Z","message":"investment.approved Investment CERT553606801 approved — tenure started","timestamp":"2026-08-05T17:26:30.835Z"}
+{"level":"http","message":"::1 - POST /api/admin/investments/6a7372446535e72df075771c/approve HTTP/1.1 200 1012 - 2672.833 ms","timestamp":"2026-08-05T17:26:30.958Z"}
+{"amount":1000,"level":"info","message":"wallet.credited Credited 1000 to commission wallet (direct_acquisition_bonus)","referenceId":"6a7372476535e72df075771f","source":"direct_acquisition_bonus","timestamp":"2026-08-05T17:26:34.644Z","walletType":"commission"}
+{"amount":1000,"investmentId":"6a7372476535e72df075771f","level":"info","message":"bonus.directAcquisition.credited Direct Acquisition Bonus of 1000 credited (2% of monthly_income investment)","percent":2,"planType":"monthly_income","timestamp":"2026-08-05T17:26:34.748Z"}
+{"investmentId":"6a7372476535e72df075771f","level":"info","maturityDate":"2027-08-05T17:26:31.982Z","message":"investment.approved Investment CERT553606802 approved — tenure started","timestamp":"2026-08-05T17:26:34.844Z"}
+{"level":"http","message":"::1 - POST /api/admin/investments/6a7372476535e72df075771f/approve HTTP/1.1 200 1000 - 3753.193 ms","timestamp":"2026-08-05T17:26:34.952Z"}
+{"investmentId":"6a73724b6535e72df0757722","level":"info","maturityDate":"2027-08-05T17:26:35.835Z","message":"investment.approved Investment CERT553606803 approved — tenure started","timestamp":"2026-08-05T17:26:39.277Z"}
+{"level":"http","message":"::1 - POST /api/admin/investments/6a73724b6535e72df0757722/approve HTTP/1.1 200 1012 - 4379.825 ms","timestamp":"2026-08-05T17:26:39.576Z"}
+{"changes":{"compoundingPercent":5,"isActive":true,"monthlyIncomePercent":1},"level":"info","message":"bonuses.directAcquisition.updated Direct Acquisition Bonus config updated","timestamp":"2026-08-05T17:26:40.361Z"}
+{"level":"http","message":"::1 - PATCH /api/bonuses/direct-acquisition HTTP/1.1 200 261 - 837.679 ms","timestamp":"2026-08-05T17:26:40.483Z"}
+{"amount":5000,"level":"info","message":"wallet.credited Credited 5000 to commission wallet (direct_acquisition_bonus)","referenceId":"6a7372506535e72df0757725","source":"direct_acquisition_bonus","timestamp":"2026-08-05T17:26:46.937Z","walletType":"commission"}
+{"amount":5000,"investmentId":"6a7372506535e72df0757725","level":"info","message":"bonus.directAcquisition.credited Direct Acquisition Bonus of 5000 credited (5% of compounding investment)","percent":5,"planType":"compounding","timestamp":"2026-08-05T17:26:47.274Z"}
+{"investmentId":"6a7372506535e72df0757725","level":"info","maturityDate":"2027-08-05T17:26:42.079Z","message":"investment.approved Investment CERT553606804 approved — tenure started","timestamp":"2026-08-05T17:26:47.493Z"}
+{"level":"http","message":"::1 - POST /api/admin/investments/6a7372506535e72df0757725/approve HTTP/1.1 200 1012 - 6977.098 ms","timestamp":"2026-08-05T17:26:47.641Z"}
+{"changes":{"isActive":false},"level":"info","message":"bonuses.directAcquisition.updated Direct Acquisition Bonus config updated","timestamp":"2026-08-05T17:26:48.366Z"}
+{"level":"http","message":"::1 - PATCH /api/bonuses/direct-acquisition HTTP/1.1 200 262 - 1684.973 ms","timestamp":"2026-08-05T17:26:49.418Z"}
+{"investmentId":"6a7372596535e72df0757728","level":"info","maturityDate":"2027-08-05T17:26:50.563Z","message":"investment.approved Investment CERT553606805 approved — tenure started","timestamp":"2026-08-05T17:26:56.329Z"}
+{"level":"http","message":"::1 - POST /api/admin/investments/6a7372596535e72df0757728/approve HTTP/1.1 200 1012 - 6623.381 ms","timestamp":"2026-08-05T17:26:56.504Z"}
+{"changes":{"compoundingPercent":3,"isActive":true,"monthlyIncomePercent":2},"level":"info","message":"bonuses.directAcquisition.updated Direct Acquisition Bonus config updated","timestamp":"2026-08-05T17:26:57.320Z"}
+{"level":"http","message":"::1 - PATCH /api/bonuses/direct-acquisition HTTP/1.1 200 261 - 837.267 ms","timestamp":"2026-08-05T17:26:57.422Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:00:01.975Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:00:03.848Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:00:05.904Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:00:05.913Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:04:08.959Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:04:10.568Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:04:13.677Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:04:13.725Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:04:21.596Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:04:23.593Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:04:25.039Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:04:25.059Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:04:38.173Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:04:38.936Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:04:40.828Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:04:40.836Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:04:46.041Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:04:47.279Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:04:50.725Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:04:50.729Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:05:04.137Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:05:07.007Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:05:12.126Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:05:12.130Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:06:55.147Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:06:57.183Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:06:59.242Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:06:59.250Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:07:38.150Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:07:39.406Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:07:41.137Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:07:41.141Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:07:47.929Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:07:48.672Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:07:49.844Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:07:49.855Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:08:27.186Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:08:28.095Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:08:33.946Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:08:35.533Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:08:37.472Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:08:37.479Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:13:43.087Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:13:46.445Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:13:53.488Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:13:53.495Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:14:09.286Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:14:10.890Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:14:14.546Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:14:14.553Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:14:24.519Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:14:26.665Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:14:29.098Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:14:29.106Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:15:08.463Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:15:09.443Z"}
+{"amount":9999,"level":"info","message":"wallet.credited Credited 9999 to bonus wallet (fast_start_bonus)","source":"fast_start_bonus","timestamp":"2026-08-05T18:15:13.678Z","walletType":"bonus"}
+{"amount":9999,"cumulativeUnits":4,"level":"info","message":"bonus.fastStart.credited Fast Start Bonus of 9999 credited (3 units milestone)","timestamp":"2026-08-05T18:15:13.741Z","unitsThreshold":3}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 1 paid (₹9999), 3 window(s) settled","paid":1,"settled":3,"timestamp":"2026-08-05T18:15:14.359Z","totalPaid":9999}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 0 window(s) settled","paid":0,"settled":0,"timestamp":"2026-08-05T18:15:15.290Z","totalPaid":0}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:15:56.958Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:15:57.898Z"}
+{"amount":9999,"level":"info","message":"wallet.credited Credited 9999 to bonus wallet (fast_start_bonus)","source":"fast_start_bonus","timestamp":"2026-08-05T18:16:02.352Z","walletType":"bonus"}
+{"amount":9999,"cumulativeUnits":4,"level":"info","message":"bonus.fastStart.credited Fast Start Bonus of 9999 credited (3 units milestone)","timestamp":"2026-08-05T18:16:02.423Z","unitsThreshold":3}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 1 paid (₹9999), 3 window(s) settled","paid":1,"settled":3,"timestamp":"2026-08-05T18:16:03.708Z","totalPaid":9999}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 0 window(s) settled","paid":0,"settled":0,"timestamp":"2026-08-05T18:16:06.776Z","totalPaid":0}
+{"amount":10000,"level":"info","message":"wallet.credited Credited 10000 to bonus wallet (retention_bonus)","referenceId":"6a737de93ddf669895bb32e3","source":"retention_bonus","timestamp":"2026-08-05T18:16:10.495Z","walletType":"bonus"}
+{"creditAmount":10000,"cumulativeUnits":200,"investmentId":"6a737de93ddf669895bb32e3","level":"info","message":"bonus.retention.credited Retention Bonus of 10000 credited (100 units milestone)","timestamp":"2026-08-05T18:16:10.634Z","unitsThreshold":100}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T18:26:06.659Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T18:26:06.993Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T18:26:07.043Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T18:26:07.225Z","totalPaid":0,"yearMonth":"2026-07"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T18:26:07.292Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 1514.273 ms","timestamp":"2026-08-05T18:26:07.375Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T18:26:07.419Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 1599.421 ms","timestamp":"2026-08-05T18:26:07.447Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T18:26:07.597Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T18:26:07.740Z","totalPaid":0,"yearMonth":"2026-07"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T18:26:07.859Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 497.343 ms","timestamp":"2026-08-05T18:26:07.947Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 2304.771 ms","timestamp":"2026-08-05T18:26:07.991Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T18:26:08.043Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 845.133 ms","timestamp":"2026-08-05T18:26:08.231Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T18:26:09.029Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-05T18:26:09.429Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 1621.609 ms","timestamp":"2026-08-05T18:26:09.617Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/overrides/slabs HTTP/1.1 304 - - 273.456 ms","timestamp":"2026-08-05T18:27:19.878Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/overrides/slabs HTTP/1.1 304 - - 183.314 ms","timestamp":"2026-08-05T18:27:20.076Z"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 1 window(s) settled","paid":0,"settled":1,"timestamp":"2026-08-05T18:27:25.850Z","totalPaid":0}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 1 window(s) settled","paid":0,"settled":1,"timestamp":"2026-08-05T18:27:25.862Z","totalPaid":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/awards?page=1&limit=10 HTTP/1.1 304 - - 6470.262 ms","timestamp":"2026-08-05T18:27:26.092Z"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 1 window(s) settled","paid":0,"settled":1,"timestamp":"2026-08-05T18:27:26.108Z","totalPaid":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/direct-acquisition HTTP/1.1 200 253 - 6501.643 ms","timestamp":"2026-08-05T18:27:26.124Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/slabs HTTP/1.1 304 - - 6857.295 ms","timestamp":"2026-08-05T18:27:26.456Z"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 1 window(s) settled","paid":0,"settled":1,"timestamp":"2026-08-05T18:27:26.533Z","totalPaid":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/awards?page=1&limit=10 HTTP/1.1 304 - - 7188.746 ms","timestamp":"2026-08-05T18:27:26.807Z"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 1 window(s) settled","paid":0,"settled":1,"timestamp":"2026-08-05T18:27:29.375Z","totalPaid":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/slabs HTTP/1.1 304 - - 10005.943 ms","timestamp":"2026-08-05T18:27:29.582Z"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 0 window(s) settled","paid":0,"settled":0,"timestamp":"2026-08-05T18:27:31.481Z","totalPaid":0}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 0 window(s) settled","paid":0,"settled":0,"timestamp":"2026-08-05T18:27:31.615Z","totalPaid":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/direct-acquisition HTTP/1.1 200 253 - 5528.801 ms","timestamp":"2026-08-05T18:27:31.665Z"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 0 window(s) settled","paid":0,"settled":0,"timestamp":"2026-08-05T18:27:31.713Z","totalPaid":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/awards?page=1&limit=10 HTTP/1.1 304 - - 5706.639 ms","timestamp":"2026-08-05T18:27:31.802Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/slabs HTTP/1.1 304 - - 5432.695 ms","timestamp":"2026-08-05T18:27:31.895Z"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 0 window(s) settled","paid":0,"settled":0,"timestamp":"2026-08-05T18:27:31.952Z","totalPaid":0}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/awards?page=1&limit=10 HTTP/1.1 304 - - 5374.988 ms","timestamp":"2026-08-05T18:27:32.192Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/slabs HTTP/1.1 - - - - ms","timestamp":"2026-08-05T18:27:39.439Z"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 0 window(s) settled","paid":0,"settled":0,"timestamp":"2026-08-05T18:27:40.999Z","totalPaid":0}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:32:34.612Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:32:39.849Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:32:42.299Z"}
+{"level":"warn","message":"TESTING MODE enabled — cron schedule disabled, KYC gates bypassed, inline auto-processing active on investments/ranks routes","timestamp":"2026-08-05T18:32:47.080Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:32:47.088Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:34:37.819Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:34:38.609Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T18:34:41.671Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:34:41.675Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET / HTTP/1.1 200 45 - 3.408 ms","timestamp":"2026-08-05T18:34:53.269Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:35:27.819Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:35:28.871Z"}
+{"kycStatus":"pending","level":"warn","message":"investment.kycNotApproved Investment attempt blocked — KYC not approved","timestamp":"2026-08-05T18:35:30.069Z"}
+{"level":"warn","message":"Your KYC must be approved before you can invest","method":"POST","path":"/api/investments","statusCode":403,"timestamp":"2026-08-05T18:35:30.081Z"}
+{"level":"http","message":"::1 - POST /api/investments HTTP/1.1 403 88 - 112.601 ms","timestamp":"2026-08-05T18:35:30.088Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T18:35:34.668Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T18:35:35.361Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T18:35:36.505Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T18:35:36.508Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:01:07.759Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:01:07.775Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:01:08.768Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:01:08.767Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:01:11.534Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:01:11.534Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:01:11.541Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:01:11.540Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:09:41.232Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:09:41.231Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:09:42.236Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:09:42.711Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:09:43.703Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:09:43.709Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:09:44.548Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:09:44.554Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:16:12.086Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:16:12.086Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:16:13.007Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:16:13.739Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:16:17.223Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:16:17.232Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:16:17.894Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:16:17.900Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:19:19.274Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:19:19.311Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:19:20.985Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:19:21.067Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:19:22.490Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:19:22.491Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:19:22.496Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:19:22.497Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:19:34.583Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:19:34.639Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:19:36.222Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:19:36.304Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:19:37.813Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:19:37.818Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:19:37.861Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:19:37.864Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:19:45.094Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:19:45.122Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:19:46.505Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:19:46.727Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:19:49.376Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:19:49.379Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:19:49.538Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:19:49.541Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:20:01.979Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:20:02.039Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:20:03.348Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:20:03.383Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:20:05.005Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:20:05.014Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:20:05.017Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:20:05.014Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:20:19.648Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:20:19.821Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:20:20.552Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:20:21.725Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:20:22.713Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:20:22.719Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:20:23.941Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:20:23.945Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:23:32.439Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:23:32.439Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:23:33.588Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:23:35.323Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:23:35.330Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:23:36.244Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:23:38.844Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:23:38.848Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:23:58.451Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:23:58.453Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:23:59.643Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:24:00.182Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:24:01.421Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:24:01.428Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:24:01.858Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:24:01.862Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:24:11.619Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:24:11.626Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:24:13.066Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:24:13.651Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:24:14.801Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:24:14.807Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:24:15.044Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:24:15.049Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:24:30.067Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:24:30.067Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:24:31.562Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:24:32.110Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:24:33.031Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:24:33.036Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:24:37.682Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:24:37.685Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:24:38.406Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:24:38.436Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:24:39.522Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:24:39.525Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:24:39.628Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:24:39.633Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:29:20.170Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:29:20.170Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:29:21.188Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:29:21.623Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:29:23.565Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:29:23.571Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:29:23.659Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:29:23.662Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:29:40.101Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:29:40.101Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:29:40.824Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:29:41.240Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:29:42.314Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:29:42.318Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:29:42.683Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:29:42.686Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 63 scanned","scanned":63,"timestamp":"2026-08-05T19:30:00.653Z","updated":0}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 63 scanned","scanned":63,"timestamp":"2026-08-05T19:30:00.721Z","updated":0}
+{"failed":0,"level":"info","message":"cron.investmentReturns.completed","scanned":63,"timestamp":"2026-08-05T19:30:00.736Z","updated":0}
+{"failed":0,"level":"info","message":"cron.investmentReturns.completed","scanned":63,"timestamp":"2026-08-05T19:30:00.810Z","updated":0}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:31:09.232Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:31:10.063Z"}
+{"amount":4000,"level":"info","message":"wallet.credited Credited 4000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:31:11.035Z","walletType":"commission"}
+{"amount":10000,"level":"info","message":"wallet.credited Credited 10000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:31:11.287Z","walletType":"commission"}
+{"amount":20000,"level":"info","message":"wallet.credited Credited 20000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:31:11.530Z","walletType":"commission"}
+{"amount":99999,"level":"info","message":"wallet.credited Credited 99999 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:31:11.770Z","walletType":"commission"}
+{"amount":5000,"level":"info","message":"wallet.credited Credited 5000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:31:12.153Z","walletType":"commission"}
+{"evaluated":7,"level":"info","message":"overrides.leadershipSettled Leadership Override settlement for 2026-07 completed — 0 of 7 generation-slots paid, ₹0 total","paid":0,"timestamp":"2026-08-05T19:31:13.242Z","totalPaid":0,"yearMonth":"2026-07"}
+{"evaluated":7,"level":"info","message":"overrides.leadershipSettled Leadership Override settlement for 2026-07 completed — 0 of 7 generation-slots paid, ₹0 total","paid":0,"timestamp":"2026-08-05T19:31:14.775Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:31:37.526Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:31:38.564Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:32:13.240Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:32:14.354Z"}
+{"amount":4000,"level":"info","message":"wallet.credited Credited 4000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:32:15.395Z","walletType":"commission"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:32:44.793Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:32:45.670Z"}
+{"amount":4000,"level":"info","message":"wallet.credited Credited 4000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:32:46.705Z","walletType":"commission"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:32:49.388Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:32:53.402Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:32:53.862Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:32:54.332Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:32:54.716Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:32:56.103Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:32:56.112Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:32:56.900Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:32:56.903Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:33:27.270Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:33:28.831Z"}
+{"amount":4000,"level":"info","message":"wallet.credited Credited 4000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:33:30.507Z","walletType":"commission"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:34:00.722Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:34:01.501Z"}
+{"amount":4000,"level":"info","message":"wallet.credited Credited 4000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:34:02.918Z","walletType":"commission"}
+{"amount":10000,"level":"info","message":"wallet.credited Credited 10000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:34:03.264Z","walletType":"commission"}
+{"amount":20000,"level":"info","message":"wallet.credited Credited 20000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:34:03.641Z","walletType":"commission"}
+{"amount":99999,"level":"info","message":"wallet.credited Credited 99999 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:34:04.014Z","walletType":"commission"}
+{"amount":5000,"level":"info","message":"wallet.credited Credited 5000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:34:04.445Z","walletType":"commission"}
+{"amount":400,"level":"info","message":"wallet.credited Credited 400 to bonus wallet (leadership_override_gen1)","source":"leadership_override_gen1","timestamp":"2026-08-05T19:34:05.116Z","walletType":"bonus"}
+{"amount":400,"commissionBase":20000,"generation":1,"level":"info","message":"bonus.leadershipOverride.credited Leadership Override (Gen 1) of 400 credited for 2026-07","percent":2,"sourceUserId":"6a7390298cedfc31d4983fbe","timestamp":"2026-08-05T19:34:05.276Z","yearMonth":"2026-07"}
+{"amount":200,"level":"info","message":"wallet.credited Credited 200 to bonus wallet (leadership_override_gen2)","source":"leadership_override_gen2","timestamp":"2026-08-05T19:34:05.854Z","walletType":"bonus"}
+{"amount":200,"commissionBase":20000,"generation":2,"level":"info","message":"bonus.leadershipOverride.credited Leadership Override (Gen 2) of 200 credited for 2026-07","percent":1,"sourceUserId":"6a7390298cedfc31d4983fbe","timestamp":"2026-08-05T19:34:06.005Z","yearMonth":"2026-07"}
+{"amount":100,"level":"info","message":"wallet.credited Credited 100 to bonus wallet (leadership_override_gen3)","source":"leadership_override_gen3","timestamp":"2026-08-05T19:34:06.625Z","walletType":"bonus"}
+{"amount":100,"commissionBase":20000,"generation":3,"level":"info","message":"bonus.leadershipOverride.credited Leadership Override (Gen 3) of 100 credited for 2026-07","percent":0.5,"sourceUserId":"6a7390298cedfc31d4983fbe","timestamp":"2026-08-05T19:34:06.770Z","yearMonth":"2026-07"}
+{"evaluated":7,"level":"info","message":"overrides.leadershipSettled Leadership Override settlement for 2026-07 completed — 3 of 7 generation-slots paid, ₹700 total","paid":3,"timestamp":"2026-08-05T19:34:06.972Z","totalPaid":700,"yearMonth":"2026-07"}
+{"evaluated":7,"level":"info","message":"overrides.leadershipSettled Leadership Override settlement for 2026-07 completed — 0 of 7 generation-slots paid, ₹0 total","paid":0,"timestamp":"2026-08-05T19:34:08.287Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:35:22.709Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:35:23.673Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:35:57.702Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:35:57.702Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:35:58.420Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:35:58.526Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:35:59.885Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:35:59.893Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T19:36:00.221Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T19:36:00.225Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T19:36:06.983Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T19:36:07.720Z"}
+{"amount":4000,"level":"info","message":"wallet.credited Credited 4000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:36:09.516Z","walletType":"commission"}
+{"amount":10000,"level":"info","message":"wallet.credited Credited 10000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:36:09.927Z","walletType":"commission"}
+{"amount":20000,"level":"info","message":"wallet.credited Credited 20000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:36:10.285Z","walletType":"commission"}
+{"amount":99999,"level":"info","message":"wallet.credited Credited 99999 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:36:10.639Z","walletType":"commission"}
+{"amount":5000,"level":"info","message":"wallet.credited Credited 5000 to commission wallet (rank_income_level1)","source":"rank_income_level1","timestamp":"2026-08-05T19:36:11.106Z","walletType":"commission"}
+{"amount":400,"level":"info","message":"wallet.credited Credited 400 to bonus wallet (leadership_override_gen1)","source":"leadership_override_gen1","timestamp":"2026-08-05T19:36:11.877Z","walletType":"bonus"}
+{"amount":400,"commissionBase":20000,"generation":1,"level":"info","message":"bonus.leadershipOverride.credited Leadership Override (Gen 1) of 400 credited for 2026-07","percent":2,"sourceUserId":"6a7390a8adc9193d63260a81","timestamp":"2026-08-05T19:36:12.021Z","yearMonth":"2026-07"}
+{"amount":200,"level":"info","message":"wallet.credited Credited 200 to bonus wallet (leadership_override_gen1)","source":"leadership_override_gen1","timestamp":"2026-08-05T19:36:12.466Z","walletType":"bonus"}
+{"amount":200,"commissionBase":10000,"generation":1,"level":"info","message":"bonus.leadershipOverride.credited Leadership Override (Gen 1) of 200 credited for 2026-07","percent":2,"sourceUserId":"6a7390a8adc9193d63260a86","timestamp":"2026-08-05T19:36:12.619Z","yearMonth":"2026-07"}
+{"amount":200,"level":"info","message":"wallet.credited Credited 200 to bonus wallet (leadership_override_gen2)","source":"leadership_override_gen2","timestamp":"2026-08-05T19:36:13.094Z","walletType":"bonus"}
+{"amount":200,"commissionBase":20000,"generation":2,"level":"info","message":"bonus.leadershipOverride.credited Leadership Override (Gen 2) of 200 credited for 2026-07","percent":1,"sourceUserId":"6a7390a8adc9193d63260a81","timestamp":"2026-08-05T19:36:13.241Z","yearMonth":"2026-07"}
+{"amount":80,"level":"info","message":"wallet.credited Credited 80 to bonus wallet (leadership_override_gen1)","source":"leadership_override_gen1","timestamp":"2026-08-05T19:36:13.655Z","walletType":"bonus"}
+{"amount":80,"commissionBase":4000,"generation":1,"level":"info","message":"bonus.leadershipOverride.credited Leadership Override (Gen 1) of 80 credited for 2026-07","percent":2,"sourceUserId":"6a7390a8adc9193d63260a89","timestamp":"2026-08-05T19:36:13.798Z","yearMonth":"2026-07"}
+{"amount":100,"level":"info","message":"wallet.credited Credited 100 to bonus wallet (leadership_override_gen2)","source":"leadership_override_gen2","timestamp":"2026-08-05T19:36:14.243Z","walletType":"bonus"}
+{"amount":100,"commissionBase":10000,"generation":2,"level":"info","message":"bonus.leadershipOverride.credited Leadership Override (Gen 2) of 100 credited for 2026-07","percent":1,"sourceUserId":"6a7390a8adc9193d63260a86","timestamp":"2026-08-05T19:36:14.378Z","yearMonth":"2026-07"}
+{"amount":100,"level":"info","message":"wallet.credited Credited 100 to bonus wallet (leadership_override_gen3)","source":"leadership_override_gen3","timestamp":"2026-08-05T19:36:14.937Z","walletType":"bonus"}
+{"amount":100,"commissionBase":20000,"generation":3,"level":"info","message":"bonus.leadershipOverride.credited Leadership Override (Gen 3) of 100 credited for 2026-07","percent":0.5,"sourceUserId":"6a7390a8adc9193d63260a81","timestamp":"2026-08-05T19:36:15.072Z","yearMonth":"2026-07"}
+{"evaluated":7,"level":"info","message":"overrides.leadershipSettled Leadership Override settlement for 2026-07 completed — 6 of 7 generation-slots paid, ₹1080 total","paid":6,"timestamp":"2026-08-05T19:36:15.284Z","totalPaid":1080,"yearMonth":"2026-07"}
+{"evaluated":7,"level":"info","message":"overrides.leadershipSettled Leadership Override settlement for 2026-07 completed — 0 of 7 generation-slots paid, ₹0 total","paid":0,"timestamp":"2026-08-05T19:36:16.701Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:02:20.261Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:02:20.260Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:02:21.387Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:02:21.645Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:02:23.463Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:02:23.470Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:02:23.485Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:02:23.488Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:02:37.056Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:02:37.160Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:02:40.460Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:02:40.702Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:02:44.394Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:02:44.395Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:02:44.401Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:02:44.401Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:03:50.190Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:03:51.746Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:03:52.177Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:03:52.785Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:03:53.968Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:03:53.979Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:03:54.518Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:03:54.523Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:04:07.437Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:04:07.856Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:04:09.484Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:04:09.491Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:04:12.044Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:04:12.049Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:04:12.614Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:04:12.617Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:04:42.253Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:04:42.253Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:04:44.145Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:04:44.466Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:04:46.695Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:04:46.698Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:04:47.351Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:04:47.354Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:05:20.663Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:05:20.663Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:05:21.858Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:05:21.941Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:05:25.101Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:05:25.100Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:05:25.103Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:05:25.105Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:06:15.412Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:06:15.412Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:06:16.494Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:06:16.612Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:06:18.913Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:06:18.919Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:06:19.584Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:06:19.589Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:06:59.956Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:06:59.955Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:07:05.574Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:07:05.630Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:07:09.481Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:07:09.484Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:07:10.228Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:07:10.231Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:07:47.418Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:07:47.595Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:07:49.877Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:07:50.687Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:07:54.633Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:07:54.643Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:07:55.842Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:07:55.845Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:08:43.025Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:08:43.025Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:08:44.733Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:08:44.853Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:08:47.498Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:08:47.499Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:08:47.504Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:08:47.503Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:08:58.110Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:08:58.144Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:08:59.466Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:09:00.157Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:09:01.634Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:09:01.639Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:09:02.974Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:09:02.977Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:09:42.779Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:09:42.779Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:09:44.405Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:09:44.533Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:09:46.282Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:09:46.286Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:09:46.320Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:09:46.323Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:09:57.199Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:09:57.271Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:09:58.868Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:09:59.063Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:10:00.852Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:10:00.855Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:10:00.970Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:10:00.973Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:10:12.167Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:10:12.207Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:10:13.610Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:10:14.928Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:10:16.895Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:10:16.898Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:10:17.486Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:10:17.490Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:10:36.915Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:10:36.916Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:10:38.151Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:10:38.332Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:10:41.041Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:10:41.046Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:10:41.738Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:10:41.742Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:10:50.913Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:10:51.079Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:10:53.188Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:10:53.733Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:10:55.503Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:10:55.511Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:10:56.469Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:10:56.472Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:11:25.902Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:11:25.902Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:11:28.347Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:11:28.358Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:11:31.587Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:11:31.595Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:11:32.886Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:11:32.889Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:11:44.706Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:11:44.918Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:11:46.583Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:11:47.546Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:11:50.279Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:11:50.284Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:11:51.512Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:11:51.516Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:12:06.193Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:12:06.225Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:12:07.354Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:12:07.868Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:12:09.929Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:12:09.934Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:12:10.609Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:12:10.612Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:15:07.100Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:15:07.100Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:15:10.465Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:15:10.465Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:15:16.810Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:15:16.816Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:15:18.112Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:15:18.115Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:15:55.489Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:15:55.535Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:17:22.648Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:17:26.774Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:17:26.792Z"}
+{"error":"queryTxt ETIMEOUT cluster0.c3iwujk.mongodb.net","level":"error","message":"MongoDB connection failed","timestamp":"2026-08-05T20:17:28.474Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:18:35.571Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:18:35.571Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:18:37.206Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:18:37.206Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:18:38.738Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:18:38.743Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:18:38.748Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:18:38.751Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:26:46.082Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-05T20:26:46.081Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:26:47.119Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-05T20:26:47.118Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:26:48.603Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:26:48.617Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-05T20:26:48.804Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-05T20:26:48.811Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T20:30:00.382Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"cron.rankRecalculation.completed","scanned":77,"timestamp":"2026-08-05T20:30:00.614Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 77 users changed rank","scanned":77,"timestamp":"2026-08-05T20:30:00.726Z"}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"cron.rankRecalculation.completed","scanned":77,"timestamp":"2026-08-05T20:30:00.919Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:35:21.027Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:35:23.062Z"}
+{"amount":5000,"level":"info","message":"wallet.creditPending 5000 pending in commission wallet (rank_income_level1) — settles on the next closing date","source":"rank_income_level1","timestamp":"2026-08-06T00:35:25.637Z","walletType":"commission"}
+{"level":"info","message":"wallets.commissionSettled Commission settlement (period 1, day 1-7) — 1 transaction(s), 5000 total","period":1,"settled":1,"timestamp":"2026-08-06T00:35:28.334Z","totalAmount":5000,"windowEnd":"2027-12-07T18:29:59.999Z","windowStart":"2027-11-30T18:30:00.000Z"}
+{"level":"info","message":"wallets.commissionSettled Commission settlement (period 1, day 1-7) — 0 transaction(s), 0 total","period":1,"settled":0,"timestamp":"2026-08-06T00:35:30.255Z","totalAmount":0,"windowEnd":"2027-12-07T18:29:59.999Z","windowStart":"2027-11-30T18:30:00.000Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:35:35.612Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:35:39.664Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:35:39.794Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:35:41.516Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:35:43.227Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:35:43.275Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:35:45.957Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:35:45.960Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:37:31.316Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:37:33.492Z"}
+{"level":"http","message":"::1 - GET /api/wallet/commission-settlement-config HTTP/1.1 200 411 - 525.062 ms","timestamp":"2026-08-06T00:37:35.457Z"}
+{"level":"warn","message":"You are not authorized to perform this action","method":"PATCH","path":"/api/wallet/commission-settlement-config","statusCode":403,"timestamp":"2026-08-06T00:37:35.665Z"}
+{"level":"http","message":"::1 - PATCH /api/wallet/commission-settlement-config HTTP/1.1 403 86 - 125.362 ms","timestamp":"2026-08-06T00:37:35.667Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:37:39.522Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:37:40.314Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:37:42.098Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:37:42.104Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:40:42.719Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:40:44.840Z"}
+{"level":"http","message":"::1 - PATCH /api/wallet/commission-settlement-config HTTP/1.1 422 135 - 634.637 ms","timestamp":"2026-08-06T00:40:48.654Z"}
+{"changes":{"periods":[{"closingDay":8,"endDay":7,"order":1,"startDay":1},{"closingDay":15,"endDay":14,"order":2,"startDay":8},{"closingDay":22,"endDay":21,"order":3,"startDay":15},{"closingDay":1,"endDay":null,"order":4,"startDay":22}]},"level":"info","message":"wallets.commissionSettlementConfig.updated Commission settlement periods updated","timestamp":"2026-08-06T00:40:49.184Z"}
+{"level":"http","message":"::1 - PATCH /api/wallet/commission-settlement-config HTTP/1.1 200 419 - 602.354 ms","timestamp":"2026-08-06T00:40:49.282Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 778 - 490.449 ms","timestamp":"2026-08-06T00:41:47.936Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 304 - - 127.470 ms","timestamp":"2026-08-06T00:41:48.075Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 200 241 - 1161.145 ms","timestamp":"2026-08-06T00:41:49.306Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 304 - - 506.603 ms","timestamp":"2026-08-06T00:41:49.817Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 198.688 ms","timestamp":"2026-08-06T00:42:03.016Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 214.412 ms","timestamp":"2026-08-06T00:42:03.044Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 227.847 ms","timestamp":"2026-08-06T00:42:03.055Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 149.204 ms","timestamp":"2026-08-06T00:42:03.223Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 166.590 ms","timestamp":"2026-08-06T00:42:03.230Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 181.138 ms","timestamp":"2026-08-06T00:42:03.250Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 102.967 ms","timestamp":"2026-08-06T00:42:06.642Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/settings HTTP/1.1 200 166 - 101.965 ms","timestamp":"2026-08-06T00:42:06.748Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/overrides/slabs HTTP/1.1 304 - - 222.167 ms","timestamp":"2026-08-06T00:42:10.479Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/slabs HTTP/1.1 304 - - 264.267 ms","timestamp":"2026-08-06T00:42:10.512Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/slabs HTTP/1.1 200 575 - 277.755 ms","timestamp":"2026-08-06T00:42:10.520Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/awards?page=1&limit=10 HTTP/1.1 304 - - 400.937 ms","timestamp":"2026-08-06T00:42:10.688Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/direct-acquisition HTTP/1.1 200 253 - 416.742 ms","timestamp":"2026-08-06T00:42:10.696Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/awards?page=1&limit=10 HTTP/1.1 200 3003 - 520.908 ms","timestamp":"2026-08-06T00:42:10.784Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/overrides/slabs HTTP/1.1 304 - - 309.653 ms","timestamp":"2026-08-06T00:42:10.790Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/slabs HTTP/1.1 304 - - 230.794 ms","timestamp":"2026-08-06T00:42:10.795Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/slabs HTTP/1.1 304 - - 265.553 ms","timestamp":"2026-08-06T00:42:10.804Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/direct-acquisition HTTP/1.1 200 253 - 192.719 ms","timestamp":"2026-08-06T00:42:10.935Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/fast-start/awards?page=1&limit=10 HTTP/1.1 304 - - 328.713 ms","timestamp":"2026-08-06T00:42:11.142Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/bonuses/retention/awards?page=1&limit=10 HTTP/1.1 304 - - 483.516 ms","timestamp":"2026-08-06T00:42:11.198Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 168.984 ms","timestamp":"2026-08-06T00:42:19.428Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 170.553 ms","timestamp":"2026-08-06T00:42:19.438Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 189.016 ms","timestamp":"2026-08-06T00:42:19.452Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/benefit-slabs HTTP/1.1 304 - - 167.117 ms","timestamp":"2026-08-06T00:42:19.626Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks/achievement-slabs HTTP/1.1 304 - - 196.424 ms","timestamp":"2026-08-06T00:42:19.652Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/ranks HTTP/1.1 304 - - 213.773 ms","timestamp":"2026-08-06T00:42:19.656Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/wallet/commission-settlement-config HTTP/1.1 200 411 - 166.040 ms","timestamp":"2026-08-06T00:42:24.195Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/wallet/commission-settlement-config HTTP/1.1 200 411 - 175.700 ms","timestamp":"2026-08-06T00:42:24.372Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/wallets/transactions?page=1&limit=20 HTTP/1.1 200 8881 - 599.178 ms","timestamp":"2026-08-06T00:42:24.631Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/wallets/transactions?page=1&limit=20 HTTP/1.1 304 - - 420.194 ms","timestamp":"2026-08-06T00:42:25.054Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:54:37.071Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:54:37.073Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:54:37.953Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:54:37.968Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:54:39.279Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:54:39.289Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:54:39.310Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:54:39.313Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:54:47.829Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:54:47.870Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:54:48.536Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:54:48.551Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:54:50.005Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:54:50.009Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:54:50.354Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:54:50.357Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:55:14.147Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:55:14.260Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:55:14.915Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:55:14.971Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:55:16.128Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:55:16.131Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:55:16.528Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:55:16.531Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:55:45.682Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:55:45.707Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:55:47.404Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:55:47.440Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:55:50.996Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:55:50.999Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:55:51.097Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:55:51.099Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:59:34.781Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T00:59:34.781Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:59:36.108Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T00:59:36.574Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:59:39.026Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:59:39.033Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T00:59:39.524Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T00:59:39.528Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:00:26.800Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:00:26.800Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:00:27.425Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:00:27.524Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:00:28.646Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:00:28.651Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:00:29.290Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:00:29.294Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:00:52.999Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:00:53.085Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:00:54.961Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:00:54.961Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:00:59.394Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:00:59.402Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:00:59.436Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:00:59.438Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:01:18.752Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:01:18.751Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:01:19.401Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:01:19.417Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:01:21.038Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:01:21.042Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:01:22.062Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:01:22.067Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:01:35.932Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:01:35.933Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:01:38.882Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:01:39.756Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:01:42.312Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:01:42.337Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:01:43.212Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:01:43.218Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:02:14.000Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:02:14.000Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:02:14.694Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:02:14.749Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:02:16.387Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:02:16.396Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:02:16.460Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:02:16.470Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:15:45.508Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:15:47.559Z"}
+{"changes":{"mode":"percentage","value":10},"level":"info","message":"wallets.tdsConfig.updated TDS config updated","timestamp":"2026-08-06T01:15:50.640Z"}
+{"level":"http","message":"::1 - PATCH /api/wallet/tds-config HTTP/1.1 200 207 - 1547.124 ms","timestamp":"2026-08-06T01:15:50.936Z"}
+{"level":"warn","message":"You are not authorized to perform this action","method":"PATCH","path":"/api/wallet/tds-config","statusCode":403,"timestamp":"2026-08-06T01:15:51.124Z"}
+{"level":"http","message":"::1 - PATCH /api/wallet/tds-config HTTP/1.1 403 86 - 164.111 ms","timestamp":"2026-08-06T01:15:51.125Z"}
+{"level":"warn","message":"Insufficient balance","method":"POST","path":"/api/wallet/transfer-requests","statusCode":400,"timestamp":"2026-08-06T01:15:51.568Z"}
+{"level":"http","message":"::1 - POST /api/wallet/transfer-requests HTTP/1.1 400 61 - 438.200 ms","timestamp":"2026-08-06T01:15:51.569Z"}
+{"amount":4000,"fromWalletType":"bonus","level":"info","message":"wallet.transferRequest.created Transfer request of 4000 from bonus submitted for approval (net 3600 after TDS)","netAmount":3600,"requestId":"6a73e047c3a6eb560df63fd3","tdsAmount":400,"timestamp":"2026-08-06T01:15:52.055Z"}
+{"level":"http","message":"::1 - POST /api/wallet/transfer-requests HTTP/1.1 201 354 - 568.684 ms","timestamp":"2026-08-06T01:15:52.143Z"}
+{"level":"http","message":"::1 - GET /api/wallet/transfer-requests HTTP/1.1 200 341 - 146.880 ms","timestamp":"2026-08-06T01:15:52.429Z"}
+{"level":"http","message":"::1 - GET /api/admin/wallet-transfer-requests?status=pending HTTP/1.1 200 422 - 536.811 ms","timestamp":"2026-08-06T01:15:52.970Z"}
+{"level":"warn","message":"You are not authorized to perform this action","method":"POST","path":"/api/admin/wallet-transfer-requests/6a73e047c3a6eb560df63fd3/approve","statusCode":403,"timestamp":"2026-08-06T01:15:53.031Z"}
+{"level":"http","message":"::1 - POST /api/admin/wallet-transfer-requests/6a73e047c3a6eb560df63fd3/approve HTTP/1.1 403 86 - 58.922 ms","timestamp":"2026-08-06T01:15:53.032Z"}
+{"amount":4000,"level":"info","message":"wallet.transferRequest.approved Transfer request approved — ₹3600 credited to Main wallet","netAmount":3600,"requestId":"6a73e047c3a6eb560df63fd3","tdsAmount":400,"timestamp":"2026-08-06T01:15:53.453Z"}
+{"level":"http","message":"::1 - POST /api/admin/wallet-transfer-requests/6a73e047c3a6eb560df63fd3/approve HTTP/1.1 200 415 - 545.199 ms","timestamp":"2026-08-06T01:15:53.580Z"}
+{"level":"warn","message":"This request has already been reviewed","method":"POST","path":"/api/admin/wallet-transfer-requests/6a73e047c3a6eb560df63fd3/approve","statusCode":400,"timestamp":"2026-08-06T01:15:53.818Z"}
+{"level":"http","message":"::1 - POST /api/admin/wallet-transfer-requests/6a73e047c3a6eb560df63fd3/approve HTTP/1.1 400 79 - 125.636 ms","timestamp":"2026-08-06T01:15:53.819Z"}
+{"amount":1000,"fromWalletType":"bonus","level":"info","message":"wallet.transferRequest.created Transfer request of 1000 from bonus submitted for approval (net 900 after TDS)","netAmount":900,"requestId":"6a73e04ac3a6eb560df63fee","tdsAmount":100,"timestamp":"2026-08-06T01:15:54.203Z"}
+{"level":"http","message":"::1 - POST /api/wallet/transfer-requests HTTP/1.1 201 353 - 441.474 ms","timestamp":"2026-08-06T01:15:54.265Z"}
+{"level":"http","message":"::1 - POST /api/admin/wallet-transfer-requests/6a73e04ac3a6eb560df63fee/reject HTTP/1.1 422 117 - 65.161 ms","timestamp":"2026-08-06T01:15:54.404Z"}
+{"amount":1000,"level":"warn","message":"wallet.transferRequest.rejected Transfer request rejected — ₹1000 refunded to bonus wallet","reason":"Suspicious activity","requestId":"6a73e04ac3a6eb560df63fee","timestamp":"2026-08-06T01:15:54.791Z"}
+{"level":"http","message":"::1 - POST /api/admin/wallet-transfer-requests/6a73e04ac3a6eb560df63fee/reject HTTP/1.1 200 454 - 530.069 ms","timestamp":"2026-08-06T01:15:54.937Z"}
+{"changes":{"mode":"fixed","value":500},"level":"info","message":"wallets.tdsConfig.updated TDS config updated","timestamp":"2026-08-06T01:15:55.237Z"}
+{"level":"http","message":"::1 - PATCH /api/wallet/tds-config HTTP/1.1 200 203 - 239.246 ms","timestamp":"2026-08-06T01:15:55.303Z"}
+{"amount":200,"fromWalletType":"bonus","level":"info","message":"wallet.transferRequest.created Transfer request of 200 from bonus submitted for approval (net 0 after TDS)","netAmount":0,"requestId":"6a73e04bc3a6eb560df64006","tdsAmount":200,"timestamp":"2026-08-06T01:15:55.697Z"}
+{"level":"http","message":"::1 - POST /api/wallet/transfer-requests HTTP/1.1 201 346 - 472.401 ms","timestamp":"2026-08-06T01:15:55.778Z"}
+{"amount":200,"level":"warn","message":"wallet.transferRequest.rejected Transfer request rejected — ₹200 refunded to bonus wallet","reason":"cleanup","requestId":"6a73e04bc3a6eb560df64006","timestamp":"2026-08-06T01:15:56.153Z"}
+{"level":"http","message":"::1 - POST /api/admin/wallet-transfer-requests/6a73e04bc3a6eb560df64006/reject HTTP/1.1 200 435 - 497.580 ms","timestamp":"2026-08-06T01:15:56.280Z"}
+{"changes":{"mode":"percentage","value":5},"level":"info","message":"wallets.tdsConfig.updated TDS config updated","timestamp":"2026-08-06T01:15:56.468Z"}
+{"level":"http","message":"::1 - PATCH /api/wallet/tds-config HTTP/1.1 200 206 - 244.042 ms","timestamp":"2026-08-06T01:15:56.527Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:27:23.196Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:27:23.588Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:27:25.573Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:27:25.663Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:27:28.063Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:27:28.068Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:27:28.529Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:27:28.532Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:31:01.501Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:31:01.553Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:31:02.574Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:31:02.691Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:31:05.190Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:31:05.194Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:31:05.199Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:31:05.208Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:31:14.830Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:31:15.238Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:31:15.609Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:31:15.967Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:31:16.922Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:31:16.927Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:31:17.512Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:31:17.517Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/cron/run HTTP/1.1 401 71 - 18.732 ms","timestamp":"2026-08-06T01:32:44.683Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/cron/run HTTP/1.1 401 71 - 0.692 ms","timestamp":"2026-08-06T01:32:44.751Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 63 scanned","scanned":63,"timestamp":"2026-08-06T01:32:45.171Z","updated":0}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 79 users changed rank","scanned":79,"timestamp":"2026-08-06T01:32:45.468Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-06T01:32:45.598Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 0 window(s) settled","paid":0,"settled":0,"timestamp":"2026-08-06T01:32:52.333Z","totalPaid":0}
+{"evaluated":201,"level":"info","message":"overrides.leadershipSettled Leadership Override settlement for 2026-07 completed — 0 of 201 generation-slots paid, ₹0 total","paid":0,"timestamp":"2026-08-06T01:33:21.109Z","totalPaid":0,"yearMonth":"2026-07"}
+{"commissionSettlement":{"period":null,"ranToday":false,"settled":0,"totalAmount":0},"fastStartSettlement":{"paid":0,"settled":0,"totalPaid":0},"investmentReturns":{"failed":0,"scanned":63,"updated":0},"level":"info","message":"cron.http.runAll.completed","overrideSettlement":{"evaluated":201,"paid":0,"totalPaid":0,"yearMonth":"2026-07"},"rankBenefits":{"qualified":0,"scanned":11,"totalPaid":0,"yearMonth":"2026-07"},"rankRecalculation":{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"scanned":79},"timestamp":"2026-08-06T01:33:21.270Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/cron/run HTTP/1.1 200 520 - 36456.605 ms","timestamp":"2026-08-06T01:33:21.273Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:39:01.351Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:39:02.027Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:39:02.789Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:39:04.767Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:39:04.775Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:39:05.341Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:39:07.103Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:39:09.777Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:39:09.779Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:40:43.319Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:40:43.319Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:40:44.257Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:40:44.257Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:40:45.805Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:40:45.810Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:40:45.938Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:40:45.941Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:41:01.507Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:41:01.511Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:41:02.375Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:41:03.002Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:41:04.270Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:41:04.274Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:41:07.835Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:41:07.838Z"}
+{"failed":0,"level":"info","message":"investment.returnsProcessed Investment returns cron completed — 0 updated, 0 failed, 63 scanned","scanned":63,"timestamp":"2026-08-06T01:41:33.893Z","updated":0}
+{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"level":"info","message":"ranks.recalculated Rank recalculation completed — 0 of 79 users changed rank","scanned":79,"timestamp":"2026-08-06T01:41:34.492Z"}
+{"level":"info","message":"ranks.benefitsEvaluated Rank benefit evaluation for 2026-07 completed — 0 of 11 users qualified, ₹0 paid","qualified":0,"scanned":11,"timestamp":"2026-08-06T01:41:34.774Z","totalPaid":0,"yearMonth":"2026-07"}
+{"level":"info","message":"bonuses.fastStartSettled Fast Start Bonus settlement completed — 0 paid (₹0), 0 window(s) settled","paid":0,"settled":0,"timestamp":"2026-08-06T01:41:42.027Z","totalPaid":0}
+{"evaluated":201,"level":"info","message":"overrides.leadershipSettled Leadership Override settlement for 2026-07 completed — 0 of 201 generation-slots paid, ₹0 total","paid":0,"timestamp":"2026-08-06T01:42:25.128Z","totalPaid":0,"yearMonth":"2026-07"}
+{"commissionSettlement":{"period":null,"ranToday":false,"settled":0,"totalAmount":0},"fastStartSettlement":{"paid":0,"settled":0,"totalPaid":0},"investmentReturns":{"failed":0,"scanned":63,"updated":0},"level":"info","message":"cron.http.runAll.completed","overrideSettlement":{"evaluated":201,"paid":0,"totalPaid":0,"yearMonth":"2026-07"},"rankBenefits":{"qualified":0,"scanned":11,"totalPaid":0,"yearMonth":"2026-07"},"rankRecalculation":{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"scanned":79},"timestamp":"2026-08-06T01:42:25.509Z"}
+{"failedJobs":[],"ip":"::ffff:127.0.0.1","level":"info","message":"cron.http.triggered Cron run triggered via GitHub Actions — all 6 jobs executed","results":{"commissionSettlement":{"period":null,"ranToday":false,"settled":0,"totalAmount":0},"fastStartSettlement":{"paid":0,"settled":0,"totalPaid":0},"investmentReturns":{"failed":0,"scanned":63,"updated":0},"overrideSettlement":{"evaluated":201,"paid":0,"totalPaid":0,"yearMonth":"2026-07"},"rankBenefits":{"qualified":0,"scanned":11,"totalPaid":0,"yearMonth":"2026-07"},"rankRecalculation":{"achievementBonusTotal":0,"achievementBonusesPaid":0,"changed":0,"scanned":79}},"timestamp":"2026-08-06T01:42:25.531Z","triggeredBy":"github-actions"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/cron/run HTTP/1.1 200 520 - 54671.645 ms","timestamp":"2026-08-06T01:42:25.793Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:43:35.501Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:43:37.768Z"}

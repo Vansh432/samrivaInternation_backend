@@ -39,7 +39,7 @@ import {
 } from './ranks.repository.js';
 import { findUserById, findDirectReferralIds } from '../users/users.repository.js';
 import { sumApprovedUnitsForUsersInWindow } from '../investments/investments.repository.js';
-import { creditWallet } from '../wallets/wallets.service.js';
+import { creditWallet, creditWalletPending } from '../wallets/wallets.service.js';
 
 // investor..national_director, in hierarchy order — index doubles as "rank strength".
 const RANK_ORDER = Object.values(RANKS);
@@ -108,7 +108,9 @@ export const evaluateRankIncome = async (investment) => {
     const amount = investment.principal * (levelSlab.incomePercent / 100);
     if (amount <= 0) continue;
 
-    await creditWallet({
+    // Commission-wallet credit — goes in as 'pending', not touching the balance until the
+    // next admin-configured closing date (see wallets.service.js#settlePendingCommission).
+    await creditWalletPending({
       userId: earner._id,
       walletType: WALLET_TYPES.COMMISSION,
       amount,

@@ -18,10 +18,11 @@ import {
 import { addMonths, toInvestmentJSON } from '../investments/investments.service.js';
 import { getTeamSummary, getTeamLevelMembers, getTeamTree } from '../team/team.service.js';
 import { generateInvestmentCertificate } from '../certificates/certificate.service.js';
-import { evaluateFastStartBonus } from '../bonuses/bonuses.service.js';
-import { evaluateLeadershipOverride } from '../overrides/overrides.service.js';
+import { evaluateDirectAcquisitionBonus } from '../bonuses/bonuses.service.js';
 import { evaluateRankIncome } from '../ranks/ranks.service.js';
 import { listWalletTransactionsAdmin, countWalletTransactions } from '../wallets/walletTransactions.repository.js';
+import { listWalletTransferRequestsAdmin, countWalletTransferRequests } from '../wallets/walletTransferRequests.repository.js';
+import { approveWalletTransferRequest, rejectWalletTransferRequest } from '../wallets/wallets.service.js';
 import { listLogsAdmin, countLogs } from '../../shared/utils/systemLog.js';
 import { getNextSequence, getNextSequenceRange, padSequence } from '../../shared/utils/sequence.js';
 
@@ -235,21 +236,13 @@ export const approveInvestment = async (adminUser, investmentId, baseUrl) => {
 
   await investment.save();
 
-  // Best-effort, same as certificate generation above — a Fast Start Bonus evaluation bug
-  // must never block the investment's tenure from actually starting.
-  try {
-    await evaluateFastStartBonus(investment);
-  } catch (err) {
-    logger.error('admin.approveInvestment.fastStartBonusFailed', { investmentId, error: err.message });
-  }
+  // Fast Start Bonus is no longer evaluated here — it only settles once a sponsor's 30-day
+  // window closes (see bonuses.service.js#settleFastStartBonuses, run by
+  // scheduler/fastStartSettlement.cron.js), never incrementally during the window.
 
-  // Same best-effort pattern — a Leadership Override evaluation bug must never block the
-  // investment's tenure from actually starting.
-  try {
-    await evaluateLeadershipOverride(investment);
-  } catch (err) {
-    logger.error('admin.approveInvestment.leadershipOverrideFailed', { investmentId, error: err.message });
-  }
+  // Leadership Override is no longer evaluated here — it's now a monthly settlement based
+  // on generation-N Commission wallet totals, not per-investment (see
+  // overrides.service.js#settleLeadershipOverrides, run by scheduler/overrideSettlement.cron.js).
 
   // Same best-effort pattern — a Rank Income evaluation bug must never block the
   // investment's tenure from actually starting.
@@ -257,6 +250,14 @@ export const approveInvestment = async (adminUser, investmentId, baseUrl) => {
     await evaluateRankIncome(investment);
   } catch (err) {
     logger.error('admin.approveInvestment.rankIncomeFailed', { investmentId, error: err.message });
+  }
+
+  // Same best-effort pattern — a Direct Acquisition Bonus evaluation bug must never block
+  // the investment's tenure from actually starting.
+  try {
+    await evaluateDirectAcquisitionBonus(investment);
+  } catch (err) {
+    logger.error('admin.approveInvestment.directAcquisitionBonusFailed', { investmentId, error: err.message });
   }
 
   await logEvent({
@@ -322,10 +323,11 @@ export const getUserTeamLevelMembers = (userId, level, { page, limit } = {}) =>
   getTeamLevelMembers(userId, level, { page, limit });
 export const getUserTeamTree = (userId) => getTeamTree(userId);
 
-export const getWalletTransactionsAdmin = async ({ walletType, type, search, dateFrom, dateTo, page = 1, limit = 20 }) => {
+export const getWalletTransactionsAdmin = async ({ walletType, type, status, search, dateFrom, dateTo, page = 1, limit = 20 }) => {
   const filter = {};
   if (walletType) filter.walletType = walletType;
   if (type) filter.type = type;
+  if (status) filter.status = status;
   if (dateFrom || dateTo) {
     filter.createdAt = {};
     if (dateFrom) filter.createdAt.$gte = new Date(dateFrom);
@@ -362,6 +364,31 @@ export const getWalletTransactionsAdmin = async ({ walletType, type, search, dat
     totalPages: Math.ceil(total / limitNum) || 1,
   };
 };
+
+export const getTransferRequestsAdmin = async ({ status, page = 1, limit = 20 }) => {
+  const filter = {};
+  if (status) filter.status = status;
+
+  const pageNum = Number(page) || 1;
+  const limitNum = Number(limit) || 20;
+  const skip = (pageNum - 1) * limitNum;
+
+  const [items, total] = await Promise.all([
+    listWalletTransferRequestsAdmin({ filter, skip, limit: limitNum }),
+    countWalletTransferRequests(filter),
+  ]);
+
+  return {
+    items,
+    total,
+    page: pageNum,
+    limit: limitNum,
+    totalPages: Math.ceil(total / limitNum) || 1,
+  };
+};
+
+export const approveTransferRequest = (id, adminId) => approveWalletTransferRequest(id, adminId);
+export const rejectTransferRequest = (id, adminId, reason) => rejectWalletTransferRequest(id, adminId, reason);
 
 export const getActivityLogsAdmin = async ({ type, level, action, dateFrom, dateTo, search, page = 1, limit = 20 }) => {
   const filter = {};

@@ -13,8 +13,33 @@ export const transactions = asyncHandler(async (req, res) => {
   return sendSuccess(res, { message: 'Wallet transactions', data: { transactions: items } });
 });
 
-export const transferToMain = asyncHandler(async (req, res) => {
+export const createTransferRequest = asyncHandler(async (req, res) => {
   const { from, amount } = req.body;
-  const data = await walletsService.transferToMainWallet({ userId: req.user._id, fromWalletType: from, amount });
-  return sendSuccess(res, { message: 'Transferred to Main Wallet', data });
+  const data = await walletsService.requestWalletTransfer({ userId: req.user._id, fromWalletType: from, amount });
+  return sendSuccess(res, { statusCode: 201, message: 'Transfer request submitted for admin approval', data });
+});
+
+export const myTransferRequests = asyncHandler(async (req, res) => {
+  const items = await walletsService.getMyTransferRequests(req.user._id);
+  return sendSuccess(res, { message: 'My transfer requests', data: { items } });
+});
+
+export const getTdsConfig = asyncHandler(async (req, res) => {
+  const config = await walletsService.getTdsConfig();
+  return sendSuccess(res, { message: 'TDS config', data: { config } });
+});
+
+export const updateTdsConfig = asyncHandler(async (req, res) => {
+  const config = await walletsService.updateTdsConfig(req.body, req.user._id);
+  return sendSuccess(res, { message: 'TDS config updated', data: { config } });
+});
+
+export const getCommissionSettlementConfig = asyncHandler(async (req, res) => {
+  const config = await walletsService.getCommissionSettlementConfig();
+  return sendSuccess(res, { message: 'Commission settlement config', data: { config } });
+});
+
+export const updateCommissionSettlementConfig = asyncHandler(async (req, res) => {
+  const config = await walletsService.updateCommissionSettlementConfig(req.body, req.user._id);
+  return sendSuccess(res, { message: 'Commission settlement config updated', data: { config } });
 });

@@ -17,4 +17,9 @@ export const env = {
   // server.js, auth.service.js, and investments.service.js for every place this is checked.
   // Remove TESTING_MODE from .env (or set to false) to fully revert, then strip these checks.
   testingMode: process.env.TESTING_MODE === 'true',
+  // Shared secret checked by middleware/cronAuth.js — lets an external scheduler (GitHub
+  // Actions, see .github/workflows/cron.yml) trigger POST /api/cron/run over plain HTTP,
+  // which both wakes a sleeping Render free-tier instance and runs the actual cron jobs
+  // (node-cron alone can't fire while Render has put the process to sleep).
+  cronSecret: process.env.CRON_SECRET,
 };

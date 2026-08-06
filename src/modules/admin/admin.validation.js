@@ -46,9 +46,23 @@ export const listInvestmentsAdminValidation = [
   query('limit').optional().isInt({ min: 1, max: 100 }).withMessage('limit must be between 1 and 100'),
 ];
 
+export const transferRequestActionValidation = [param('id').isMongoId().withMessage('Invalid request id')];
+
+export const rejectTransferRequestValidation = [
+  ...transferRequestActionValidation,
+  body('reason').trim().notEmpty().withMessage('Rejection reason is required'),
+];
+
+export const listTransferRequestsAdminValidation = [
+  query('status').optional().isIn(['pending', 'approved', 'rejected']).withMessage('Invalid status'),
+  query('page').optional().isInt({ min: 1 }).withMessage('page must be a positive integer'),
+  query('limit').optional().isInt({ min: 1, max: 100 }).withMessage('limit must be between 1 and 100'),
+];
+
 export const listWalletTransactionsAdminValidation = [
   query('walletType').optional().isIn(Object.values(WALLET_TYPES)).withMessage('Invalid wallet type'),
   query('type').optional().isIn(Object.values(WALLET_TXN_TYPES)).withMessage('Invalid transaction type'),
+  query('status').optional().isIn(['pending', 'settled']).withMessage('Invalid status'),
   query('dateFrom').optional().isISO8601().withMessage('dateFrom must be a valid date'),
   query('dateTo').optional().isISO8601().withMessage('dateTo must be a valid date'),
   query('page').optional().isInt({ min: 1 }).withMessage('page must be a positive integer'),

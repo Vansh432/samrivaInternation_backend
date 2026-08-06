@@ -15,6 +15,9 @@ import {
   teamLevelValidation,
   listWalletTransactionsAdminValidation,
   listActivityLogsValidation,
+  transferRequestActionValidation,
+  rejectTransferRequestValidation,
+  listTransferRequestsAdminValidation,
 } from './admin.validation.js';
 import { validate } from '../../middleware/validate.js';
 import { protect, authorize } from '../../middleware/auth.js';
@@ -47,6 +50,10 @@ router.get('/team/:userId/level/:level', teamLevelValidation, validate, adminCon
 router.get('/team/:userId/tree', teamUserIdValidation, validate, adminController.teamTree);
 
 router.get('/wallets/transactions', listWalletTransactionsAdminValidation, validate, adminController.walletTransactions);
+
+router.get('/wallet-transfer-requests', listTransferRequestsAdminValidation, validate, adminController.transferRequests);
+router.post('/wallet-transfer-requests/:id/approve', transferRequestActionValidation, validate, adminController.approveTransferRequest);
+router.post('/wallet-transfer-requests/:id/reject', rejectTransferRequestValidation, validate, adminController.rejectTransferRequest);
 
 router.get('/logs', listActivityLogsValidation, validate, adminController.activityLogs);
 

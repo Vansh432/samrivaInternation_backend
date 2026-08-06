@@ -67,9 +67,13 @@ const userSchema = new mongoose.Schema(
 
     // Idempotency guards for one-time / slab-based bonuses, avoids double-payout on retry
     bonusFlags: {
-      fastStartClaimedSlabs: [Number], // unit thresholds already paid
+      fastStartClaimedSlabs: [Number], // legacy: unit thresholds paid incrementally under the old design (kept for migration — see fastStartSettledAt)
       retentionClaimedSlabs: [Number],
       lastAccrualPeriod: String, // e.g. "2026-07", for POST /bonuses/accrue idempotency
+      // Set once this user's Fast Start 30-day window has been settled (paid or skipped) —
+      // guards bonuses.service.js#settleFastStartBonuses from re-processing the same window.
+      // Wallet crediting only ever happens at settlement time, never during the open window.
+      fastStartSettledAt: { type: Date, default: null },
     },
   },
   { timestamps: true }

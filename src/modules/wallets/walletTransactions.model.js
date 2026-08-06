@@ -10,14 +10,21 @@ const walletTransactionSchema = new mongoose.Schema(
     type: { type: String, enum: Object.values(WALLET_TXN_TYPES), required: true },
     amount: { type: Number, required: true, min: 0 },
     // Snapshot of the wallet's balance for `walletType` immediately after this entry —
-    // lets the ledger be read as a running history without re-deriving from scratch.
-    balanceAfter: { type: Number, required: true },
+    // lets the ledger be read as a running history without re-deriving from scratch. Not
+    // set yet for a still-`pending` row (see `status` below) — populated once settled.
+    balanceAfter: { type: Number },
     // e.g. 'investment_monthly_income', 'investment_maturity' — free-form so any future
     // module (rewards, bonuses, commissions, withdrawals) can introduce its own source tag.
     source: { type: String, required: true },
     referenceModel: { type: String },
     referenceId: { type: mongoose.Schema.Types.ObjectId },
     description: { type: String },
+    // 'pending' rows (currently only Rank Income / Direct Acquisition Bonus commission
+    // credits) are visible in the ledger but have NOT touched the wallet balance yet — see
+    // wallets.service.js#creditWalletPending / #settlePendingCommission. Every other credit
+    // in the app is created directly as 'settled' (the default) and never changes state.
+    status: { type: String, enum: ['pending', 'settled'], default: 'settled' },
+    settledAt: { type: Date, default: null },
   },
   { timestamps: true }
 );

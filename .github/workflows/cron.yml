@@ -1,0 +1,25 @@
+name: Backend Cron Trigger
+
+# Render's free tier puts the backend to sleep after ~15 minutes of no HTTP traffic, so the
+# app's own node-cron schedule (backend/src/scheduler/index.js) can't be trusted to fire —
+# the process simply isn't running at 1/2/3/4/5/6 AM. This workflow pings a dedicated,
+# secret-protected endpoint on a short interval instead: every hit both wakes the instance
+# back up AND runs every cron job's logic. Every job checks its own "is this actually due
+# yet" condition internally, so calling this far more often than any single job actually
+# needs is intentional and safe — see backend/src/modules/cron/cron.controller.js.
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # every 15 minutes, UTC — GitHub's minimum supported interval is 5 minutes
+  workflow_dispatch: {} # lets you trigger a run manually from the Actions tab, e.g. to test
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hit backend cron endpoint
+        run: |
+          curl --fail --silent --show-error \
+            -X POST "https://samrivainternation-backend.onrender.com/api/cron/run" \
+            -H "x-cron-secret: ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json"

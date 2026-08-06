@@ -6,6 +6,7 @@ import {
   updateFastStartSlabValidation,
   createRetentionSlabValidation,
   updateRetentionSlabValidation,
+  updateDirectAcquisitionConfigValidation,
 } from './bonuses.validation.js';
 import { validate } from '../../middleware/validate.js';
 import { protect, authorize } from '../../middleware/auth.js';
@@ -32,5 +33,15 @@ router.patch('/retention/slabs/:id', protect, adminOnly, idValidation, updateRet
 router.delete('/retention/slabs/:id', protect, adminOnly, idValidation, validate, bonusesController.removeRetentionSlab);
 
 router.get('/retention/awards', protect, adminOnly, bonusesController.listRetentionAwards);
+
+router.get('/direct-acquisition', protect, bonusesController.getDirectAcquisitionConfig);
+router.patch(
+  '/direct-acquisition',
+  protect,
+  adminOnly,
+  updateDirectAcquisitionConfigValidation,
+  validate,
+  bonusesController.updateDirectAcquisitionConfig
+);
 
 export default router;

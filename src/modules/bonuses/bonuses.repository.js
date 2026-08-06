@@ -1,5 +1,8 @@
 import FastStartBonusSlab from './fastStartBonusSlab.model.js';
 import RetentionBonusSlab from './retentionBonusSlab.model.js';
+import DirectAcquisitionBonusConfig from './directAcquisitionBonus.model.js';
+import User from '../users/users.model.js';
+import { USER_STATUS } from '../../shared/constants/index.js';
 
 export const listFastStartSlabs = ({ activeOnly = false } = {}) =>
   FastStartBonusSlab.find(activeOnly ? { isActive: true } : {}).sort({ unitsThreshold: 1 });
@@ -32,3 +35,36 @@ export const deleteRetentionSlabById = (id) => RetentionBonusSlab.findByIdAndDel
 export const countRetentionSlabs = () => RetentionBonusSlab.countDocuments();
 
 export const insertManyRetentionSlabs = (rows) => RetentionBonusSlab.insertMany(rows, { ordered: false });
+
+// --- Direct Acquisition Bonus (singleton config, like Settings) ---
+
+export const getOrCreateDirectAcquisitionConfig = () =>
+  DirectAcquisitionBonusConfig.findOneAndUpdate(
+    {},
+    { $setOnInsert: {} },
+    { upsert: true, new: true, setDefaultsOnInsert: true }
+  );
+
+export const updateDirectAcquisitionConfig = async (update) => {
+  await getOrCreateDirectAcquisitionConfig();
+  return DirectAcquisitionBonusConfig.findOneAndUpdate({}, update, { new: true, runValidators: true });
+};
+
+// --- Fast Start Bonus settlement (see bonuses.service.js#settleFastStartBonuses) ---
+
+// Active users whose Fast Start window hasn't been settled yet — the daily settlement job
+// checks each one's own window (rooted at their own first approved investment) and only
+// acts once it has actually closed, so this intentionally includes users who haven't
+// invested yet (computeSponsorWindow just returns null for them, cheaply skipped).
+export const listFastStartSettlementCandidates = ({ userIds } = {}) =>
+  User.find(
+    {
+      status: USER_STATUS.ACTIVE,
+      'bonusFlags.fastStartSettledAt': null,
+      ...(userIds ? { _id: { $in: userIds } } : {}),
+    },
+    '_id rank.current bonusFlags.fastStartClaimedSlabs'
+  ).lean();
+
+export const markFastStartSettled = (userId) =>
+  User.updateOne({ _id: userId }, { $set: { 'bonusFlags.fastStartSettledAt': new Date() } });

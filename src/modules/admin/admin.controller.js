@@ -87,9 +87,25 @@ export const teamTree = asyncHandler(async (req, res) => {
 });
 
 export const walletTransactions = asyncHandler(async (req, res) => {
-  const { walletType, type, search, dateFrom, dateTo, page, limit } = req.query;
-  const data = await adminService.getWalletTransactionsAdmin({ walletType, type, search, dateFrom, dateTo, page, limit });
+  const { walletType, type, status, search, dateFrom, dateTo, page, limit } = req.query;
+  const data = await adminService.getWalletTransactionsAdmin({ walletType, type, status, search, dateFrom, dateTo, page, limit });
   return sendSuccess(res, { message: 'Wallet transactions', data });
+});
+
+export const transferRequests = asyncHandler(async (req, res) => {
+  const { status, page, limit } = req.query;
+  const data = await adminService.getTransferRequestsAdmin({ status, page, limit });
+  return sendSuccess(res, { message: 'Wallet transfer requests', data });
+});
+
+export const approveTransferRequest = asyncHandler(async (req, res) => {
+  const data = await adminService.approveTransferRequest(req.params.id, req.user._id);
+  return sendSuccess(res, { message: 'Transfer request approved', data });
+});
+
+export const rejectTransferRequest = asyncHandler(async (req, res) => {
+  const data = await adminService.rejectTransferRequest(req.params.id, req.user._id, req.body.reason);
+  return sendSuccess(res, { message: 'Transfer request rejected', data });
 });
 
 export const activityLogs = asyncHandler(async (req, res) => {

@@ -1,4 +1,6 @@
 import Wallet from './wallets.model.js';
+import CommissionSettlementConfig from './commissionSettlementConfig.model.js';
+import TdsConfig from './tdsConfig.model.js';
 
 export const getOrCreateWallet = async (userId, session) => {
   const existing = await Wallet.findOne({ user: userId }).session(session || null);
@@ -23,3 +25,27 @@ export const decrementWalletBalanceIfSufficient = (userId, walletType, amount, s
     { $inc: { [`balances.${walletType}`]: -amount } },
     { new: true, session }
   );
+
+// --- Commission settlement config (see wallets.service.js#settlePendingCommission) ---
+
+export const getOrCreateCommissionSettlementConfig = () =>
+  CommissionSettlementConfig.findOneAndUpdate(
+    {},
+    { $setOnInsert: {} },
+    { upsert: true, new: true, setDefaultsOnInsert: true }
+  );
+
+export const updateCommissionSettlementConfig = async (update) => {
+  await getOrCreateCommissionSettlementConfig();
+  return CommissionSettlementConfig.findOneAndUpdate({}, update, { new: true, runValidators: true });
+};
+
+// --- TDS config (see wallets.service.js#requestWalletTransfer) ---
+
+export const getOrCreateTdsConfig = () =>
+  TdsConfig.findOneAndUpdate({}, { $setOnInsert: {} }, { upsert: true, new: true, setDefaultsOnInsert: true });
+
+export const updateTdsConfig = async (update) => {
+  await getOrCreateTdsConfig();
+  return TdsConfig.findOneAndUpdate({}, update, { new: true, runValidators: true });
+};

@@ -1,9 +1,11 @@
 import { logger } from '../../config/logger.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { logEvent } from '../../shared/utils/systemLog.js';
+import { getMonthRange } from '../../shared/utils/dateMath.js';
 import { RANKS, USER_STATUS, WALLET_TYPES } from '../../shared/constants/index.js';
 import { creditWallet } from '../wallets/wallets.service.js';
 import { findUserById } from '../users/users.repository.js';
+import { sumCommissionCreditsForUserInWindow } from '../wallets/walletTransactions.repository.js';
 import {
   listOverrideSlabs,
   findOverrideSlabById,
@@ -13,6 +15,9 @@ import {
   deleteOverrideSlabById,
   countOverrideSlabs,
   insertManyOverrideSlabs,
+  listActiveUsersForOverrideSettlement,
+  findOverridePayout,
+  createOverridePayout,
 } from './overrides.repository.js';
 
 // investor..national_director, in hierarchy order — same concept as ranks.service.js's
@@ -33,56 +38,91 @@ export const ensureDefaultOverrideSlabs = async () => {
   logger.info('overrides.defaultSlabs.seeded', { count: DEFAULT_OVERRIDE_SLABS.length });
 };
 
-// Called right after an investment is approved (see admin.service.js#approveInvestment),
-// same best-effort try/catch, same single trigger point as evaluateFastStartBonus — an
-// investment can only transition pending_verification -> active once, so this can never
-// double-pay without needing its own idempotency flags.
-export const evaluateLeadershipOverride = async (investment) => {
-  const investor = await findUserById(investment.user);
-  if (!investor?.sponsor) return;
-
-  const sponsor = await findUserById(investor.sponsor);
-  if (!sponsor) return;
-
+// Monthly settlement — replaces the old per-investment trigger entirely. Runs via cron on
+// the 1st of each month (scheduler/overrideSettlement.cron.js) and, under TESTING_MODE,
+// inline on every /api/overrides hit (see middleware/testingAutoProcess.js). For every
+// active user U, walks U's own ancestors (nearest-first, so ancestors[0]=Gen1=U's own
+// sponsor, ancestors[1]=Gen2, ancestors[2]=Gen3) and pays U a % of that generation's
+// person's OWN Commission wallet total for the month that just closed — but only if that
+// generation's person is active and strictly outranks U. OverridePayout is both the
+// idempotency guard (unique user+generation+yearMonth) and the audit trail, so re-running
+// this (including repeated TESTING_MODE triggers) can never double-pay the same month twice.
+export const settleLeadershipOverrides = async ({ userIds } = {}) => {
+  const { start, end, yearMonth } = getMonthRange(1); // the calendar month that just closed
   const slabs = await listOverrideSlabs({ activeOnly: true });
-  if (!slabs.length) return;
+  if (!slabs.length) return { yearMonth, evaluated: 0, paid: 0, totalPaid: 0 };
 
   const slabByGeneration = new Map(slabs.map((s) => [s.generation, s]));
-  const sponsorRankIdx = rankIndex(sponsor.rank?.current || RANKS.INVESTOR);
-  const ancestorIds = sponsor.ancestors || []; // nearest-first: [0]=gen1, [1]=gen2, [2]=gen3
+  const users = await listActiveUsersForOverrideSettlement({ userIds });
+  const byId = new Map(users.map((u) => [String(u._id), u]));
 
-  for (let generation = 1; generation <= 3; generation++) {
-    const slab = slabByGeneration.get(generation);
-    const ancestorId = ancestorIds[generation - 1];
-    if (!slab || !ancestorId) continue;
+  let evaluated = 0;
+  let paid = 0;
+  let totalPaid = 0;
 
-    const leader = await findUserById(ancestorId);
-    if (!leader || leader.status !== USER_STATUS.ACTIVE) continue;
+  for (const user of users) {
+    const userRankIdx = rankIndex(user.rank?.current || RANKS.INVESTOR);
+    const ancestorIds = user.ancestors || []; // nearest-first: [0]=Gen1, [1]=Gen2, [2]=Gen3
 
-    const leaderRankIdx = rankIndex(leader.rank?.current || RANKS.INVESTOR);
-    if (leaderRankIdx <= sponsorRankIdx) continue; // must strictly outrank the sponsor
+    for (let generation = 1; generation <= 3; generation++) {
+      const slab = slabByGeneration.get(generation);
+      const ancestorId = ancestorIds[generation - 1];
+      if (!slab || !ancestorId) continue;
+      evaluated += 1;
 
-    const amount = investment.principal * (slab.percent / 100);
-    if (amount <= 0) continue;
+      try {
+        const already = await findOverridePayout(user._id, generation, yearMonth);
+        if (already) continue; // already settled this (user, generation, month)
 
-    await creditWallet({
-      userId: leader._id,
-      walletType: WALLET_TYPES.BONUS,
-      amount,
-      source: `leadership_override_gen${generation}`,
-      referenceModel: 'Investment',
-      referenceId: investment._id,
-      description: `Leadership Override — Gen ${generation} (${slab.percent}% of ${investment.certificateNumber})`,
-    });
+        const ancestor = byId.get(String(ancestorId)) || (await findUserById(ancestorId));
+        if (!ancestor || ancestor.status !== USER_STATUS.ACTIVE) continue;
 
-    await logEvent({
-      type: 'bonus',
-      action: 'bonus.leadershipOverride.credited',
-      message: `Leadership Override (Gen ${generation}) of ${amount} credited`,
-      user: leader._id,
-      meta: { generation, percent: slab.percent, amount, investmentId: investment._id.toString(), sponsorId: sponsor._id.toString() },
-    });
+        const ancestorRankIdx = rankIndex(ancestor.rank?.current || RANKS.INVESTOR);
+        if (ancestorRankIdx <= userRankIdx) continue; // must strictly outrank the receiving user
+
+        const commissionBase = await sumCommissionCreditsForUserInWindow(ancestorId, start, end);
+        const amount = commissionBase * (slab.percent / 100);
+        if (amount <= 0) continue; // nothing to pay — safe to re-check next run, no payout row needed
+
+        await creditWallet({
+          userId: user._id,
+          walletType: WALLET_TYPES.BONUS,
+          amount,
+          source: `leadership_override_gen${generation}`,
+          description: `Leadership Override — Gen ${generation} (${slab.percent}% of ${yearMonth} commission)`,
+        });
+
+        await createOverridePayout({
+          user: user._id, generation, sourceUser: ancestorId, yearMonth,
+          percent: slab.percent, commissionBase, amount,
+        });
+
+        await logEvent({
+          type: 'bonus',
+          action: 'bonus.leadershipOverride.credited',
+          message: `Leadership Override (Gen ${generation}) of ${amount} credited for ${yearMonth}`,
+          user: user._id,
+          meta: { generation, percent: slab.percent, commissionBase, amount, yearMonth, sourceUserId: String(ancestorId) },
+        });
+
+        paid += 1;
+        totalPaid += amount;
+      } catch (err) {
+        logger.error('overrides.leadershipSettlement.failed', {
+          userId: user._id.toString(), generation, error: err.message,
+        });
+      }
+    }
   }
+
+  await logEvent({
+    type: 'cron',
+    action: 'overrides.leadershipSettled',
+    message: `Leadership Override settlement for ${yearMonth} completed — ${paid} of ${evaluated} generation-slots paid, ₹${totalPaid} total`,
+    meta: { yearMonth, evaluated, paid, totalPaid },
+  });
+
+  return { yearMonth, evaluated, paid, totalPaid };
 };
 
 export const getOverrideSlabs = () => listOverrideSlabs();

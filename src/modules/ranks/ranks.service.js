@@ -1,7 +1,7 @@
 import { logger } from '../../config/logger.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { logEvent } from '../../shared/utils/systemLog.js';
-import { RANKS, USER_STATUS, WALLET_TYPES } from '../../shared/constants/index.js';
+import { RANKS, USER_STATUS, WALLET_TYPES, KYC_STATUS } from '../../shared/constants/index.js';
 import { getMonthRange } from '../../shared/utils/dateMath.js';
 import {
   listRankSlabs,
@@ -246,6 +246,7 @@ export const recalculateAllRanks = async () => {
       rankIdx: rankIndex(u.rank?.current || RANKS.INVESTOR),
       highestIdx: rankIndex(u.rank?.highestAchieved || RANKS.INVESTOR),
       status: u.status,
+      kycApproved: u.kyc?.status === KYC_STATUS.APPROVED,
       selfUnits: selfUnitsByUser.get(id) || 0,
     });
     if (u.sponsor) {
@@ -277,7 +278,13 @@ export const recalculateAllRanks = async () => {
       for (const slab of slabsDesc) {
         if (state.selfUnits < slab.selfUnitsMin) continue;
         const requiredIdx = rankIndex(slab.requiredDirectRank);
-        const qualifyingDirects = activeDirects.filter((dId) => stateByUser.get(dId).rankIdx >= requiredIdx);
+        // A direct only counts toward team-size/team-business requirements once they're
+        // KYC-approved AND have at least one investment of their own (selfUnits > 0, already
+        // scoped to active/matured investments) — not merely signed up and unsuspended.
+        const qualifyingDirects = activeDirects.filter((dId) => {
+          const d = stateByUser.get(dId);
+          return d.rankIdx >= requiredIdx && d.kycApproved && d.selfUnits > 0;
+        });
         if (qualifyingDirects.length < slab.directTeamSizeMin) continue;
         if (slab.teamBusinessUnitMin > 0) {
           const combinedUnits = qualifyingDirects.reduce((sum, dId) => sum + stateByUser.get(dId).selfUnits, 0);
@@ -375,7 +382,14 @@ export const getMyRankStatus = async (userId) => {
 
   const activeDirects = directs.filter((d) => d.status === USER_STATUS.ACTIVE);
   const requiredIdx = rankIndex(nextSlab.requiredDirectRank);
-  const qualifyingDirects = activeDirects.filter((d) => rankIndex(d.rank?.current || RANKS.INVESTOR) >= requiredIdx);
+  // Mirrors recalculateAllRanks: a direct only qualifies once KYC-approved AND they have at
+  // least one investment of their own (selfUnits > 0) — not merely signed up and unsuspended.
+  const qualifyingDirects = activeDirects.filter(
+    (d) =>
+      rankIndex(d.rank?.current || RANKS.INVESTOR) >= requiredIdx &&
+      d.kyc?.status === KYC_STATUS.APPROVED &&
+      (selfUnitsMap.get(String(d._id)) || 0) > 0
+  );
   const directTeamSizeCurrent = qualifyingDirects.length;
   const teamBusinessUnitCurrent = qualifyingDirects.reduce((sum, d) => sum + (selfUnitsMap.get(String(d._id)) || 0), 0);
 

@@ -26,7 +26,7 @@ export const insertManyRankSlabs = (rows) => RankSlab.insertMany(rows, { ordered
 
 // Lean projection for the daily recalculation pass — only the fields the algorithm needs.
 export const listAllUsersForRankRecalc = () =>
-  User.find({}, 'sponsor depth status rank.current rank.highestAchieved').lean();
+  User.find({}, 'sponsor depth status rank.current rank.highestAchieved kyc.status').lean();
 
 export const bulkUpdateUserRanks = (ops) => {
   if (!ops.length) return Promise.resolve();
@@ -57,9 +57,9 @@ export const sumActiveUnitsForUsers = async (userIds) => {
   return new Map(rows.map((r) => [String(r._id), r.total]));
 };
 
-// Direct referrals' current status + rank, for the "my rank" progress card.
+// Direct referrals' current status + rank + KYC, for the "my rank" progress card.
 export const listDirectReferralsBasic = (directIds) =>
-  User.find({ _id: { $in: directIds } }, 'status rank.current').lean();
+  User.find({ _id: { $in: directIds } }, 'status rank.current kyc.status').lean();
 
 // --- Rank Benefit Slabs (monthly perk bonuses) ---
 

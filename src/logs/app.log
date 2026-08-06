@@ -5622,3 +5622,81 @@
 {"level":"http","message":"::ffff:127.0.0.1 - POST /api/cron/run HTTP/1.1 200 520 - 54671.645 ms","timestamp":"2026-08-06T01:42:25.793Z"}
 {"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:43:35.501Z"}
 {"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:43:37.768Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:47:55.226Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:47:56.146Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:47:57.795Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:47:57.807Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919999900001","timestamp":"2026-08-06T01:50:26.473Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T01:50:31.984Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T01:50:36.919Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T01:50:38.785Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T01:50:38.793Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919999900001","timestamp":"2026-08-06T01:50:39.099Z"}
+{"level":"info","message":"auth.login.success","mobile":"+919999900001","timestamp":"2026-08-06T01:50:39.549Z","userId":"6a65af175e1ad8c0604141b8"}
+{"level":"info","message":"auth.login Logged in (+919999900001)","mobile":"+919999900001","timestamp":"2026-08-06T01:50:39.550Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/login HTTP/1.1 200 1212 - 554.761 ms","timestamp":"2026-08-06T01:50:39.652Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 304 - - 671.338 ms","timestamp":"2026-08-06T01:50:40.587Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 304 - - 154.447 ms","timestamp":"2026-08-06T01:50:40.749Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/wallet-transfer-requests?status=pending&page=1&limit=20 HTTP/1.1 200 441 - 1038.617 ms","timestamp":"2026-08-06T01:50:48.693Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/wallet-transfer-requests?status=pending&page=1&limit=20 HTTP/1.1 304 - - 562.679 ms","timestamp":"2026-08-06T01:50:49.268Z"}
+{"amount":300,"level":"info","message":"wallet.transferRequest.approved Transfer request approved — ₹285 credited to Main wallet","netAmount":285,"requestId":"6a73e839cb0e68e83414f0fc","tdsAmount":15,"timestamp":"2026-08-06T01:51:01.220Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/admin/wallet-transfer-requests/6a73e839cb0e68e83414f0fc/approve HTTP/1.1 200 411 - 868.469 ms","timestamp":"2026-08-06T01:51:01.405Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/wallet-transfer-requests?status=pending&page=1&limit=20 HTTP/1.1 200 117 - 270.467 ms","timestamp":"2026-08-06T01:51:01.690Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/wallet/tds-config HTTP/1.1 200 198 - 153.520 ms","timestamp":"2026-08-06T01:51:30.716Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/wallet/commission-settlement-config HTTP/1.1 200 411 - 193.246 ms","timestamp":"2026-08-06T01:51:30.747Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/wallets/transactions?page=1&limit=20 HTTP/1.1 200 8939 - 299.640 ms","timestamp":"2026-08-06T01:51:30.866Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/wallet/tds-config HTTP/1.1 200 198 - 202.879 ms","timestamp":"2026-08-06T01:51:30.922Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/wallet/commission-settlement-config HTTP/1.1 200 411 - 196.058 ms","timestamp":"2026-08-06T01:51:30.951Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/wallets/transactions?page=1&limit=20 HTTP/1.1 304 - - 436.321 ms","timestamp":"2026-08-06T01:51:31.309Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:01:20.900Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:01:20.900Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:01:21.731Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:01:21.835Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T02:01:23.283Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T02:01:23.285Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T02:01:23.294Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T02:01:23.294Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:13:17.624Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:13:17.626Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:13:19.838Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:13:20.070Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T02:13:23.806Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T02:13:23.813Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T02:13:24.070Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T02:13:24.073Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:21:15.263Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:21:16.762Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:35:55.374Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:35:55.374Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:35:57.698Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:35:57.711Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T02:36:01.523Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T02:36:01.609Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T02:36:01.873Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T02:36:01.900Z"}
+{"level":"warn","message":"User no longer exists","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-08-06T02:36:02.086Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 62 - 228.957 ms","timestamp":"2026-08-06T02:36:02.122Z"}
+{"level":"warn","message":"User no longer exists","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-08-06T02:36:02.267Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 62 - 116.948 ms","timestamp":"2026-08-06T02:36:02.272Z"}
+{"level":"warn","message":"auth.refresh.stale","timestamp":"2026-08-06T02:36:04.624Z","userId":"6a65af175e1ad8c0604141b8"}
+{"level":"warn","message":"Invalid or expired refresh token","method":"POST","path":"/api/auth/refresh","statusCode":401,"timestamp":"2026-08-06T02:36:04.625Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/refresh HTTP/1.1 401 73 - 214.696 ms","timestamp":"2026-08-06T02:36:04.637Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919999900001","timestamp":"2026-08-06T02:37:09.485Z"}
+{"level":"info","message":"auth.login.success","mobile":"+919999900001","timestamp":"2026-08-06T02:37:09.979Z","userId":"6a73ef9ec159cf91f6a53aed"}
+{"level":"info","message":"auth.login Logged in (+919999900001)","mobile":"+919999900001","timestamp":"2026-08-06T02:37:09.982Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/login HTTP/1.1 200 1180 - 658.637 ms","timestamp":"2026-08-06T02:37:10.119Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 200 235 - 863.264 ms","timestamp":"2026-08-06T02:37:11.254Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 304 - - 555.090 ms","timestamp":"2026-08-06T02:37:11.817Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:44:02.617Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:44:03.674Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:44:11.560Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:44:11.635Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:44:12.466Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T02:44:14.413Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T02:44:14.429Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:44:19.312Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:44:20.383Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-06T02:44:22.005Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-06T02:44:22.011Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-06T02:44:30.578Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-06T02:44:31.319Z"}

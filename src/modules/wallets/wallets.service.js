@@ -98,19 +98,18 @@ export const creditWalletPending = async ({ userId, walletType, amount, source, 
   return transaction;
 };
 
-// Finds the soonest upcoming closing date (today counts) across all 4 configured periods —
-// shown on the wallet screen so a user knows when their pending commission actually lands.
+// Shown on the wallet screen so a user knows when their currently-pending commission
+// actually lands. Must mirror settlePendingCommission's real rule exactly: money earned in
+// a given period always settles on that period's closingDay in the FOLLOWING calendar month
+// (never the soonest calendar closingDay) — so this finds which configured period today's
+// date currently falls into, then returns that period's closingDay one month from now.
 const computeNextClosingDate = (config) => {
   const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const candidates = [];
-  for (const monthOffset of [0, 1]) {
-    for (const period of config.periods) {
-      candidates.push(new Date(now.getFullYear(), now.getMonth() + monthOffset, period.closingDay));
-    }
-  }
-  candidates.sort((a, b) => a - b);
-  return candidates.find((d) => d >= today) || null;
+  const todayDate = now.getDate();
+  const period =
+    config.periods.find((p) => todayDate >= p.startDay && (p.endDay == null || todayDate <= p.endDay)) || null;
+  if (!period) return null;
+  return new Date(now.getFullYear(), now.getMonth() + 1, period.closingDay);
 };
 
 export const getMyWalletBalances = async (userId) => {

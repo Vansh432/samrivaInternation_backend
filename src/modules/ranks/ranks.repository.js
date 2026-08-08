@@ -81,10 +81,17 @@ export const countRankBenefitSlabs = () => RankBenefitSlab.countDocuments();
 
 export const insertManyRankBenefitSlabs = (rows) => RankBenefitSlab.insertMany(rows, { ordered: false });
 
-// Lean projection for the monthly benefit evaluation — active, ranked (non-investor) users only.
-export const listActiveNonInvestorUsers = () =>
+// Lean projection for the monthly benefit/retention evaluations — active, ranked
+// (non-investor) users only. Optional `userIds` scoping is the same test-seam pattern used
+// by listActiveUsersForOverrideSettlement etc. — lets verification scripts avoid touching
+// every real active user in the shared database.
+export const listActiveNonInvestorUsers = ({ userIds } = {}) =>
   User.find(
-    { status: USER_STATUS.ACTIVE, 'rank.current': { $ne: RANKS.INVESTOR } },
+    {
+      status: USER_STATUS.ACTIVE,
+      'rank.current': { $ne: RANKS.INVESTOR },
+      ...(userIds ? { _id: { $in: userIds } } : {}),
+    },
     'rank.current rank.achievedAt'
   ).lean();
 

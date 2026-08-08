@@ -22,7 +22,6 @@ import {
   markInvestmentRenewed,
 } from './investments.repository.js';
 import { generateInvestmentCertificate } from '../certificates/certificate.service.js';
-import { evaluateRetentionBonus } from '../bonuses/bonuses.service.js';
 
 const buildUniqueCertificateNumber = async () => {
   for (let attempt = 0; attempt < 5; attempt++) {
@@ -222,13 +221,10 @@ export const createRenewalInvestment = async (user, { fromInvestmentId, planType
   await newInvestment.save();
   await markInvestmentRenewed(fromInvestment._id, newInvestment._id);
 
-  // Best-effort, same as certificate generation above — a Retention Bonus evaluation bug
-  // must never block the renewal itself, which is the part that matters financially first.
-  try {
-    await evaluateRetentionBonus(newInvestment);
-  } catch (err) {
-    logger.error('investments.createRenewalInvestment.retentionBonusFailed', { investmentId: newInvestment._id.toString(), error: err.message });
-  }
+  // Retention Bonus is no longer evaluated per-renewal — it's a monthly cron
+  // (bonuses.service.js#evaluateMonthlyRetentionBonus) that sums a rank-appropriate depth of
+  // team renewal units for the month just closed, so this renewal just needs to exist in
+  // time for that job to pick it up.
 
   await logEvent({
     type: 'investment',

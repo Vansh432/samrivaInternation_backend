@@ -28,6 +28,22 @@ export const countUsers = (filter = {}) => User.countDocuments(filter);
 export const findDirectReferralIds = (sponsorId) =>
   User.find({ sponsor: sponsorId }, '_id').lean().then((rows) => rows.map((r) => r._id));
 
+// Every user whose Nth-level-back ancestor (1-indexed: 1=direct referral, 2=referral's
+// referral, ...) is this sponsor, across every level from 1 up to maxLevel — the Retention
+// Bonus's rank-gated "how many levels deep do I earn from" figure. Uses the `ancestors`
+// array (nearest-first, unbounded length — see users.model.js) the same O(1)-per-level way
+// Leadership Override already reads it for generations 1-3, just extended to however many
+// levels a rank unlocks. See ranks.service.js#DEFAULT_SLABS's retentionLevelsUnlocked.
+export const findDownlineUserIdsUpToLevel = async (sponsorId, maxLevel) => {
+  if (maxLevel < 1) return [];
+  const or = [];
+  for (let level = 1; level <= maxLevel; level++) {
+    or.push({ [`ancestors.${level - 1}`]: sponsorId });
+  }
+  const users = await User.find({ $or: or }, '_id').lean();
+  return users.map((u) => u._id);
+};
+
 export const getDashboardCounts = async () => {
   const [
     totalUsers,

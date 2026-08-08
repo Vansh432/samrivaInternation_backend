@@ -10,6 +10,7 @@ export const createRankSlabValidation = [
   body('requiredDirectRank').isIn(Object.values(RANKS)).withMessage('Invalid requiredDirectRank'),
   body('teamBusinessUnitMin').optional().isInt({ min: 0 }).withMessage('teamBusinessUnitMin must be 0 or greater'),
   body('incomePercent').isFloat({ min: 0, max: 100 }).withMessage('incomePercent must be between 0 and 100'),
+  body('retentionLevelsUnlocked').isInt({ min: 0 }).withMessage('retentionLevelsUnlocked must be 0 or greater'),
   body('isActive').optional().isBoolean(),
 ];
 
@@ -20,6 +21,7 @@ export const updateRankSlabValidation = [
   body('requiredDirectRank').optional().isIn(Object.values(RANKS)).withMessage('Invalid requiredDirectRank'),
   body('teamBusinessUnitMin').optional().isInt({ min: 0 }).withMessage('teamBusinessUnitMin must be 0 or greater'),
   body('incomePercent').optional().isFloat({ min: 0, max: 100 }).withMessage('incomePercent must be between 0 and 100'),
+  body('retentionLevelsUnlocked').optional().isInt({ min: 0 }).withMessage('retentionLevelsUnlocked must be 0 or greater'),
   body('isActive').optional().isBoolean(),
 ];
 

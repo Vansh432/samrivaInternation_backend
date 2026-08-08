@@ -6,6 +6,7 @@ import { processRankBenefits } from './rankBenefits.cron.js';
 import { processFastStartSettlement } from './fastStartSettlement.cron.js';
 import { processOverrideSettlement } from './overrideSettlement.cron.js';
 import { processCommissionSettlement } from './commissionSettlement.cron.js';
+import { processRetentionBonus } from './retentionBonus.cron.js';
 
 export const startCronJobs = () => {
   // Daily at 01:00 — enough resolution for a monthly-granularity product; reuses the same
@@ -39,6 +40,18 @@ export const startCronJobs = () => {
       logger.info('cron.rankBenefits.completed', result);
     } catch (err) {
       logger.error('cron.rankBenefits.failed', { error: err.message });
+    }
+  });
+
+  // 03:15 on the 1st of each month — right after Rank Benefits above, evaluating each
+  // user's rank-appropriate downline depth's renewal units for the month that just closed
+  // (see bonuses.service.js#evaluateMonthlyRetentionBonus).
+  cron.schedule('15 3 1 * *', async () => {
+    try {
+      const result = await processRetentionBonus();
+      logger.info('cron.retentionBonus.completed', result);
+    } catch (err) {
+      logger.error('cron.retentionBonus.failed', { error: err.message });
     }
   });
 

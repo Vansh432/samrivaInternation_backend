@@ -98,9 +98,11 @@ export const markInvestmentRenewed = (investmentId, newInvestmentId) =>
     { new: true }
   );
 
-// Lifetime sum of units across investments that originated from a renewal (renewedFrom
-// set) for a set of users — the Retention Bonus's "direct team renewal units" figure.
-export const sumRenewalUnitsForUsers = async (userIds) => {
+// Sum of units across investments that originated from a renewal (renewedFrom set), for a
+// set of users, within a date window — the monthly Retention Bonus's "how many units
+// renewed across my unlocked levels THIS completed month" figure. Windowed on startDate,
+// same convention as sumApprovedUnitsForUsersInWindow above.
+export const sumRenewalUnitsForUsersInWindow = async (userIds, windowStart, windowEnd) => {
   if (!userIds.length) return 0;
   const [result] = await Investment.aggregate([
     {
@@ -108,6 +110,7 @@ export const sumRenewalUnitsForUsers = async (userIds) => {
         user: { $in: userIds },
         renewedFrom: { $ne: null },
         status: { $in: [INVESTMENT_STATUS.ACTIVE, INVESTMENT_STATUS.MATURED] },
+        startDate: { $gte: windowStart, $lte: windowEnd },
       },
     },
     { $group: { _id: null, total: { $sum: '$units' } } },

@@ -49,15 +49,16 @@ const rankIndex = (rank) => RANK_ORDER.indexOf(rank);
 // mirrors) — seeded once if the collection is empty; fully admin-editable afterward.
 // incomePercent is this rank's slot in the 7-level Rank Income table (see
 // career-chart.tsx's RANK_INCOME array, which this also mirrors, and
-// ranks.service.js#evaluateRankIncome below for how it's evaluated).
+// ranks.service.js#evaluateRankIncome below for how it's evaluated). retentionLevelsUnlocked
+// is this rank's Retention Bonus depth — cumulative, one level deeper per rank (rankIndex+1).
 const DEFAULT_SLABS = [
-  { rank: RANKS.ASSOCIATE, selfUnitsMin: 1, directTeamSizeMin: 2, requiredDirectRank: RANKS.INVESTOR, teamBusinessUnitMin: 5, incomePercent: 3 },
-  { rank: RANKS.SENIOR_ASSOCIATE, selfUnitsMin: 2, directTeamSizeMin: 12, requiredDirectRank: RANKS.ASSOCIATE, teamBusinessUnitMin: 75, incomePercent: 1 },
-  { rank: RANKS.MANAGER, selfUnitsMin: 2, directTeamSizeMin: 10, requiredDirectRank: RANKS.SENIOR_ASSOCIATE, teamBusinessUnitMin: 1000, incomePercent: 0.85 },
-  { rank: RANKS.SENIOR_MANAGER, selfUnitsMin: 4, directTeamSizeMin: 8, requiredDirectRank: RANKS.MANAGER, teamBusinessUnitMin: 0, incomePercent: 0.7 },
-  { rank: RANKS.DIRECTOR, selfUnitsMin: 4, directTeamSizeMin: 6, requiredDirectRank: RANKS.SENIOR_MANAGER, teamBusinessUnitMin: 0, incomePercent: 0.55 },
-  { rank: RANKS.REGIONAL_DIRECTOR, selfUnitsMin: 6, directTeamSizeMin: 4, requiredDirectRank: RANKS.DIRECTOR, teamBusinessUnitMin: 0, incomePercent: 0.4 },
-  { rank: RANKS.NATIONAL_DIRECTOR, selfUnitsMin: 8, directTeamSizeMin: 2, requiredDirectRank: RANKS.REGIONAL_DIRECTOR, teamBusinessUnitMin: 0, incomePercent: 0.25 },
+  { rank: RANKS.ASSOCIATE, selfUnitsMin: 1, directTeamSizeMin: 2, requiredDirectRank: RANKS.INVESTOR, teamBusinessUnitMin: 5, incomePercent: 3, retentionLevelsUnlocked: 2 },
+  { rank: RANKS.SENIOR_ASSOCIATE, selfUnitsMin: 2, directTeamSizeMin: 12, requiredDirectRank: RANKS.ASSOCIATE, teamBusinessUnitMin: 75, incomePercent: 1, retentionLevelsUnlocked: 3 },
+  { rank: RANKS.MANAGER, selfUnitsMin: 2, directTeamSizeMin: 10, requiredDirectRank: RANKS.SENIOR_ASSOCIATE, teamBusinessUnitMin: 1000, incomePercent: 0.85, retentionLevelsUnlocked: 4 },
+  { rank: RANKS.SENIOR_MANAGER, selfUnitsMin: 4, directTeamSizeMin: 8, requiredDirectRank: RANKS.MANAGER, teamBusinessUnitMin: 0, incomePercent: 0.7, retentionLevelsUnlocked: 5 },
+  { rank: RANKS.DIRECTOR, selfUnitsMin: 4, directTeamSizeMin: 6, requiredDirectRank: RANKS.SENIOR_MANAGER, teamBusinessUnitMin: 0, incomePercent: 0.55, retentionLevelsUnlocked: 6 },
+  { rank: RANKS.REGIONAL_DIRECTOR, selfUnitsMin: 6, directTeamSizeMin: 4, requiredDirectRank: RANKS.DIRECTOR, teamBusinessUnitMin: 0, incomePercent: 0.4, retentionLevelsUnlocked: 7 },
+  { rank: RANKS.NATIONAL_DIRECTOR, selfUnitsMin: 8, directTeamSizeMin: 2, requiredDirectRank: RANKS.REGIONAL_DIRECTOR, teamBusinessUnitMin: 0, incomePercent: 0.25, retentionLevelsUnlocked: 8 },
 ];
 
 // One-time backfill for RankSlab rows that existed before incomePercent was added to the
@@ -73,6 +74,19 @@ export const ensureRankIncomePercents = async () => {
     missing.map((s) => updateRankSlabById(s._id, { incomePercent: byRank.get(s.rank) ?? 0 }))
   );
   logger.info('ranks.incomePercent.backfilled', { count: missing.length });
+};
+
+// Same backfill idiom as ensureRankIncomePercents, for RankSlab rows that existed before
+// retentionLevelsUnlocked was added to the schema.
+export const ensureRetentionLevelsUnlocked = async () => {
+  const slabs = await listRankSlabs();
+  const missing = slabs.filter((s) => typeof s.retentionLevelsUnlocked !== 'number');
+  if (!missing.length) return;
+  const byRank = new Map(DEFAULT_SLABS.map((s) => [s.rank, s.retentionLevelsUnlocked]));
+  await Promise.all(
+    missing.map((s) => updateRankSlabById(s._id, { retentionLevelsUnlocked: byRank.get(s.rank) ?? 0 }))
+  );
+  logger.info('ranks.retentionLevelsUnlocked.backfilled', { count: missing.length });
 };
 
 // Called right after an investment is approved (see admin.service.js#approveInvestment),

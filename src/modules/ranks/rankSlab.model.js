@@ -18,6 +18,11 @@ const rankSlabSchema = new mongoose.Schema(
     // (pre-existing rows from before this field existed) is how ensureRankIncomePercents()
     // detects rows that still need the one-time backfill.
     incomePercent: { type: Number, min: 0, max: 100 },
+    // How many team levels deep this rank's Retention Bonus counts renewal units from
+    // (cumulative — e.g. 3 means levels 1+2+3 all count; 0 = doesn't earn Retention Bonus).
+    // See bonuses.service.js#evaluateMonthlyRetentionBonus. Same no-default-on-purpose
+    // backfill pattern as incomePercent above — ensureRetentionLevelsUnlocked() fills gaps.
+    retentionLevelsUnlocked: { type: Number, min: 0 },
     isActive: { type: Boolean, default: true },
   },
   { timestamps: true }

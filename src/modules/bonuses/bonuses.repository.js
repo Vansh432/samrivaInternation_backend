@@ -1,5 +1,6 @@
 import FastStartBonusSlab from './fastStartBonusSlab.model.js';
 import RetentionBonusSlab from './retentionBonusSlab.model.js';
+import RetentionBonusPayout from './retentionBonusPayout.model.js';
 import DirectAcquisitionBonusConfig from './directAcquisitionBonus.model.js';
 import User from '../users/users.model.js';
 import { USER_STATUS } from '../../shared/constants/index.js';
@@ -35,6 +36,12 @@ export const deleteRetentionSlabById = (id) => RetentionBonusSlab.findByIdAndDel
 export const countRetentionSlabs = () => RetentionBonusSlab.countDocuments();
 
 export const insertManyRetentionSlabs = (rows) => RetentionBonusSlab.insertMany(rows, { ordered: false });
+
+// --- Retention Bonus Payouts (idempotency ledger for the monthly evaluation) ---
+
+export const findRetentionBonusPayout = (userId, yearMonth) => RetentionBonusPayout.findOne({ user: userId, yearMonth });
+
+export const createRetentionBonusPayout = (doc) => RetentionBonusPayout.create(doc);
 
 // --- Direct Acquisition Bonus (singleton config, like Settings) ---
 

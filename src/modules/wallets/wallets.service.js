@@ -14,6 +14,7 @@ import {
   listWalletTransactionsByUser,
   listPendingInWindow,
   sumPendingForUser,
+  listPendingCreatedDates,
   markWalletTransactionSettled,
 } from './walletTransactions.repository.js';
 import {
@@ -98,18 +99,30 @@ export const creditWalletPending = async ({ userId, walletType, amount, source, 
   return transaction;
 };
 
-// Shown on the wallet screen so a user knows when their currently-pending commission
-// actually lands. Must mirror settlePendingCommission's real rule exactly: money earned in
-// a given period always settles on that period's closingDay in the FOLLOWING calendar month
-// (never the soonest calendar closingDay) — so this finds which configured period today's
-// date currently falls into, then returns that period's closingDay one month from now.
-const computeNextClosingDate = (config) => {
-  const now = new Date();
-  const todayDate = now.getDate();
-  const period =
-    config.periods.find((p) => todayDate >= p.startDay && (p.endDay == null || todayDate <= p.endDay)) || null;
+// Which admin-configured period a given date's day-of-month falls into, and the date that
+// period's earnings settle on — always the following calendar month, mirroring
+// settlePendingCommission's own prior-month lookback exactly (just run forward from an earn
+// date here instead of backward from "today" there).
+const settlementDateForEarnDate = (earnDate, config) => {
+  const day = earnDate.getDate();
+  const period = config.periods.find((p) => day >= p.startDay && (p.endDay == null || day <= p.endDay));
   if (!period) return null;
-  return new Date(now.getFullYear(), now.getMonth() + 1, period.closingDay);
+  return new Date(earnDate.getFullYear(), earnDate.getMonth() + 1, period.closingDay);
+};
+
+// Shown on the wallet screen so a user knows when their CURRENT pending commission balance
+// actually lands. Must be computed from the real pending transactions, not from "today's"
+// calendar position — a user's oldest pending money can belong to an earlier period than
+// whatever period today happens to fall into, and it settles on ITS OWN period's date, not
+// today's. Returns the earliest settlement date across all still-pending transactions.
+const computeNextClosingDate = async (userId, config) => {
+  const pending = await listPendingCreatedDates(userId, WALLET_TYPES.COMMISSION);
+  if (!pending.length) return null;
+  const dates = pending
+    .map((t) => settlementDateForEarnDate(new Date(t.createdAt), config))
+    .filter(Boolean);
+  if (!dates.length) return null;
+  return dates.reduce((earliest, d) => (d < earliest ? d : earliest));
 };
 
 export const getMyWalletBalances = async (userId) => {
@@ -121,7 +134,7 @@ export const getMyWalletBalances = async (userId) => {
     main, bonus, reward, commission,
     total: main + bonus + reward + commission,
     commissionPending,
-    nextClosingDate: computeNextClosingDate(config),
+    nextClosingDate: await computeNextClosingDate(userId, config),
   };
 };
 

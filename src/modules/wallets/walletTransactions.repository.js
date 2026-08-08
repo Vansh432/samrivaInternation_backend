@@ -44,6 +44,15 @@ export const sumPendingForUser = async (userId, walletType) => {
   return result?.total || 0;
 };
 
+// Earn dates only, for the wallet screen's "settles on" indicator — each pending
+// transaction's own createdAt determines which settlement period it belongs to (see
+// wallets.service.js#computeNextClosingDate), not "today's" date.
+export const listPendingCreatedDates = (userId, walletType) =>
+  WalletTransaction.find(
+    { user: userId, walletType, status: 'pending', type: WALLET_TXN_TYPES.CREDIT },
+    'createdAt'
+  ).lean();
+
 export const markWalletTransactionSettled = (id, balanceAfter, session) =>
   WalletTransaction.findByIdAndUpdate(
     id,

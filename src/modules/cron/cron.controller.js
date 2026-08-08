@@ -8,6 +8,7 @@ import { processRankBenefits } from '../../scheduler/rankBenefits.cron.js';
 import { processFastStartSettlement } from '../../scheduler/fastStartSettlement.cron.js';
 import { processOverrideSettlement } from '../../scheduler/overrideSettlement.cron.js';
 import { processCommissionSettlement } from '../../scheduler/commissionSettlement.cron.js';
+import { processRetentionBonus } from '../../scheduler/retentionBonus.cron.js';
 
 // Every job below already checks its own "is it actually due yet" condition internally
 // (rank benefits / override settlement / commission settlement all key off getMonthRange or
@@ -21,6 +22,7 @@ const JOBS = {
   fastStartSettlement: processFastStartSettlement,
   overrideSettlement: processOverrideSettlement,
   commissionSettlement: processCommissionSettlement,
+  retentionBonus: processRetentionBonus,
 };
 
 // One job failing must never block the others — same best-effort try/catch pattern used

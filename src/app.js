@@ -14,6 +14,7 @@ import walletRoutes from './modules/wallets/wallets.route.js';
 import ranksRoutes from './modules/ranks/ranks.route.js';
 import overridesRoutes from './modules/overrides/overrides.route.js';
 import cronRoutes from './modules/cron/cron.route.js';
+import inviteRoutes from './modules/invite/invite.route.js';
 import { requestLogger } from './middleware/requestLogger.js';
 import { notFound } from './middleware/notFound.js';
 import { errorHandler } from './middleware/errorHandler.js';
@@ -27,6 +28,7 @@ import { processRankBenefits } from './scheduler/rankBenefits.cron.js';
 import { processFastStartSettlement } from './scheduler/fastStartSettlement.cron.js';
 import { processOverrideSettlement } from './scheduler/overrideSettlement.cron.js';
 import { processCommissionSettlement } from './scheduler/commissionSettlement.cron.js';
+import { processRetentionBonus } from './scheduler/retentionBonus.cron.js';
 
 const app = express();
 
@@ -41,6 +43,7 @@ app.use('/uploads', express.static(UPLOAD_ROOT));
 app.get('/',(req,res)=>{
     return res.status(200).json({status:true,message:"Server is running"})
 })
+app.use('/invite', inviteRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/admin', adminRoutes);
@@ -49,7 +52,7 @@ app.use('/api/settings', settingsRoutes);
 app.use('/api/investments', testingAutoProcess([processInvestmentReturns]), investmentsRoutes);
 app.use('/api/uploads', uploadsRoutes);
 app.use('/api/team', teamRoutes);
-app.use('/api/bonuses', testingAutoProcess([processFastStartSettlement]), bonusesRoutes);
+app.use('/api/bonuses', testingAutoProcess([processFastStartSettlement, processRetentionBonus]), bonusesRoutes);
 app.use('/api/wallet', testingAutoProcess([processCommissionSettlement]), walletRoutes);
 app.use('/api/ranks', testingAutoProcess([processRankRecalculation, processRankBenefits]), ranksRoutes);
 app.use('/api/overrides', testingAutoProcess([processOverrideSettlement]), overridesRoutes);

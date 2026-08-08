@@ -7,6 +7,7 @@ import {
   ensureDefaultRankSlabs,
   ensureDefaultRankBenefitSlabs,
   ensureRankIncomePercents,
+  ensureRetentionLevelsUnlocked,
   ensureDefaultRankAchievementSlabs,
 } from './modules/ranks/ranks.service.js';
 import { ensureDefaultRetentionSlabs } from './modules/bonuses/bonuses.service.js';
@@ -16,6 +17,7 @@ const start = async () => {
   await connectDB();
   await ensureDefaultRankSlabs();
   await ensureRankIncomePercents();
+  await ensureRetentionLevelsUnlocked();
   await ensureDefaultRankBenefitSlabs();
   await ensureDefaultRankAchievementSlabs();
   await ensureDefaultRetentionSlabs();

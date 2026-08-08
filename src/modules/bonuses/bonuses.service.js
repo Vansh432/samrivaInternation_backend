@@ -1,16 +1,17 @@
 import { logger } from '../../config/logger.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { logEvent } from '../../shared/utils/systemLog.js';
-import { addDays } from '../../shared/utils/dateMath.js';
+import { addDays, getMonthRange } from '../../shared/utils/dateMath.js';
 import { WALLET_TYPES, USER_STATUS, PLAN_TYPES, RANKS } from '../../shared/constants/index.js';
 import { creditWallet, creditWalletPending } from '../wallets/wallets.service.js';
 import { listWalletTransactionsByUser, listWalletTransactionsAdmin, countWalletTransactions } from '../wallets/walletTransactions.repository.js';
-import { findUserById, updateUserById, findDirectReferralIds } from '../users/users.repository.js';
+import { findUserById, updateUserById, findDirectReferralIds, findDownlineUserIdsUpToLevel } from '../users/users.repository.js';
 import {
   findFirstApprovedInvestment,
   sumApprovedUnitsForUsersInWindow,
-  sumRenewalUnitsForUsers,
+  sumRenewalUnitsForUsersInWindow,
 } from '../investments/investments.repository.js';
+import { listActiveNonInvestorUsers, listRankSlabs } from '../ranks/ranks.repository.js';
 import {
   listFastStartSlabs,
   findFastStartSlabById,
@@ -26,6 +27,8 @@ import {
   deleteRetentionSlabById,
   countRetentionSlabs,
   insertManyRetentionSlabs,
+  findRetentionBonusPayout,
+  createRetentionBonusPayout,
   getOrCreateDirectAcquisitionConfig,
   updateDirectAcquisitionConfig as updateDirectAcquisitionConfigRepo,
   listFastStartSettlementCandidates,
@@ -266,92 +269,126 @@ export const getFastStartAwardsAdmin = async ({ page = 1, limit = 20 } = {}) => 
 };
 
 // --- Retention Bonus ---
+// Monthly, rank-gated by team depth: a user's rank determines how many levels deep their
+// team's RENEWAL volume counts (cumulative — see ranks.service.js#DEFAULT_SLABS's
+// retentionLevelsUnlocked, e.g. Associate=levels 1-2, Senior Associate=levels 1-3). Every
+// month, that level-scoped renewal-unit total for the month just closed is matched against
+// the slab table and the FULL matching slab amount is paid — unlike the old lifetime
+// milestone design, this resets every month (no memory of previous months' units).
 
 const toRetentionSlabDTO = (slab) => ({ units: slab.unitsThreshold, bonus: slab.bonusAmount });
 
-// Called right after a renewal investment is created (see
-// investments.service.js#createRenewalInvestment). Best-effort — the caller wraps this in
-// try/catch so a bug here can never block the renewal itself, which is the part that
-// matters financially first. Same slab-crossing/top-up shape as evaluateFastStartBonus,
-// just lifetime-cumulative (no window) and keyed off renewal units instead of first-time units.
-export const evaluateRetentionBonus = async (newInvestment) => {
-  const renewer = await findUserById(newInvestment.user);
-  if (!renewer?.sponsor) return;
+const retentionLevelsForRank = (rank, rankSlabByRank) => rankSlabByRank.get(rank)?.retentionLevelsUnlocked || 0;
 
-  const sponsor = await findUserById(renewer.sponsor);
-  if (!sponsor) return;
-  // Below Associate earns nothing from this stream — Direct Acquisition Bonus is the only
-  // one an Investor-rank user can still earn.
-  if (!isAssociateOrAbove(sponsor.rank?.current)) return;
-
-  const referralIds = await findDirectReferralIds(sponsor._id);
-  const cumulativeUnits = await sumRenewalUnitsForUsers(referralIds);
+// Monthly cron body (see scheduler/retentionBonus.cron.js) — evaluates the calendar month
+// that just closed for every active, ranked user: sums their rank-appropriate downline's
+// renewal units for that month, matches the slab table, and credits the Bonus wallet.
+// RetentionBonusPayout's unique user+yearMonth index is the idempotency guard, same as
+// RankBenefitPayout for evaluateMonthlyRankBenefits.
+export const evaluateMonthlyRetentionBonus = async ({ userIds } = {}) => {
+  const { start: monthStart, end: monthEnd, yearMonth } = getMonthRange(1);
+  const monthLabel = monthStart.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
 
   const slabs = await listRetentionSlabs({ activeOnly: true }); // ascending by unitsThreshold
-  if (!slabs.length) return;
+  if (!slabs.length) return { yearMonth, evaluated: 0, paid: 0, totalPaid: 0 };
 
-  const claimed = sponsor.bonusFlags?.retentionClaimedSlabs || [];
-  const eligible = slabs.filter((s) => s.unitsThreshold <= cumulativeUnits);
-  if (!eligible.length) return;
+  const rankSlabByRank = new Map((await listRankSlabs({ activeOnly: true })).map((s) => [s.rank, s]));
+  const users = await listActiveNonInvestorUsers({ userIds });
 
-  const newlyCrossed = eligible.filter((s) => !claimed.includes(s.unitsThreshold));
-  if (!newlyCrossed.length) return; // already fully paid for this level
+  let evaluated = 0;
+  let paid = 0;
+  let totalPaid = 0;
 
-  const previousHighestBonus = claimed.length
-    ? Math.max(0, ...slabs.filter((s) => claimed.includes(s.unitsThreshold)).map((s) => s.bonusAmount))
-    : 0;
-  const highestSlab = eligible[eligible.length - 1];
-  const creditAmount = highestSlab.bonusAmount - previousHighestBonus;
+  for (const user of users) {
+    evaluated += 1;
+    try {
+      const levelsUnlocked = retentionLevelsForRank(user.rank?.current, rankSlabByRank);
+      if (levelsUnlocked < 1) continue;
 
-  if (creditAmount > 0) {
-    await creditWallet({
-      userId: sponsor._id,
-      walletType: WALLET_TYPES.BONUS,
-      amount: creditAmount,
-      source: RETENTION_BONUS_SOURCE,
-      referenceModel: 'Investment',
-      referenceId: newInvestment._id,
-      description: `Retention Bonus — ${highestSlab.unitsThreshold} units milestone (direct team renewals)`,
-    });
+      const already = await findRetentionBonusPayout(user._id, yearMonth);
+      if (already) continue;
 
-    await logEvent({
-      type: 'bonus',
-      action: 'bonus.retention.credited',
-      message: `Retention Bonus of ${creditAmount} credited (${highestSlab.unitsThreshold} units milestone)`,
-      user: sponsor._id,
-      meta: { unitsThreshold: highestSlab.unitsThreshold, creditAmount, cumulativeUnits, investmentId: newInvestment._id.toString() },
-    });
+      const downlineIds = await findDownlineUserIdsUpToLevel(user._id, levelsUnlocked);
+      if (!downlineIds.length) continue;
+
+      const renewedUnits = await sumRenewalUnitsForUsersInWindow(downlineIds, monthStart, monthEnd);
+      const eligible = slabs.filter((s) => s.unitsThreshold <= renewedUnits);
+      if (!eligible.length) continue;
+      const highestSlab = eligible[eligible.length - 1];
+
+      await creditWallet({
+        userId: user._id,
+        walletType: WALLET_TYPES.BONUS,
+        amount: highestSlab.bonusAmount,
+        source: RETENTION_BONUS_SOURCE,
+        description: `Retention Bonus — ${highestSlab.unitsThreshold} units renewed across ${levelsUnlocked} level(s) (${monthLabel})`,
+      });
+
+      await createRetentionBonusPayout({
+        user: user._id,
+        yearMonth,
+        levelsUsed: levelsUnlocked,
+        renewedUnits,
+        unitsThreshold: highestSlab.unitsThreshold,
+        amount: highestSlab.bonusAmount,
+      });
+
+      await logEvent({
+        type: 'bonus',
+        action: 'bonus.retention.credited',
+        message: `Retention Bonus of ${highestSlab.bonusAmount} credited (${highestSlab.unitsThreshold} units, ${levelsUnlocked} level(s), ${yearMonth})`,
+        user: user._id,
+        meta: { unitsThreshold: highestSlab.unitsThreshold, amount: highestSlab.bonusAmount, renewedUnits, levelsUnlocked, yearMonth },
+      });
+
+      paid += 1;
+      totalPaid += highestSlab.bonusAmount;
+    } catch (err) {
+      logger.error('bonuses.retention.monthlyEvaluationFailed', { userId: user._id.toString(), error: err.message });
+    }
   }
 
-  await updateUserById(sponsor._id, {
-    $addToSet: { 'bonusFlags.retentionClaimedSlabs': { $each: newlyCrossed.map((s) => s.unitsThreshold) } },
+  await logEvent({
+    type: 'cron',
+    action: 'bonuses.retentionEvaluated',
+    message: `Retention Bonus evaluation for ${yearMonth} completed — ${paid} of ${evaluated} paid, ₹${totalPaid} total`,
+    meta: { yearMonth, evaluated, paid, totalPaid },
   });
+
+  return { yearMonth, evaluated, paid, totalPaid };
 };
 
-// Read-only status for the mobile Bonus Center screen — no window fields, unlike Fast
-// Start, since retention has no fixed clock.
+// Read-only status for the mobile Bonus Center screen — mirrors the cron's own level lookup
+// and unit sum, just scoped to the CURRENT in-progress month (getMonthRange(0)) so a user
+// can watch this month's progress build up before it's evaluated/paid next month.
 export const getMyRetentionBonus = async (userId) => {
+  const user = await findUserById(userId);
   const slabDocs = await listRetentionSlabs({ activeOnly: true });
   const slabs = slabDocs.map(toRetentionSlabDTO);
 
-  const referralIds = await findDirectReferralIds(userId);
-  const cumulativeUnits = await sumRenewalUnitsForUsers(referralIds);
+  const rankSlabByRank = new Map((await listRankSlabs({ activeOnly: true })).map((s) => [s.rank, s]));
+  const levelsUnlocked = retentionLevelsForRank(user?.rank?.current, rankSlabByRank);
+
+  const { start: monthStart, end: monthEnd } = getMonthRange(0);
+  const downlineIds = levelsUnlocked > 0 ? await findDownlineUserIdsUpToLevel(userId, levelsUnlocked) : [];
+  const renewalUnits = downlineIds.length ? await sumRenewalUnitsForUsersInWindow(downlineIds, monthStart, monthEnd) : 0;
 
   let achieved = null;
   let next = null;
   for (const slab of slabDocs) {
-    if (slab.unitsThreshold <= cumulativeUnits) achieved = toRetentionSlabDTO(slab);
+    if (slab.unitsThreshold <= renewalUnits) achieved = toRetentionSlabDTO(slab);
     else if (!next) next = toRetentionSlabDTO(slab);
   }
   const base = achieved ? achieved.units : 0;
-  const progress = next ? Math.max(0, Math.min(100, Math.round(((cumulativeUnits - base) / (next.units - base)) * 100))) : achieved ? 100 : 0;
+  const progress = next ? Math.max(0, Math.min(100, Math.round(((renewalUnits - base) / (next.units - base)) * 100))) : achieved ? 100 : 0;
 
   const txns = await listWalletTransactionsByUser(userId, { source: RETENTION_BONUS_SOURCE });
   const earned = txns.reduce((sum, t) => sum + t.amount, 0);
 
   return {
-    renewalUnits: cumulativeUnits,
-    tier: { currentUnits: cumulativeUnits, achieved, next, progress },
+    levelsUnlocked,
+    renewalUnits,
+    tier: { currentUnits: renewalUnits, achieved, next, progress },
     earned,
     slabs,
   };

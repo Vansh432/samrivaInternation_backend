@@ -34,6 +34,11 @@ export const summary = asyncHandler(async (req, res) => {
   return sendSuccess(res, { message: 'Investment summary', data });
 });
 
+export const incomeSummary = asyncHandler(async (req, res) => {
+  const data = await investmentsService.getUserIncomeSummary(req.user._id);
+  return sendSuccess(res, { message: 'Income summary', data });
+});
+
 export const renewable = asyncHandler(async (req, res) => {
   const investments = await investmentsService.getRenewableInvestments(req.user._id);
   return sendSuccess(res, { message: 'Renewable investments', data: { investments } });

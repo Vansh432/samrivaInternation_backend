@@ -11,7 +11,7 @@ import { resolveRate } from '../plans/plans.service.js';
 import { getSettings } from '../settings/settings.service.js';
 import { getNextSequenceRange, padSequence } from '../../shared/utils/sequence.js';
 import { decrementWalletBalanceIfSufficient } from '../wallets/wallets.repository.js';
-import { createWalletTransaction } from '../wallets/walletTransactions.repository.js';
+import { createWalletTransaction, listWalletTransactionsByUser } from '../wallets/walletTransactions.repository.js';
 import {
   createInvestment,
   findInvestmentByCertificateNumber,
@@ -294,6 +294,16 @@ export const getUserInvestmentSummary = async (userId) => {
     .reduce((sum, inv) => sum + inv.principal, 0);
   const activeUnits = investments.filter((inv) => inv.status === INVESTMENT_STATUS.ACTIVE).reduce((sum, inv) => sum + inv.units, 0);
   const maturedUnits = investments.filter((inv) => inv.status === INVESTMENT_STATUS.MATURED).reduce((sum, inv) => sum + inv.units, 0);
+  // Awaiting admin verification — not yet counted in totalInvestment/portfolioValue above,
+  // but still worth surfacing so the investor can see money "in flight".
+  const pendingUnits = investments
+    .filter((inv) => inv.status === INVESTMENT_STATUS.PENDING_VERIFICATION)
+    .reduce((sum, inv) => sum + inv.units, 0);
+  // Investment count by status — the Portfolio Report's "Investment Status" breakdown.
+  const statusBreakdown = investments.reduce((acc, inv) => {
+    acc[inv.status] = (acc[inv.status] || 0) + 1;
+    return acc;
+  }, {});
   // principal + roiEarned, not currentValue — for compounding these are the same (interest
   // is reinvested into currentValue), but for monthly income currentValue stays pinned at
   // principal (the interest is paid out, not reinvested), so it must be added back here so
@@ -340,12 +350,48 @@ export const getUserInvestmentSummary = async (userId) => {
     totalInvestment,
     activeUnits,
     maturedUnits,
+    pendingUnits,
+    statusBreakdown,
     portfolioValue,
     monthlyIncome,
     byPlanType,
     availableWithdrawals: 0,
     upcomingMaturity,
   };
+};
+
+// The ROI / Income Report (see documentation/Investor and wealth partner reports.pdf, 04).
+// "Paid" is real cash already credited to the Main wallet (Monthly Income payouts only —
+// Compounding never pays out mid-tenure, see scheduler/investmentReturns.cron.js). "Total
+// Income Earned" is ROI accrued to date across BOTH plan types (roiEarned, from the same
+// formula the dashboard/current-value figures already use). "Pending" is the gap between
+// them — for Compounding that's the whole accrued amount (locked in until maturity); for
+// Monthly Income it's normally ~0 since the daily cron keeps incomeCreditedMonths caught up,
+// except for a brief window right after a month elapses and before that day's cron runs.
+export const getUserIncomeSummary = async (userId) => {
+  const investments = await listInvestmentsByUser(userId);
+  const enriched = investments.map((inv) => ({ raw: inv, ...computeDerivedFields(inv) }));
+
+  const totalIncomeEarned = enriched
+    .filter((e) => ACCRUING_STATUSES.includes(e.raw.status))
+    .reduce((sum, e) => sum + e.roiEarned, 0);
+
+  const monthlyIncome = investments
+    .filter((inv) => inv.status === INVESTMENT_STATUS.ACTIVE && inv.planType === PLAN_TYPES.MONTHLY_INCOME)
+    .reduce((sum, inv) => sum + inv.principal * (inv.ratePercent / 100), 0);
+
+  const paidTxns = await listWalletTransactionsByUser(userId, { source: 'investment_monthly_income' });
+  const paid = paidTxns.reduce((sum, t) => sum + t.amount, 0);
+  const pending = Math.max(0, totalIncomeEarned - paid);
+
+  // Earliest still-outstanding monthly income payout among active Monthly Income
+  // investments — mirrors payMonthlyIncomeIfDue's own "next month due" math exactly.
+  const dueDates = investments
+    .filter((inv) => inv.status === INVESTMENT_STATUS.ACTIVE && inv.planType === PLAN_TYPES.MONTHLY_INCOME && inv.incomeCreditedMonths < inv.tenureMonths)
+    .map((inv) => addMonths(inv.startDate, inv.incomeCreditedMonths + 1));
+  const nextDueDate = dueDates.length ? new Date(Math.min(...dueDates.map((d) => d.getTime()))) : null;
+
+  return { monthlyIncome, paid, pending, nextDueDate, totalIncomeEarned };
 };
 
 // Re-exported so admin.service.js (approve/reject) and the returns cron can compute the

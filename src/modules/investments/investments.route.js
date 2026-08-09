@@ -14,6 +14,7 @@ const router = Router();
 router.use(protect);
 
 router.get('/summary', investmentsController.summary);
+router.get('/income-summary', investmentsController.incomeSummary);
 router.get('/quote', investmentQuoteValidation, validate, investmentsController.quote);
 router.get('/renewable', investmentsController.renewable);
 router.post('/renew', renewInvestmentValidation, validate, investmentsController.renew);

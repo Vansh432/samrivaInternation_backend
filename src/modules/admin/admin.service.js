@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 import { logger } from '../../config/logger.js';
 import { AppError } from '../../shared/errors/AppError.js';
 import { logEvent } from '../../shared/utils/systemLog.js';
@@ -7,6 +8,7 @@ import {
   countUsers,
   findUserById,
   updateUserById,
+  incrementTokenVersion,
   getDashboardCounts,
 } from '../users/users.repository.js';
 import {
@@ -91,6 +93,24 @@ export const updateUserStatus = async (adminUser, userId, status) => {
   await logEvent({
     type: 'admin', action: 'admin.updateUserStatus',
     message: `Status changed to ${status}`, user: userId, actor: adminUser._id, meta: { status },
+  });
+  return user;
+};
+
+// Lets a (super) admin reset a user's password directly — e.g. when a user is locked out
+// and can't self-serve a reset. Bumps tokenVersion so any refresh token issued under the old
+// password is immediately invalidated, same as a self-service password change would.
+export const changeUserPassword = async (adminUser, userId, newPassword) => {
+  const hashedPassword = await bcrypt.hash(newPassword, 10);
+  const user = await updateUserById(userId, { password: hashedPassword });
+  if (!user) throw new AppError('User not found', 404);
+  await incrementTokenVersion(userId);
+
+  logger.info('admin.changeUserPassword', { adminId: adminUser._id.toString(), userId });
+  // Never log the password itself — meta intentionally omits it.
+  await logEvent({
+    type: 'admin', action: 'admin.changeUserPassword', level: 'warn',
+    message: "Password changed by admin", user: userId, actor: adminUser._id,
   });
   return user;
 };

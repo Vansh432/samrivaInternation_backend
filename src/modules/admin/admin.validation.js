@@ -20,6 +20,11 @@ export const updateStatusValidation = [
   body('status').isIn(Object.values(USER_STATUS)).withMessage('Invalid status'),
 ];
 
+export const changePasswordValidation = [
+  ...userIdParamValidation,
+  body('newPassword').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
+];
+
 export const kycActionValidation = userIdParamValidation;
 
 export const rejectKycValidation = [

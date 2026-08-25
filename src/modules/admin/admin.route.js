@@ -5,6 +5,7 @@ import {
   userIdParamValidation,
   updateRoleValidation,
   updateStatusValidation,
+  changePasswordValidation,
   kycActionValidation,
   rejectKycValidation,
   holdKycValidation,
@@ -34,6 +35,9 @@ router.get('/users/:id', userIdParamValidation, validate, adminController.getUse
 router.patch('/users/:id/status', updateStatusValidation, validate, adminController.updateStatus);
 // Role changes are the most sensitive lever a "controls everything" admin has — restrict to super_admin only.
 router.patch('/users/:id/role', authorize(ROLES.SUPER_ADMIN), updateRoleValidation, validate, adminController.updateRole);
+// Same sensitivity as a role change — an admin who can set anyone's password can take over
+// their account entirely — restrict to super_admin only.
+router.patch('/users/:id/password', authorize(ROLES.SUPER_ADMIN), changePasswordValidation, validate, adminController.changePassword);
 
 router.get('/kyc-queue', adminController.kycQueue);
 router.post('/kyc/:id/approve', kycActionValidation, validate, adminController.approveKyc);

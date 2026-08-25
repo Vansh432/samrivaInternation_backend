@@ -28,6 +28,11 @@ export const updateStatus = asyncHandler(async (req, res) => {
   return sendSuccess(res, { message: 'Status updated', data: { user } });
 });
 
+export const changePassword = asyncHandler(async (req, res) => {
+  const user = await adminService.changeUserPassword(req.user, req.params.id, req.body.newPassword);
+  return sendSuccess(res, { message: 'Password changed', data: { user } });
+});
+
 export const kycQueue = asyncHandler(async (req, res) => {
   const items = await adminService.getKycQueue();
   return sendSuccess(res, { message: 'KYC queue', data: { items } });

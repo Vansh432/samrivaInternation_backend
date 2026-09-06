@@ -27,6 +27,8 @@ import { listWalletTransferRequestsAdmin, countWalletTransferRequests } from '..
 import { approveWalletTransferRequest, rejectWalletTransferRequest } from '../wallets/wallets.service.js';
 import { listLogsAdmin, countLogs } from '../../shared/utils/systemLog.js';
 import { getNextSequence, getNextSequenceRange, padSequence } from '../../shared/utils/sequence.js';
+import { sendDynamicEmail } from '../../infrastructure/mail/mail.service.js';
+import { EMAIL_TEMPLATE_TYPES } from '../../infrastructure/mail/mail.templates.js';
 
 // listUsers/getKycQueue use .lean() for read performance, which bypasses the User model's
 // toJSON transform (the one that turns _id -> id and strips __v/password everywhere else).
@@ -149,6 +151,17 @@ export const approveKyc = async (adminUser, userId) => {
   await logEvent({
     type: 'admin', action: 'admin.approveKyc',
     message: 'KYC approved', user: userId, actor: adminUser._id,
+  });
+  await sendDynamicEmail({
+    to: user.email,
+    templateType: EMAIL_TEMPLATE_TYPES.KYC_APPROVED,
+    data: {
+      fullName: user.fullName,
+      email: user.email,
+      investorId: user.investorId,
+      folioNumber: user.folioNumber,
+      approvedAt: user.kyc.reviewedAt,
+    },
   });
   return user;
 };
@@ -287,6 +300,22 @@ export const approveInvestment = async (adminUser, investmentId, baseUrl) => {
     user: investment.user,
     actor: adminUser._id,
     meta: { investmentId: investment._id.toString(), maturityDate: investment.maturityDate },
+  });
+  await sendDynamicEmail({
+    to: investor?.email,
+    templateType: EMAIL_TEMPLATE_TYPES.INVESTMENT_APPROVED,
+    data: {
+      fullName: investor?.fullName,
+      email: investor?.email,
+      planType: investment.planType,
+      certificateNumber: investment.certificateNumber,
+      units: investment.units,
+      principal: investment.principal,
+      startDate: investment.startDate,
+      maturityDate: investment.maturityDate,
+      debentureNoStart: investment.debentureNoStart,
+      debentureNoEnd: investment.debentureNoEnd,
+    },
   });
 
   return toInvestmentJSON(investment);

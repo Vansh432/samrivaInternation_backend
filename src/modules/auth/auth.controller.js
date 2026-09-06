@@ -3,8 +3,8 @@ import { sendSuccess } from '../../shared/responses/response.js';
 import * as authService from './auth.service.js';
 
 export const register = asyncHandler(async (req, res) => {
-  const { mobile, password, role, sponsorId } = req.body;
-  const { user, accessToken, refreshToken } = await authService.registerUser({ mobile, password, role, sponsorId });
+  const { mobile, email, password, role, sponsorId } = req.body;
+  const { user, accessToken, refreshToken } = await authService.registerUser({ mobile, email, password, role, sponsorId });
   return sendSuccess(res, {
     statusCode: 201,
     message: 'Registration successful',

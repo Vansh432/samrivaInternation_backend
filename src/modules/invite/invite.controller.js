@@ -29,7 +29,7 @@ export const inviteLanding = asyncHandler(async (req, res) => {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Join Samriva International</title>
+<title>Join Samvira International</title>
 <style>
   body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background:#FDFBF7; color:#0f172a; margin:0; padding:48px 20px; text-align:center; }
   .card { max-width:420px; margin:0 auto; background:#fff; border-radius:16px; padding:28px 24px; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
@@ -43,7 +43,7 @@ export const inviteLanding = asyncHandler(async (req, res) => {
 </head>
 <body>
   <div class="card">
-    <h1>Join Samriva International</h1>
+    <h1>Join Samvira International</h1>
     <p>Invest in Agriculture, Dairy &amp; Wealth Growth.</p>
     ${sponsor ? `<div class="code">Sponsor ID: ${sponsorSafe}</div>` : ''}
     <a class="btn" href="${deepLink}">Open in App</a>

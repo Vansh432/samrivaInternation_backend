@@ -2,6 +2,10 @@ import { body } from 'express-validator';
 import { ROLES } from '../../shared/constants/index.js';
 
 export const registerValidation = [
+  body('email')
+    .trim()
+    .notEmpty().withMessage('Email is required')
+    .isEmail().withMessage('Enter a valid email address'),
   body('mobile')
     .trim()
     .notEmpty().withMessage('Mobile number is required')

@@ -14,6 +14,8 @@ import {
   incrementTokenVersion,
 } from '../users/users.repository.js';
 import { existsCompletedInvestmentForUser } from '../investments/investments.repository.js';
+import { sendDynamicEmail } from '../../infrastructure/mail/mail.service.js';
+import { EMAIL_TEMPLATE_TYPES } from '../../infrastructure/mail/mail.templates.js';
 
 const issueTokens = (user) => ({
   accessToken: generateAccessToken(user),
@@ -38,7 +40,7 @@ const buildUniqueReferralCode = async () => {
   throw new AppError('Could not generate a unique referral code, please try again', 500);
 };
 
-export const registerUser = async ({ mobile, password, role, sponsorId }) => {
+export const registerUser = async ({ mobile, email, password, role, sponsorId }) => {
   logger.info('auth.register.attempt', { mobile });
 
   const existing = await findUserByMobile(mobile);
@@ -68,6 +70,7 @@ export const registerUser = async ({ mobile, password, role, sponsorId }) => {
 
   const user = await createUser({
     mobile,
+    email: email.trim().toLowerCase(),
     password: hashedPassword,
     role,
     referralCode,
@@ -84,6 +87,17 @@ export const registerUser = async ({ mobile, password, role, sponsorId }) => {
     message: `New account registered (${mobile})`,
     user: user._id,
     meta: { mobile, role, sponsorId: sponsor?._id?.toString() },
+  });
+  await sendDynamicEmail({
+    to: user.email,
+    templateType: EMAIL_TEMPLATE_TYPES.WELCOME,
+    data: {
+      fullName: user.fullName,
+      email: user.email,
+      mobile: user.mobile,
+      role: user.role,
+      referralCode: user.referralCode,
+    },
   });
   return { user, ...tokens };
 };

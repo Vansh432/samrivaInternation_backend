@@ -6,6 +6,14 @@ export const env = {
   nodeEnv: process.env.NODE_ENV || 'development',
   port: process.env.PORT || 5000,
   mongodbUrl: process.env.MONGODB_URL,
+  mail: {
+    host: process.env.SMTP_HOST || process.env.MAIL_HOST || process.env.EMAIL_HOST,
+    port: Number(process.env.SMTP_PORT || process.env.MAIL_PORT || process.env.EMAIL_PORT || 587),
+    secure: (process.env.SMTP_SECURE || process.env.MAIL_SECURE || process.env.EMAIL_SECURE) === 'true',
+    user: process.env.SMTP_USER || process.env.MAIL_USER || process.env.EMAIL_USER,
+    password: process.env.SMTP_PASSWORD || process.env.MAIL_PASSWORD || process.env.EMAIL_PASSWORD,
+    from: process.env.FROM_MAIL || process.env.SMTP_FROM || process.env.MAIL_FROM || process.env.EMAIL_FROM,
+  },
   jwt: {
     accessSecret: process.env.JWT_ACCESS_SECRET,
     accessExpiry: process.env.JWT_ACCESS_EXPIRY || '15m',

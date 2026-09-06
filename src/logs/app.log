@@ -6276,3 +6276,75 @@
 {"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 65 - 132.846 ms","timestamp":"2026-08-25T02:42:42.574Z"}
 {"level":"warn","message":"Invalid or expired token","method":"GET","path":"/api/auth/me","statusCode":401,"timestamp":"2026-08-25T02:42:42.593Z"}
 {"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 401 65 - 7.589 ms","timestamp":"2026-08-25T02:42:42.597Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-08-25T02:42:47.398Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-08-25T02:42:48.390Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-08-25T02:42:50.904Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-08-25T02:42:50.911Z"}
+{"level":"info","message":"auth.login.attempt","mobile":"+919999900001","timestamp":"2026-08-25T02:46:39.532Z"}
+{"level":"info","message":"auth.login.success","mobile":"+919999900001","timestamp":"2026-08-25T02:46:40.392Z","userId":"6a73ef9ec159cf91f6a53aed"}
+{"level":"info","message":"auth.login Logged in (+919999900001)","mobile":"+919999900001","timestamp":"2026-08-25T02:46:40.394Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/login HTTP/1.1 200 1180 - 977.668 ms","timestamp":"2026-08-25T02:46:40.487Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 200 239 - 836.377 ms","timestamp":"2026-08-25T02:46:41.470Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/dashboard HTTP/1.1 304 - - 494.121 ms","timestamp":"2026-08-25T02:46:41.967Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users?page=1&limit=20 HTTP/1.1 200 22087 - 271.349 ms","timestamp":"2026-08-25T02:46:47.076Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users?page=1&limit=20 HTTP/1.1 304 - - 308.124 ms","timestamp":"2026-08-25T02:46:47.391Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a7c84f636fc43ce1c62fdc2 HTTP/1.1 200 818 - 147.971 ms","timestamp":"2026-08-25T02:46:49.240Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - GET /api/admin/users/6a7c84f636fc43ce1c62fdc2 HTTP/1.1 304 - - 155.747 ms","timestamp":"2026-08-25T02:46:49.398Z"}
+{"level":"warn","message":"mail.skipped.notConfigured","recipient":"test@example.com","templateType":"welcome","timestamp":"2026-09-06T16:16:41.283Z"}
+{"level":"warn","message":"mail.skipped.notConfigured","recipient":"test@example.com","templateType":"kyc-approved","timestamp":"2026-09-06T16:16:41.306Z"}
+{"level":"warn","message":"mail.skipped.notConfigured","recipient":"test@example.com","templateType":"investment-approved","timestamp":"2026-09-06T16:16:41.307Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:35:58.971Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-06T16:35:59.974Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-06T16:36:01.887Z"}
+{"level":"info","message":"Server is running on port 587","timestamp":"2026-09-06T16:36:01.897Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:36:31.823Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-06T16:36:32.578Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-06T16:36:34.400Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-06T16:36:34.410Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:37:26.321Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-06T16:37:27.784Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-06T16:37:29.878Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-06T16:37:29.884Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:37:55.203Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-06T16:37:56.076Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-06T16:37:57.761Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-06T16:37:57.764Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+919345653676","timestamp":"2026-09-06T16:38:38.537Z"}
+{"level":"info","message":"auth.register.success","mobile":"+919345653676","timestamp":"2026-09-06T16:38:39.102Z","userId":"6a9d970eb99d9a8b51d38b1e"}
+{"level":"info","message":"auth.registered New account registered (+919345653676)","mobile":"+919345653676","role":"investor","sponsorId":"6a73f4f40d0b45021729ac93","timestamp":"2026-09-06T16:38:39.102Z"}
+{"level":"warn","message":"mail.skipped.notConfigured","recipient":"vanshdeep703@gmail.com","templateType":"welcome","timestamp":"2026-09-06T16:38:39.205Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1184 - 693.588 ms","timestamp":"2026-09-06T16:38:39.213Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:42:24.333Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-06T16:42:25.547Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-06T16:42:27.836Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-06T16:42:27.849Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:43:08.917Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-06T16:43:09.881Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-06T16:43:12.774Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-06T16:43:12.781Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+918908809809","timestamp":"2026-09-06T16:44:27.260Z"}
+{"level":"info","message":"auth.register.success","mobile":"+918908809809","timestamp":"2026-09-06T16:44:28.752Z","userId":"6a9d986ce6a3e393f2659535"}
+{"level":"info","message":"auth.registered New account registered (+918908809809)","mobile":"+918908809809","role":"investor","sponsorId":"6a73f4f40d0b45021729ac93","timestamp":"2026-09-06T16:44:28.755Z"}
+{"level":"warn","message":"mail.skipped.notConfigured","recipient":"vanshdeep703@gmail.com","templateType":"welcome","timestamp":"2026-09-06T16:44:28.921Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1184 - 1889.700 ms","timestamp":"2026-09-06T16:44:28.965Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:45:00.086Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-06T16:45:01.648Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-06T16:45:03.768Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-06T16:45:03.811Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:45:17.104Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-06T16:45:18.024Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-06T16:45:19.956Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-06T16:45:19.969Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:47:26.145Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-06T16:47:27.388Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-06T16:47:29.942Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-06T16:47:29.952Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+918546475477","timestamp":"2026-09-06T16:48:30.330Z"}
+{"level":"info","message":"auth.register.success","mobile":"+918546475477","timestamp":"2026-09-06T16:48:31.203Z","userId":"6a9d995e76e3fa4360980e50"}
+{"level":"info","message":"auth.registered New account registered (+918546475477)","mobile":"+918546475477","role":"investor","sponsorId":"6a73f4f40d0b45021729ac93","timestamp":"2026-09-06T16:48:31.206Z"}
+{"level":"info","message":"mail.sent","messageId":"<d8b98828-8091-cf08-1c07-fbdf41330af1@gmail.com>","recipient":"vanshdeep703@gmail.com","templateType":"welcome","timestamp":"2026-09-06T16:48:41.051Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1184 - 10781.837 ms","timestamp":"2026-09-06T16:48:41.066Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:51:48.927Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:52:06.144Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:52:30.281Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-06T16:52:39.621Z"}

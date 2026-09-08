@@ -26,7 +26,6 @@ const getTransporter = () => {
 };
 
 export const sendDynamicEmail = async ({ to, templateType, data = {} }) => {
-    console.log("email is going")
   if (!to) {
     logger.warn('mail.skipped.missingRecipient', { templateType });
     return { sent: false, reason: 'missing_recipient' };

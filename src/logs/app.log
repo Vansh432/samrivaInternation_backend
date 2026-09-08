@@ -6393,3 +6393,24 @@
 {"level":"info","message":"mail.sent","messageId":"<fc81bb31-84b0-eb78-ace5-282ffb4b8db6@gmail.com>","recipient":"synexisventure@gmail.com","templateType":"welcome","timestamp":"2026-09-08T18:20:44.555Z"}
 {"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1186 - 7174.223 ms","timestamp":"2026-09-08T18:20:44.566Z"}
 {"level":"http","message":"::ffff:127.0.0.1 - GET /api/auth/me HTTP/1.1 200 752 - 1672.005 ms","timestamp":"2026-09-08T18:36:36.042Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T18:40:38.938Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T18:40:39.936Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-08T18:40:42.126Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-08T18:40:42.130Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T18:43:11.051Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T18:43:14.375Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-08T18:43:18.415Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-08T18:43:18.421Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T18:46:50.429Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T18:46:52.384Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-08T18:46:55.394Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-08T18:46:55.400Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T18:47:44.472Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T18:47:45.533Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-08T18:47:48.051Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-08T18:47:48.061Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T18:47:58.851Z"}
+{"host":"ac-q5szsbz-shard-00-01.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T18:47:59.812Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-08T18:48:01.941Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-08T18:48:01.950Z"}
+{"level":"info","message":"event.producer.published","payload":{},"timestamp":"2026-09-08T18:48:17.754Z","type":"user.registered"}

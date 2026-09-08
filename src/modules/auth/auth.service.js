@@ -14,8 +14,8 @@ import {
   incrementTokenVersion,
 } from '../users/users.repository.js';
 import { existsCompletedInvestmentForUser } from '../investments/investments.repository.js';
-import { sendDynamicEmail } from '../../infrastructure/mail/mail.service.js';
-import { EMAIL_TEMPLATE_TYPES } from '../../infrastructure/mail/mail.templates.js';
+import { publishEvent } from '../../event/producer.js';
+import { EVENT_TYPES } from '../../event/eventTypes.js';
 
 const issueTokens = (user) => ({
   accessToken: generateAccessToken(user),
@@ -88,17 +88,19 @@ export const registerUser = async ({ mobile, email, password, role, sponsorId })
     user: user._id,
     meta: { mobile, role, sponsorId: sponsor?._id?.toString() },
   });
-  // await sendDynamicEmail({
-  //   to: user.email,
-  //   templateType: EMAIL_TEMPLATE_TYPES.WELCOME,
-  //   data: {
-  //     fullName: user.fullName,
-  //     email: user.email,
-  //     mobile: user.mobile,
-  //     role: user.role,
-  //     referralCode: user.referralCode,
-  //   },
-  // });
+  await publishEvent({
+    type: EVENT_TYPES.USER_REGISTERED,
+    payload: {
+      user,
+      data: {
+        fullName: user.fullName,
+        email: user.email,
+        mobile: user.mobile,
+        role: user.role,
+        referralCode: user.referralCode,
+      },
+    },
+  });
   return { user, ...tokens };
 };
 

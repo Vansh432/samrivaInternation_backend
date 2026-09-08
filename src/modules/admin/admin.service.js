@@ -152,7 +152,7 @@ export const approveKyc = async (adminUser, userId) => {
     type: 'admin', action: 'admin.approveKyc',
     message: 'KYC approved', user: userId, actor: adminUser._id,
   });
-  await publishEvent({
+   publishEvent({
     type: EVENT_TYPES.KYC_APPROVED,
     payload: {
       user,
@@ -303,7 +303,7 @@ export const approveInvestment = async (adminUser, investmentId, baseUrl) => {
     actor: adminUser._id,
     meta: { investmentId: investment._id.toString(), maturityDate: investment.maturityDate },
   });
-  await publishEvent({
+   publishEvent({
     type: EVENT_TYPES.INVESTMENT_APPROVED,
     payload: {
       user: investor,

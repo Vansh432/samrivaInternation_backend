@@ -88,7 +88,7 @@ export const registerUser = async ({ mobile, email, password, role, sponsorId })
     user: user._id,
     meta: { mobile, role, sponsorId: sponsor?._id?.toString() },
   });
-  await publishEvent({
+   publishEvent({
     type: EVENT_TYPES.USER_REGISTERED,
     payload: {
       user,

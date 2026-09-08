@@ -15,7 +15,7 @@ test('user registration event triggers email handler', async () => {
     assert.equal(payload.user.email, 'demo@example.com');
   };
 
-  await publishEvent({
+   publishEvent({
     type: EVENT_TYPES.USER_REGISTERED,
     payload: {
       user: { email: 'demo@example.com', fullName: 'Demo User' },

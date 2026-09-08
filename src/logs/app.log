@@ -6414,3 +6414,31 @@
 {"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-08T18:48:01.941Z"}
 {"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-08T18:48:01.950Z"}
 {"level":"info","message":"event.producer.published","payload":{},"timestamp":"2026-09-08T18:48:17.754Z","type":"user.registered"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T18:50:09.599Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T18:50:11.172Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-08T18:50:13.214Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-08T18:50:13.219Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+916586857888","timestamp":"2026-09-08T18:54:41.208Z"}
+{"level":"info","message":"auth.register.success","mobile":"+916586857888","timestamp":"2026-09-08T18:54:41.968Z","userId":"6aa059f16ab1f2acbe8af5cc"}
+{"level":"info","message":"auth.registered New account registered (+916586857888)","mobile":"+916586857888","role":"investor","sponsorId":"6a73f4f40d0b45021729ac93","timestamp":"2026-09-08T18:54:41.969Z"}
+{"level":"info","message":"event.producer.published","payload":{},"timestamp":"2026-09-08T18:54:42.042Z","type":"user.registered"}
+{"level":"info","message":"mail.sent","messageId":"<3ffb8615-a760-65c7-51be-6e7ba4e6b18c@gmail.com>","recipient":"synexisventure@gmail.com","templateType":"welcome","timestamp":"2026-09-08T18:54:46.048Z"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1186 - 4891.734 ms","timestamp":"2026-09-08T18:54:46.065Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T19:01:18.989Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T19:01:19.961Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-08T19:01:21.753Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-08T19:01:21.759Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+916586857888","timestamp":"2026-09-08T19:02:05.281Z"}
+{"level":"info","message":"auth.register.success","mobile":"+916586857888","timestamp":"2026-09-08T19:02:05.803Z","userId":"6aa05bade18ac14e9a66740b"}
+{"level":"info","message":"auth.registered New account registered (+916586857888)","mobile":"+916586857888","role":"investor","sponsorId":"6a73f4f40d0b45021729ac93","timestamp":"2026-09-08T19:02:05.804Z"}
+{"level":"info","message":"event.producer.published","payload":{},"timestamp":"2026-09-08T19:02:05.890Z","type":"user.registered"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1186 - 634.167 ms","timestamp":"2026-09-08T19:02:05.905Z"}
+{"level":"info","message":"mail.sent","messageId":"<31cdb5b3-ffe3-67c9-e850-ea182d8cdd79@gmail.com>","recipient":"synexisventure@gmail.com","templateType":"welcome","timestamp":"2026-09-08T19:02:09.557Z"}
+{"level":"info","message":"auth.register.attempt","mobile":"+916586857888","timestamp":"2026-09-08T19:03:16.489Z"}
+{"level":"info","message":"auth.register.success","mobile":"+916586857888","timestamp":"2026-09-08T19:03:16.931Z","userId":"6aa05bf4e18ac14e9a667413"}
+{"level":"info","message":"auth.registered New account registered (+916586857888)","mobile":"+916586857888","role":"investor","sponsorId":"6a73f4f40d0b45021729ac93","timestamp":"2026-09-08T19:03:16.933Z"}
+{"level":"info","message":"event.producer.published","payload":{},"timestamp":"2026-09-08T19:03:17.005Z","type":"user.registered"}
+{"level":"http","message":"::ffff:127.0.0.1 - POST /api/auth/register HTTP/1.1 201 1186 - 558.231 ms","timestamp":"2026-09-08T19:03:17.033Z"}
+{"level":"info","message":"mail.sent","messageId":"<621334f7-2a86-03fe-8249-d53c49fabe31@gmail.com>","recipient":"synexisventure@gmail.com","templateType":"welcome","timestamp":"2026-09-08T19:03:20.620Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T19:03:47.331Z"}
+{"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T19:03:48.648Z"}

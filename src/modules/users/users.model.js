@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
     role: { type: String, enum: Object.values(ROLES), default: ROLES.INVESTOR },
     fullName: { type: String, trim: true },
     fatherOrHusbandName: { type: String, trim: true }, // Shown on the debenture certificate
-    email: { type: String, trim: true, lowercase: true, unique: true },
+    email: { type: String, trim: true, lowercase: true },
     dob: Date,
     address: { line1: String, city: String, state: String, pincode: String }, // Profile step (register.tsx step 0)
     profileImage: String,

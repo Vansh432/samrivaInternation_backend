@@ -88,17 +88,17 @@ export const registerUser = async ({ mobile, email, password, role, sponsorId })
     user: user._id,
     meta: { mobile, role, sponsorId: sponsor?._id?.toString() },
   });
-  await sendDynamicEmail({
-    to: user.email,
-    templateType: EMAIL_TEMPLATE_TYPES.WELCOME,
-    data: {
-      fullName: user.fullName,
-      email: user.email,
-      mobile: user.mobile,
-      role: user.role,
-      referralCode: user.referralCode,
-    },
-  });
+  // await sendDynamicEmail({
+  //   to: user.email,
+  //   templateType: EMAIL_TEMPLATE_TYPES.WELCOME,
+  //   data: {
+  //     fullName: user.fullName,
+  //     email: user.email,
+  //     mobile: user.mobile,
+  //     role: user.role,
+  //     referralCode: user.referralCode,
+  //   },
+  // });
   return { user, ...tokens };
 };
 

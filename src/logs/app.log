@@ -6442,3 +6442,7 @@
 {"level":"info","message":"mail.sent","messageId":"<621334f7-2a86-03fe-8249-d53c49fabe31@gmail.com>","recipient":"synexisventure@gmail.com","templateType":"welcome","timestamp":"2026-09-08T19:03:20.620Z"}
 {"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T19:03:47.331Z"}
 {"host":"ac-q5szsbz-shard-00-02.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T19:03:48.648Z"}
+{"level":"warn","message":"Node DNS resolver was pointed at unreachable 127.0.0.1; switched to public DNS for SRV lookups","timestamp":"2026-09-08T19:03:52.600Z"}
+{"host":"ac-q5szsbz-shard-00-00.c3iwujk.mongodb.net","level":"info","message":"MongoDB connected","timestamp":"2026-09-08T19:03:53.375Z"}
+{"level":"info","message":"Cron jobs scheduled","timestamp":"2026-09-08T19:03:55.326Z"}
+{"level":"info","message":"Server is running on port 7000","timestamp":"2026-09-08T19:03:55.334Z"}

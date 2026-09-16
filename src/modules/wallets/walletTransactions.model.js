@@ -9,6 +9,8 @@ const walletTransactionSchema = new mongoose.Schema(
     walletType: { type: String, enum: Object.values(WALLET_TYPES), required: true },
     type: { type: String, enum: Object.values(WALLET_TXN_TYPES), required: true },
     amount: { type: Number, required: true, min: 0 },
+    adminChargePercent: { type: Number, min: 0, max: 100, default: 0 },
+    adminChargeAmount: { type: Number, min: 0, default: 0 },
     // Snapshot of the wallet's balance for `walletType` immediately after this entry —
     // lets the ledger be read as a running history without re-deriving from scratch. Not
     // set yet for a still-`pending` row (see `status` below) — populated once settled.

@@ -34,6 +34,16 @@ export const updateTdsConfig = asyncHandler(async (req, res) => {
   return sendSuccess(res, { message: 'TDS config updated', data: { config } });
 });
 
+export const getAdminChargeConfig = asyncHandler(async (req, res) => {
+  const config = await walletsService.getAdminChargeConfig();
+  return sendSuccess(res, { message: 'Admin charge config', data: { config } });
+});
+
+export const updateAdminChargeConfig = asyncHandler(async (req, res) => {
+  const config = await walletsService.updateAdminChargeConfig(req.body, req.user._id);
+  return sendSuccess(res, { message: 'Admin charge config updated', data: { config } });
+});
+
 export const getCommissionSettlementConfig = asyncHandler(async (req, res) => {
   const config = await walletsService.getCommissionSettlementConfig();
   return sendSuccess(res, { message: 'Commission settlement config', data: { config } });

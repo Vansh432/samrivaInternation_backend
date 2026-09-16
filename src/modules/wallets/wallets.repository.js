@@ -1,6 +1,7 @@
 import Wallet from './wallets.model.js';
 import CommissionSettlementConfig from './commissionSettlementConfig.model.js';
 import TdsConfig from './tdsConfig.model.js';
+import AdminChargeConfig from './adminChargeConfig.model.js';
 
 export const getOrCreateWallet = async (userId, session) => {
   const existing = await Wallet.findOne({ user: userId }).session(session || null);
@@ -48,4 +49,12 @@ export const getOrCreateTdsConfig = () =>
 export const updateTdsConfig = async (update) => {
   await getOrCreateTdsConfig();
   return TdsConfig.findOneAndUpdate({}, update, { new: true, runValidators: true });
+};
+
+export const getOrCreateAdminChargeConfig = () =>
+  AdminChargeConfig.findOneAndUpdate({}, { $setOnInsert: {} }, { upsert: true, new: true, setDefaultsOnInsert: true });
+
+export const updateAdminChargeConfig = async (update) => {
+  await getOrCreateAdminChargeConfig();
+  return AdminChargeConfig.findOneAndUpdate({}, update, { new: true, runValidators: true });
 };

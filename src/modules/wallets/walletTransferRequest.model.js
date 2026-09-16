@@ -17,6 +17,8 @@ const walletTransferRequestSchema = new mongoose.Schema(
     tdsMode: { type: String, enum: ['fixed', 'percentage'], required: true },
     tdsValue: { type: Number, required: true },
     tdsAmount: { type: Number, required: true },
+    adminChargePercent: { type: Number, required: true, min: 0, max: 100, default: 0 },
+    adminChargeAmount: { type: Number, required: true, min: 0, default: 0 },
     netAmount: { type: Number, required: true },
     status: { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending', index: true },
     reviewedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },

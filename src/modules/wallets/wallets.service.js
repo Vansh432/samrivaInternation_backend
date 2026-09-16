@@ -8,6 +8,8 @@ import {
   updateCommissionSettlementConfig as updateCommissionSettlementConfigRepo,
   getOrCreateTdsConfig,
   updateTdsConfig as updateTdsConfigRepo,
+  getOrCreateAdminChargeConfig,
+  updateAdminChargeConfig as updateAdminChargeConfigRepo,
 } from './wallets.repository.js';
 import {
   createWalletTransaction,
@@ -220,6 +222,17 @@ export const updateTdsConfig = async (payload, actorId) => {
   return config;
 };
 
+export const getAdminChargeConfig = () => getOrCreateAdminChargeConfig();
+
+export const updateAdminChargeConfig = async (payload, actorId) => {
+  const config = await updateAdminChargeConfigRepo(payload);
+  await logEvent({
+    type: 'admin', action: 'wallets.adminChargeConfig.updated',
+    message: 'Admin charge config updated', actor: actorId, meta: { changes: payload },
+  });
+  return config;
+};
+
 // mode='percentage' takes value% of amount; mode='fixed' deducts a flat rupee amount —
 // clamped to `amount` either way so netAmount can never go negative.
 const computeTds = (amount, tdsConfig) => {
@@ -227,6 +240,8 @@ const computeTds = (amount, tdsConfig) => {
   const tdsAmount = Math.min(Math.max(raw, 0), amount);
   return { tdsAmount, netAmount: amount - tdsAmount };
 };
+
+const computeAdminCharge = (amount, adminChargeConfig) => amount * (adminChargeConfig.percentage / 100);
 
 // Bonus/Reward/Commission are earning wallets only — this is the only path out of them. As
 // of this feature, moving funds into Main is no longer instant: the gross `amount` is
@@ -242,7 +257,10 @@ export const requestWalletTransfer = async ({ userId, fromWalletType, amount }) 
   }
 
   const tdsConfig = await getOrCreateTdsConfig();
+  const adminChargeConfig = await getOrCreateAdminChargeConfig();
   const { tdsAmount, netAmount } = computeTds(amount, tdsConfig);
+  const adminChargeAmount = computeAdminCharge(amount, adminChargeConfig);
+  const finalNetAmount = Math.max(amount - tdsAmount - adminChargeAmount, 0);
 
   const session = await mongoose.startSession();
   let request;
@@ -254,7 +272,9 @@ export const requestWalletTransfer = async ({ userId, fromWalletType, amount }) 
       request = await createWalletTransferRequest(
         {
           user: userId, fromWalletType, amount,
-          tdsMode: tdsConfig.mode, tdsValue: tdsConfig.value, tdsAmount, netAmount,
+          tdsMode: tdsConfig.mode, tdsValue: tdsConfig.value, tdsAmount,
+          adminChargePercent: adminChargeConfig.percentage, adminChargeAmount,
+          netAmount: finalNetAmount,
           status: 'pending',
         },
         session
@@ -270,7 +290,9 @@ export const requestWalletTransfer = async ({ userId, fromWalletType, amount }) 
           source: 'wallet_transfer_request_hold',
           referenceModel: 'WalletTransferRequest',
           referenceId: request._id,
-          description: `Transfer request to Main Wallet — pending admin approval (₹${netAmount} net after TDS)`,
+          adminChargePercent: adminChargeConfig.percentage,
+          adminChargeAmount,
+          description: `Transfer request to Main Wallet — pending admin approval (₹${finalNetAmount} net after deductions)`,
         },
         session
       );
@@ -282,9 +304,9 @@ export const requestWalletTransfer = async ({ userId, fromWalletType, amount }) 
   await logEvent({
     type: 'wallet',
     action: 'wallet.transferRequest.created',
-    message: `Transfer request of ${amount} from ${fromWalletType} submitted for approval (net ${netAmount} after TDS)`,
+    message: `Transfer request of ${amount} from ${fromWalletType} submitted for approval (net ${finalNetAmount} after deductions)`,
     user: userId,
-    meta: { fromWalletType, amount, tdsAmount, netAmount, requestId: request._id.toString() },
+    meta: { fromWalletType, amount, tdsAmount, adminChargeAmount, netAmount: finalNetAmount, requestId: request._id.toString() },
   });
 
   return request;
@@ -308,11 +330,13 @@ export const approveWalletTransferRequest = async (requestId, adminId) => {
           walletType: WALLET_TYPES.MAIN,
           type: WALLET_TXN_TYPES.CREDIT,
           amount: request.netAmount,
+          adminChargePercent: request.adminChargePercent,
+          adminChargeAmount: request.adminChargeAmount,
           balanceAfter: credited.balances.main,
           source: 'wallet_transfer_request_approved',
           referenceModel: 'WalletTransferRequest',
           referenceId: request._id,
-          description: `Transfer approved — ₹${request.amount} from ${request.fromWalletType} wallet, ₹${request.tdsAmount} TDS deducted`,
+          description: `Transfer approved — ₹${request.amount} from ${request.fromWalletType} wallet, ₹${request.tdsAmount} TDS and ₹${request.adminChargeAmount} admin charge deducted`,
         },
         session
       );

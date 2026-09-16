@@ -18,6 +18,10 @@ export const updateTdsConfigValidation = [
   body('value').isFloat({ min: 0 }).withMessage('value must be 0 or greater'),
 ];
 
+export const updateAdminChargeConfigValidation = [
+  body('percentage').isFloat({ min: 0, max: 100 }).withMessage('percentage must be between 0 and 100'),
+];
+
 export const updateCommissionSettlementConfigValidation = [
   body('periods').isArray({ min: 4, max: 4 }).withMessage('periods must be an array of exactly 4 entries'),
   body('periods.*.order').isInt({ min: 1, max: 4 }).withMessage('order must be between 1 and 4'),

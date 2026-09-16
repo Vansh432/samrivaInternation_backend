@@ -5,6 +5,7 @@ import {
   createTransferRequestValidation,
   updateCommissionSettlementConfigValidation,
   updateTdsConfigValidation,
+  updateAdminChargeConfigValidation,
 } from './wallets.validation.js';
 import { validate } from '../../middleware/validate.js';
 import { protect, authorize } from '../../middleware/auth.js';
@@ -31,5 +32,15 @@ router.patch(
 
 router.get('/tds-config', protect, walletsController.getTdsConfig);
 router.patch('/tds-config', protect, adminOnly, updateTdsConfigValidation, validate, walletsController.updateTdsConfig);
+
+router.get('/admin-charge-config', protect, walletsController.getAdminChargeConfig);
+router.patch(
+  '/admin-charge-config',
+  protect,
+  adminOnly,
+  updateAdminChargeConfigValidation,
+  validate,
+  walletsController.updateAdminChargeConfig
+);
 
 export default router;

@@ -9,6 +9,8 @@ const tdsConfigSchema = new mongoose.Schema(
   {
     mode: { type: String, enum: ['fixed', 'percentage'], default: 'percentage' },
     value: { type: Number, default: 5, min: 0 },
+    panRate: { type: Number, default: 10, min: 0, max: 100 },
+    noPanRate: { type: Number, default: 20, min: 0, max: 100 },
   },
   { timestamps: true }
 );

@@ -63,7 +63,7 @@ export const sumApprovedUnitsForUsersInWindow = async (userIds, windowStart, win
 // .lean() is safe here — the returns cron never mutates these directly, it issues its own
 // atomic conditional updates (claimIncomeMonths/claimMaturity below) per investment.
 export const listActiveInvestmentsForProcessing = () =>
-  Investment.find({ status: INVESTMENT_STATUS.ACTIVE }).lean();
+  Investment.find({ status: INVESTMENT_STATUS.ACTIVE }).populate('user', 'kyc.pan').lean();
 
 // Atomically advances incomeCreditedMonths only if it still matches `previousMonths` —
 // returns null if another process already claimed this month's payout, so the caller

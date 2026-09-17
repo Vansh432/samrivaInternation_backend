@@ -43,8 +43,18 @@ export const updateCommissionSettlementConfig = async (update) => {
 
 // --- TDS config (see wallets.service.js#requestWalletTransfer) ---
 
-export const getOrCreateTdsConfig = () =>
-  TdsConfig.findOneAndUpdate({}, { $setOnInsert: {} }, { upsert: true, new: true, setDefaultsOnInsert: true });
+export const getOrCreateTdsConfig = async () => {
+  const config = await TdsConfig.findOneAndUpdate(
+    {},
+    { $setOnInsert: {} },
+    { upsert: true, new: true, setDefaultsOnInsert: true }
+  );
+  const missingRates = {};
+  if (config.panRate == null) missingRates.panRate = 10;
+  if (config.noPanRate == null) missingRates.noPanRate = 20;
+  if (!Object.keys(missingRates).length) return config;
+  return TdsConfig.findOneAndUpdate({}, { $set: missingRates }, { new: true, runValidators: true });
+};
 
 export const updateTdsConfig = async (update) => {
   await getOrCreateTdsConfig();

@@ -14,8 +14,10 @@ export const createTransferRequestValidation = [
 ];
 
 export const updateTdsConfigValidation = [
-  body('mode').isIn(['fixed', 'percentage']).withMessage('mode must be fixed or percentage'),
-  body('value').isFloat({ min: 0 }).withMessage('value must be 0 or greater'),
+  body('mode').optional().isIn(['fixed', 'percentage']).withMessage('mode must be fixed or percentage'),
+  body('value').optional().isFloat({ min: 0 }).withMessage('value must be 0 or greater'),
+  body('panRate').isFloat({ min: 0, max: 100 }).withMessage('panRate must be between 0 and 100'),
+  body('noPanRate').isFloat({ min: 0, max: 100 }).withMessage('noPanRate must be between 0 and 100'),
 ];
 
 export const updateAdminChargeConfigValidation = [

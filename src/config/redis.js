@@ -24,4 +24,4 @@ redis.on('reconnecting',()=>{
     console.log("Redis reconnecting ....")
 })
 
-export default redis
+export default redis;

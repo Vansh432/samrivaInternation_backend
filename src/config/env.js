@@ -20,6 +20,12 @@ export const env = {
     refreshSecret: process.env.JWT_REFRESH_SECRET,
     refreshExpiry: process.env.JWT_REFRESH_EXPIRY || '30d',
   },
+  redis:{
+    host:process.env.REDIS_HOST,
+    port:Number(process.env.REDIS_PORT),
+    password:process.env.REDIS_PASSWORD,
+    db:process.env.REDIS_DB
+  },
   // TESTING MODE ONLY — bypasses KYC gates, disables the real cron schedule, and auto-runs
   // cron-equivalent processing inline on relevant API hits. See middleware/testingAutoProcess.js,
   // server.js, auth.service.js, and investments.service.js for every place this is checked.

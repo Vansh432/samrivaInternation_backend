@@ -1,0 +1,5 @@
+.env
+*.md
+node_modules
+external_scripts
+

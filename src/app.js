@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-
+import monitoring from './infrastructure/monitoring/route.js'
 import authRoutes from './modules/auth/auth.route.js';
 import userRoutes from './modules/users/users.route.js';
 import adminRoutes from './modules/admin/admin.route.js';
@@ -29,6 +29,7 @@ import { processFastStartSettlement } from './scheduler/fastStartSettlement.cron
 import { processOverrideSettlement } from './scheduler/overrideSettlement.cron.js';
 import { processCommissionSettlement } from './scheduler/commissionSettlement.cron.js';
 import { processRetentionBonus } from './scheduler/retentionBonus.cron.js';
+import { httpRequestCount } from './middleware/prometheus.js';
 
 const app = express();
 
@@ -39,10 +40,14 @@ app.set('trust proxy', 1);
 app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
+
+app.use(httpRequestCount)
+
 app.use('/uploads', express.static(UPLOAD_ROOT));
 app.get('/',(req,res)=>{
     return res.status(200).json({status:true,message:"Server is running"})
 })
+app.use('/monitoring',monitoring);
 app.use('/invite', inviteRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
